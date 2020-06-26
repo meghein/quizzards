@@ -4,7 +4,7 @@ CASCADE;
 CREATE TABLE quizzes
 (
   id SERIAL PRIMARY KEY NOT NULL,
-  creator_id INTEGER REFERENCES users(id),
-  name VARCHARR(25) NOT NULL,
-  is_public BOOLEAN NOT NULL DEFAULT true,
+  creator_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  name VARCHAR(25) NOT NULL,
+  is_public BOOLEAN NOT NULL DEFAULT true
 );
