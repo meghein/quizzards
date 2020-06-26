@@ -10,3 +10,112 @@ users can see a list of public quizzes on the home page
 users can attempt a quiz
 users can see the results of their recent attempt
 users can share a link to the result of their attempt
+
+# USER STORIES
+- As a user... ROLE
+- I want to... GOAL
+- Because... BENEFIT
+
+# users can create quizzes
+as a user, I want to create my own quiz because I have unique interests an humour.
+
+# User should be able to create private or public quizzes
+As a user, I want to make my own quizzes because I enjoy making my own creative content.
+
+# Users can share a link to a single quiz
+As a user, I want to share a link to a quiz because my quizzes are so good, they need to be recognized. 
+
+# Users can see a list of public quizzes
+As a user, I want to see a list of public quizzes because I need something to occupy my time in this pandemic. Also I want to see how clearly superior my own quizzes are.
+
+# Users can see a list of public quizzes on the home page
+As a user, I want to see the public quizzes on the home page, because I want the home page to show me what this website is about.
+
+# Users can share a link to the result of their attempt
+As a user, I want to share the results of my quiz because I need to flex on others with my brain power
+
+# Users can attempt a quiz
+As a user, I want to attempt quizzes, because I want to get 100% and dominate the leaderboard.
+
+
+////////////////////////
+
+# FEATURES
+- Judgement call on what the requirements are, clarify so the team is all on the same page
+:: MVP: Minimum Viable Product ::
+  - Core features without anything extra
+  - Make sure the app is working to users needs as a first trial, develop anything additional
+  -  MVP is our list of requirements
+- We don't need a full user authentication, just something simple, no passwords, simple route with id based on cookie. That's it.
+
+# WIREFRAMES
+- Sketch a wireframe with a prototyping tool like Figma
+- A sketch of what the app will work like with box layout
+
+# DATA
+- Define what data you need -  for quiz: users, quizzes: questions, choices, responses
+- Build an ERD (with draw.io) - look at entity relationships, PKs (id), FKs (user_id), table names plural
+
+# ROUTES
+- follow REST:
+  HTTP method -> URL pattern -> Use
+  GET -> /posts -> show all posts
+
+# STACK CHOICE
+- Bootstrap, sass, jquery, express, node, postpresql
+
+# SINGLE PAGE VS MULTI-PAGE APP
+- SPA: HTML generated dynamically by JS on the client, AJX requests, no page reload
+- MPA: EJS, sends response as full HTML, page reload
+
+# DIVIDING TASKS
+- Vertical: break into features, priortize features, each dev build a feature full stack
+- Horizontal: break in tech domains, dev responsible for an entire domain, domains could be ui, api (routes), db
+
+# COMMUNICATION - TEAMWORK
+- be willing to let some things go
+- give feedback kindly
+- do what you say you'll do
+- Trello: project management tool
+- Slack: communication
+
+# PROJECT WORKFLOW
+- NEVER CODE ON MASTER
+- Database setup:
+  psql -U vagrant -d template1
+  CREATE ROLE labber WITH LOGIN password 'labber';
+  CREATE DATABASE midterm OWNER labber;
+- Git Repo setup:
+  fork and clone template
+  change env. file: change database name to what you call yours, leave labber user
+  npm install
+  npm rebuild node sass
+  npm run db:reset - might have to do a few times during project to reset db
+  npm run local (for nodemon - runs on port 8080)
+- PUBLIC FOLDER - static assets
+- ROUTES - user (/api/users) and widget (/widgets/routes) routes
+- Buld a dbHelpers.js file to store functions for db access:
+module.exports = db => {
+
+  const getUsers = () => {
+    
+    const query = {
+      text: `SELECT * FROM users;`,
+      values; []
+    }
+    return db
+    .query(query)
+    .then (results => return results.rows)
+  }
+}
+- To test POST requests.. could use Insomnia, Postman or curl
+
+GIT BRANCH
+- git checkout -b feature/setup - or whatever you want to call the branch
+- when ready to merge to master: 
+  git checkout master
+  git pull
+  git merge feature/setup
+
+
+
