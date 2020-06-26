@@ -8,7 +8,7 @@ users can share a link to a single quiz
 users can see a list of public quizzes
 users can see a list of public quizzes on the home page
 users can attempt a quiz
-users can see the results of their recent attempt
+  users can see the results of their recent attempt
 users can share a link to the result of their attempt
 
 # USER STORIES
@@ -16,8 +16,11 @@ users can share a link to the result of their attempt
 - I want to... GOAL
 - Because... BENEFIT
 
-# users can create quizzes
-as a user, I want to create my own quiz because I have unique interests an humour.
+# Users can create quizzes
+As a user, I want to create my own quiz because I have unique interests an humour.
+
+# Users can make their quiz unlisted (make them private and not available on the home page, but if someone knows the quiz URL they can visit and take the quiz)
+As a user, I want the option of making my quiz private or sharing it to the homepage or with a URL
 
 # User should be able to create private or public quizzes
 As a user, I want to make my own quizzes because I enjoy making my own creative content.
@@ -41,12 +44,20 @@ As a user, I want to attempt quizzes, because I want to get 100% and dominate th
 ////////////////////////
 
 # FEATURES
-- Judgement call on what the requirements are, clarify so the team is all on the same page
+- Single Page App
+- Simple user authentication w/o passwords
+- 
 :: MVP: Minimum Viable Product ::
-  - Core features without anything extra
-  - Make sure the app is working to users needs as a first trial, develop anything additional
-  -  MVP is our list of requirements
-- We don't need a full user authentication, just something simple, no passwords, simple route with id based on cookie. That's it.
+- Core features: 
+  - user login/registration => scroll-down form
+  - build quizzes (listed/unlisted) => scroll-down form
+  - share quizzes (url) => link copy
+  - take quizzes => integrated in index
+  - HOMEPAGE/index of public quizzes = basic body of index
+  - scoreboard/results => scroll-down page
+  - share link to the results of user quiz-attempt => link copy
+
+  /users/quizzes/:id/results/:user
 
 # WIREFRAMES
 - Sketch a wireframe with a prototyping tool like Figma

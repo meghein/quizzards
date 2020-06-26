@@ -8,11 +8,10 @@
 const express = require('express');
 const router  = express.Router();
 
-module.exports = (db) => {
+module.exports = ({getUsers, addUser}) => {
   router.get("/", (req, res) => {
-    db.query(`SELECT * FROM users;`)
-      .then(data => {
-        const users = data.rows;
+      getUsers()
+      .then((users) => {
         res.json({ users });
       })
       .catch(err => {
@@ -21,5 +20,28 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
   });
+
+  router.post("/", (req, res) => {
+    //create a new user
+
+    //extract info from request
+
+    const {name, email, password} = req.body;
+
+    console.log(name, email, password);
+
+    //save the user in the db
+    addUser(name, email, password)
+    .then(user => {
+      res.json(user);
+    })
+    .catch(err => console.log(err));
+  });
+
+  router.get('id', (req, res) => {
+    const {id} = req.params;
+    res.json({userID: id});
+  })
+
   return router;
 };
