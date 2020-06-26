@@ -1,33 +1,33 @@
 INSERT INTO questions
-  (text)
+  (quiz_id, text)
 VALUES
-  ('When Francis has extra cookies, what does he do with them?'),
-  ('Francis knows how to:'),
-  ('What is Francis secret protest technique?'),
-  ('True or False: Francis a will give you cookies some day.');
+  (1, 'When Francis has extra cookies, what does he do with them?'),
+  (1, 'Francis knows how to:'),
+  (1, 'What is Francis secret protest technique?'),
+  (1, 'True or False: Francis a will give you cookies some day.');
 
 
 
 INSERT INTO answers
-  (choice, is_correct)
+  (question_id, choice, is_correct)
 VALUES
-  ('He mails them out to all of the isolated bootcampers when they finish their midterms', true),
-  ('He throws them at pigeons outside of his window', false),
-  ('He eats them all, and then has a tummy ache', false),
-  ('He builds little cookie towers all over his apartment' , false),
+  (1, 'He mails them out to all of the isolated bootcampers when they finish their midterms', true),
+  (1, 'He throws them at pigeons outside of his window', false),
+  (1, 'He eats them all, and then has a tummy ache', false),
+  (1, 'He builds little cookie towers all over his apartment' , false),
 
-  ('Levitate', false),
-  ('Forge knives', true),
-  ('Train dogs to do backflips', false),
-  ('Sing opera', false),
+  (2, 'Levitate', false),
+  (2, 'Forge knives', true),
+  (2, 'Train dogs to do backflips', false),
+  (2, 'Sing opera', false),
 
-  ('Shirtless screaming', false),
-  ('Giving out cookies', false),
-  ('Making barricades with shopping carts', true),
-  ('Trained support-cats', false),
+  (3, 'Shirtless screaming', false),
+  (3, 'Giving out cookies', false),
+  (3, 'Making barricades with shopping carts', true),
+  (3, 'Trained support-cats', false),
 
-  ('True', true),
-  ('False', false);
+  (4, 'True', true),
+  (4, 'False', false);
 
 
 

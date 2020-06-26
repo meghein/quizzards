@@ -1,17 +1,17 @@
 INSERT INTO quizzes
-  (name, is_public)
+  (creator_id, name, is_public)
 VALUES
-  ('Francis Facts', true);
+  (1, 'Francis Facts', true);
 
 INSERT INTO quizzes
-  (name, is_public)
+  (creator_id, name, is_public)
 VALUES
-  ('How tall are your classmates?', true);
+  (1, 'How tall are your classmates?', true);
 
 INSERT INTO quizzes
-  (name, is_public)
+  (creator_id, name, is_public)
 VALUES
-  ('Guess the Disney princess?', true);
+  (1, 'Guess the Disney princess?', true);
 
 
 
