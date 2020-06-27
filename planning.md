@@ -69,11 +69,22 @@ As a user, I want to attempt quizzes, because I want to get 100% and dominate th
 
 # ROUTES
 - follow REST:
-  HTTP method -> URL pattern -> Use
-  GET -> /posts -> show all posts
+  HTTP method | URL pattern   | Use
+  GET         | /quizzes      | show all quizzes
+  GET         | /quizzes/new  | show create new quiz form  --- GRAHAM
+  POST        | /quizzes      | create new quiz ---- GRAHAM
+  GET         | /quizzes/:id  | show a quiz
+  DELETE      | /quizzes/:id  | delete a quiz
+
+  GET         | /login        | retrieves the login form
+  POST        | /login        | sends user credentials to db
+  
+  POST        | /quizzes/:id/results  | saves results of active users' attempt of a quiz, on quiz submit
+  GET         | /quizzes/:id/results  | show results of all users' attempt of a specific quiz
+  GET         | /users/:id/results    | show results of single user's total different quiz attempts
 
 # STACK CHOICE
-- Bootstrap, sass, jquery, express, node, postpresql
+- Bootstrap, sass, jquery, express, node, postgresql
 
 # SINGLE PAGE VS MULTI-PAGE APP
 - SPA: HTML generated dynamically by JS on the client, AJX requests, no page reload
@@ -105,23 +116,10 @@ As a user, I want to attempt quizzes, because I want to get 100% and dominate th
   npm run local (for nodemon - runs on port 8080)
 - PUBLIC FOLDER - static assets
 - ROUTES - user (/api/users) and widget (/widgets/routes) routes
-- Buld a dbHelpers.js file to store functions for db access:
-module.exports = db => {
-
-  const getUsers = () => {
-    
-    const query = {
-      text: `SELECT * FROM users;`,
-      values; []
-    }
-    return db
-    .query(query)
-    .then (results => return results.rows)
-  }
-}
+- Buld a dbHelpers.js file to store functions for db access
 - To test POST requests.. could use Insomnia, Postman or curl
 
-GIT BRANCH
+# GIT BRANCH
 - git checkout -b feature/setup - or whatever you want to call the branch
 - when ready to merge to master: 
   git checkout master
