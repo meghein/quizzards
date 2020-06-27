@@ -1,36 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Quizzards!</title>
 
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+<head>
+  <title>Quizzards!</title>
 
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
-  </head>
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
-  <body>
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/90ba6681f7.js" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+</head>
 
-    <nav><!-- NAV-BAR with LOGO, HEADER, LOGIN/REGISTER LINK, ETC... * BOBBY * --></nav>
+<body>
+  <%- include('partials/_header') %>
+  <nav>
+    <!-- NAV-BAR with LOGO, HEADER, LOGIN/REGISTER LINK, ETC... * BOBBY * -->
+  </nav>
 
 
-    <!-- MAIN -->
-    <main>
-      <!-- LOGIN/REGISTER MOD -->
-      <!-- SCOREBOARD (SCROLL) -->
-      <!--CREATE QUIZ FORM (SCROLLDOWN) * GRAHAM * -->
+  <!-- MAIN -->
+  <main>
+    <!-- LOGIN/REGISTER MOD -->
+    <!-- SCOREBOARD (SCROLL) -->
+    <!--CREATE QUIZ FORM (SCROLLDOWN) * GRAHAM * -->
 
-      <!-- QUIZ CARD GALLERY * MEG * -->
-      <section class="cards_index">
-        <article class="quiz_card"></article>
-      </section>
+    <!-- QUIZ CARD GALLERY * MEG * -->
+    <section class="cards_index">
+      <article class="quiz_card"></article>
+    </section>
 
-    </main>
+  </main>
 
-<footer>
+  <footer>
 
-</footer>
-  </body>
+  </footer>
+</body>
+
 </html>

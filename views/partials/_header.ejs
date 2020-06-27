@@ -1,0 +1,21 @@
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="d-flex justify-content-center align-items-center">
+        <div class="logo">
+          <i class="fas fa-hat-wizard fa-5x"></i>
+        </div>
+        <h1>QUIZZARDS</h1>
+        <form class="form-inline" action="api/logout" method="POST">
+          <button type="submit" class="btn btn-outline-dark">Logout</button>
+        </form>
+        <form class="form-inline" action="/api/login" method="GET">
+          <button type="submit" class="btn btn-outline-dark">Login</button>
+        </form>
+        <div style="margin: 1rem;"></div>
+        <form class="form-inline" action="/api/register" method="GET">
+          <button type="submit" class="btn btn-outline-dark">Register</button></form>
+      </div>
+    </div>
+  </nav>
+</header>
