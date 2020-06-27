@@ -38,15 +38,15 @@ app.use(express.static("public"));
 // Note: Feel free to replace the example routes below with your own
 const usersRoutes = require("./routes/users");
 const quizRoutes = require("./routes/quiz_routes");
-// const widgetsRoutes = require("./routes/widgets");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(dbHelpers));
-// app.use("/api/widgets", widgetsRoutes(dbHelpers));
-app.use("/api/quizzes", quizRoutes(dbHelpers));
+app.use("/quizzes", quizRoutes(dbHelpers));
 // Note: mount other resources here, using the same pattern above
 
+// http://localhost:8080/quizzes/ --> / method
+// http://localhost:8080/quizzes/json -> /json method
 
 // Home page
 // Warning: avoid creating more routes in this file!
