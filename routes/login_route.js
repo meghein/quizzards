@@ -5,7 +5,8 @@ module.exports = ({
   addUser
 }) => {
   router.get('/', (req, res) => {
-    res.render("login");
+
+
 
   });
 

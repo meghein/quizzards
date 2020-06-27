@@ -33,7 +33,7 @@ module.exports = ({getAllQuizzes}) => {
   router.get("/", (req, res) => {
       getAllQuizzes()
       .then((quizzes) => {
-        res.json({ quizzes });
+        res.render('quizzes', {templateVars: quizzes});
       })
       .catch(err => {
         res
@@ -41,6 +41,19 @@ module.exports = ({getAllQuizzes}) => {
           .json({ error: err.message });
       });
   });
+
+  router.get("/json", (req, res) => {
+    getAllQuizzes()
+    .then((quizzes) => {
+      res.json({ quizzes });
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+});
+
 
   return router;
 };
