@@ -9,8 +9,8 @@ module.exports = (db) => {
 
   const addUser = (name, email, password) => {
     const query = {
-      text: "INSERT INTO users(name, email, password) VALUES ($1, $2, $3) RETURNING *",
-      values: [name, email, password],
+      text: `INSERT INTO users(name, email, password) VALUES ($1, $2, $3) RETURNING *`,
+      values: [name, email, password]
     };
 
     return db.query(query).then((result) => result.rows);
@@ -28,8 +28,8 @@ module.exports = (db) => {
     console.log(queryString, queryParams);
 
     return db.query(queryString, queryParams)
-    .then(res => res.rows);
-  }
+      .then(res => res.rows);
+  };
 
   return {
     getUsers,
