@@ -5,8 +5,8 @@ module.exports = ({addUserResults}
 ) => {
 
   router.post("/", (req, res) => {
-
-    console.log(req.body);
+    const quizResponse = req.body;
+    console.log(quizResponse);
 
     res.redirect("/");
   });
