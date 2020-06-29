@@ -35,7 +35,10 @@ module.exports = ({ getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers
   });
 
   router.get('/:id', (req, res) => {
-    const templateVars = {};
+    const templateVars = {
+      user: req.session["user"],
+      userId: req.session["user_id"] ? req.session["user_id"] : undefined
+    };
     getQuizById(req.params.id)
       .then((quiz) => {
         templateVars.quiz = quiz;
