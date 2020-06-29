@@ -34,10 +34,7 @@ module.exports = ({getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers,
   });
 
   router.get('/:id', (req, res) => {
-    // res.render("quiz_id");
-    console.log("request:", req.params);
     const templateVars = {}
-
     getQuizById(req.params.id)
       .then((quiz) => {
         templateVars.quiz = quiz;
@@ -45,8 +42,8 @@ module.exports = ({getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers,
       })
       .then ((questions) => {
         templateVars.questions = questions;
-        // console.log("questions:", questions)
         return Promise.all(questions.map(question => {
+          console.log('qid:', question.id)
           return getQuestionAnswers(question.id)
           .then((answers) => {
             question.answers = answers
@@ -54,7 +51,6 @@ module.exports = ({getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers,
         }))
       })
       .then (() => {
-        console.log(templateVars.questions)
         res.render('quiz_id', templateVars);
       })
       .catch(err => {
