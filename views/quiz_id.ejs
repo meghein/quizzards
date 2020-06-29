@@ -15,15 +15,20 @@
   <%- include('partials/_header') %>
 
   <div id="quiz-attempt">
-    <h1>
+    <h1 id="quiz-name">
       <%= quiz.name %>
     </h1>
-    <% for (let question of questions) { %>
-      <%= question.text %>
-      <% for (let answer of question.answers) { %>
-        <%= answer.choice %>
+    <form method="POST" action="/response">
+      <% for (let question of questions) { %>
+        <h3><%= question.text %></h3>
+        <% for (let answer of question.answers) { %>
+          <input type="radio" id="<%= answer.id %>" value="<%= answer.id %>" name="<%= question.id %>">
+          <label for="<%= answer.id %>"><%= answer.choice %></label><br />
+        <% } %>
       <% } %>
-    <% } %>
+      <input type="submit" value="Submit">
+    </form>
+
   </div>
 
 
