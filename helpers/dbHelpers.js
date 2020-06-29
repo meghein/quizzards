@@ -49,10 +49,34 @@ module.exports = (db) => {
       .then(res => res.rows[0]);
   };
 
+  const isUser = function(email) {
+    const queryString = `SELECT * FROM users
+    WHERE users.email = $1
+    `;
+
+    return db.query(queryString, [email]).then(res => {
+      return res.rows.length > 0;
+    });
+  };
+
+  const getUserById = function(email) {
+    const queryString = `SELECT * FROM users
+    WHERE users.email = $1
+    `;
+
+    return db.query(queryString, [email]).then(res => {
+      console.log("getUserById:", res.rows[0]);
+
+      return res.rows[0];
+    });
+  };
+
   return {
     getUsers,
     addUser,
     getAllQuizzes,
-    getQuizById
+    getQuizById,
+    isUser,
+    getUserById
   };
 };

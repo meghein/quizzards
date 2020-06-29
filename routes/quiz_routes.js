@@ -34,7 +34,7 @@ module.exports = ({getAllQuizzes, getQuizById}) => {
   });
 
   router.get('/:id', (req, res) => {
-    // res.render("quiz_id");
+
     console.log("request:", req.params);
 
     getQuizById(req.params.id)

@@ -9,6 +9,7 @@ const bodyParser = require("body-parser");
 const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
+const cookieSession = require('cookie-session');
 
 // PG database client/connection setup
 const { Pool } = require('pg');
@@ -27,6 +28,10 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 app.use(bodyParser.json());
+app.use(cookieSession({
+  name: "session",
+  keys: ["123456", "09876"]
+}));
 
 app.use("/styles", sass({
   src: __dirname + "/styles",
@@ -41,6 +46,8 @@ app.use(express.static("public"));
 const usersRoutes = require("./routes/users");
 const quizRoutes = require("./routes/quiz_routes");
 const loginRoute = require("./routes/login_route");
+const registerRoute = require("./routes/register_route");
+const logoutRoute = require("./routes/logout_route");
 // const widgetsRoutes = require("./routes/widgets");
 
 // Mount all resource routes
@@ -48,6 +55,8 @@ const loginRoute = require("./routes/login_route");
 app.use("/users", usersRoutes(dbHelpers));
 app.use("/login", loginRoute(dbHelpers));
 app.use("/quizzes", quizRoutes(dbHelpers));
+app.use("/register", registerRoute(dbHelpers));
+app.use("/logout", logoutRoute(dbHelpers));
 
 // Note: mount other resources here, using the same pattern above
 
@@ -55,7 +64,11 @@ app.use("/quizzes", quizRoutes(dbHelpers));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.render("index");
+  const templateVars = {
+    user: req.session["user"],
+    userId: req.session["user_id"],
+  };
+  res.render("index", templateVars);
 });
 
 app.listen(PORT, () => {
