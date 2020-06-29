@@ -41,7 +41,6 @@ app.use(express.static("public"));
 const usersRoutes = require("./routes/users");
 const quizRoutes = require("./routes/quiz_routes");
 const loginRoute = require("./routes/login_route");
-const quizIdRoute = require("./routes/quiz_id_routes");
 // const widgetsRoutes = require("./routes/widgets");
 
 // Mount all resource routes
@@ -51,7 +50,7 @@ app.use("/users", usersRoutes(dbHelpers));
 app.use("/quizzes", quizRoutes(dbHelpers));
 app.use("/login", loginRoute(dbHelpers));
 app.use("/quizzes", quizRoutes(dbHelpers));
-app.use("/:id", quizIdRoute(dbHelpers));
+
 // Note: mount other resources here, using the same pattern above
 
 // Home page
