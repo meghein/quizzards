@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 // /*
 //  * All routes for Widgets are defined here
 //  * Since this file is loaded in server.js into api/widgets,
@@ -8,7 +9,7 @@
 const express = require('express');
 const router = express.Router();
 
-module.exports = ({getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers, getQuizQuestions, getQuestionAnswers}) => {
+module.exports = ({ getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers, getQuizQuestions, getQuestionAnswers }) => {
   router.get("/", (req, res) => {
     getAllQuizzes()
       .then((quizzes) => {
@@ -34,26 +35,26 @@ module.exports = ({getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers,
   });
 
   router.get('/:id', (req, res) => {
-    const templateVars = {}
+    const templateVars = {};
     getQuizById(req.params.id)
       .then((quiz) => {
         templateVars.quiz = quiz;
-        return getQuizQuestions(quiz.id)
+        return getQuizQuestions(quiz.id);
       })
-      .then ((questions) => {
+      .then((questions) => {
         templateVars.questions = questions;
         return Promise.all(questions.map(question => {
           return getQuestionAnswers(question.id)
-          .then((answers) => {
-            question.answers = answers
-          })
-        }))
+            .then((answers) => {
+              question.answers = answers;
+            });
+        }));
       })
-      .then (() => {
+      .then(() => {
         res.render('quiz_id', templateVars);
       })
       .catch(err => {
-        console.error(err)
+        console.error(err);
         res
           .status(500)
           .json({
@@ -74,8 +75,8 @@ module.exports = ({getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers,
 
   router.post("/", (req, res) => {
     const name = req.body.name;
-    const creator_id = req.body.creator_id
-    console.log("REQ BODY ", req.body)
+    const creator_id = req.body.creator_id;
+    console.log("REQ BODY ", req.body);
     let is_public = true;
     if (req.body.is_public) {
       is_public = false;
@@ -89,10 +90,10 @@ module.exports = ({getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers,
         const choice_2 = req.body.choice_2;
         const choice_3 = req.body.choice_3;
         const choice_4 = req.body.choice_4;
-        const is_correct_1 = req.body.is_correct_1 ? true : false;
-        const is_correct_2 = req.body.is_correct_2 ? true : false;
-        const is_correct_3 = req.body.is_correct_3 ? true : false;
-        const is_correct_4 = req.body.is_correct_4 ? true : false;
+        const is_correct_1 = req.body.choice1 === 'is_correct_1' ? true : false;
+        const is_correct_2 = req.body.choice1 === 'is_correct_2' ? true : false;
+        const is_correct_3 = req.body.choice1 === 'is_correct_3' ? true : false;
+        const is_correct_4 = req.body.choice1 === 'is_correct_4' ? true : false;
         addAnswers(question_id, choice_1, is_correct_1, choice_2, is_correct_2, choice_3, is_correct_3, choice_4, is_correct_4);
       });
       const question_2 = req.body.question_2;
@@ -102,10 +103,10 @@ module.exports = ({getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers,
         const choice_2 = req.body.q2choice_2;
         const choice_3 = req.body.q2choice_3;
         const choice_4 = req.body.q2choice_4;
-        const is_correct_1 = req.body.q2is_correct_1 ? true : false;
-        const is_correct_2 = req.body.q2is_correct_2 ? true : false;
-        const is_correct_3 = req.body.q2is_correct_3 ? true : false;
-        const is_correct_4 = req.body.q2is_correct_4 ? true : false;
+        const is_correct_1 = req.body.choice2 === 'q2is_correct_1' ? true : false;
+        const is_correct_2 = req.body.choice2 === 'q2is_correct_2' ? true : false;
+        const is_correct_3 = req.body.choice2 === 'q2is_correct_3' ? true : false;
+        const is_correct_4 = req.body.choice2 === 'q2is_correct_4' ? true : false;
         addAnswers(question_id, choice_1, is_correct_1, choice_2, is_correct_2, choice_3, is_correct_3, choice_4, is_correct_4)
       });
       const question_3 = req.body.question_3;
@@ -115,10 +116,10 @@ module.exports = ({getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers,
         const choice_2 = req.body.q3choice_2;
         const choice_3 = req.body.q3choice_3;
         const choice_4 = req.body.q3choice_4;
-        const is_correct_1 = req.body.q3is_correct_1 ? true : false;
-        const is_correct_2 = req.body.q3is_correct_2 ? true : false;
-        const is_correct_3 = req.body.q3is_correct_3 ? true : false;
-        const is_correct_4 = req.body.q3is_correct_4 ? true : false;
+        const is_correct_1 = req.body.choice3 === 'q3is_correct_1' ? true : false;
+        const is_correct_2 = req.body.choice3 === 'q3is_correct_2' ? true : false;
+        const is_correct_3 = req.body.choice3 === 'q3is_correct_3' ? true : false;
+        const is_correct_4 = req.body.choice3 === 'q3is_correct_4' ? true : false;
         addAnswers(question_id, choice_1, is_correct_1, choice_2, is_correct_2, choice_3, is_correct_3, choice_4, is_correct_4)
       });
       const question_4 = req.body.question_4;
@@ -128,13 +129,13 @@ module.exports = ({getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers,
         const choice_2 = req.body.q4choice_2;
         const choice_3 = req.body.q4choice_3;
         const choice_4 = req.body.q4choice_4;
-        const is_correct_1 = req.body.q4is_correct_1 ? true : false;
-        const is_correct_2 = req.body.q4is_correct_2 ? true : false;
-        const is_correct_3 = req.body.q4is_correct_3 ? true : false;
-        const is_correct_4 = req.body.q4is_correct_4 ? true : false;
+        const is_correct_1 = req.body.choice4 === 'q4is_correct_1' ? true : false;
+        const is_correct_2 = req.body.choice4 === 'q4is_correct_2' ? true : false;
+        const is_correct_3 = req.body.choice4 === 'q4is_correct_3' ? true : false;
+        const is_correct_4 = req.body.choice4 === 'q4is_correct_4' ? true : false;
         addAnswers(question_id, choice_1, is_correct_1, choice_2, is_correct_2, choice_3, is_correct_3, choice_4, is_correct_4).then(answer => {
           // console.log("ANSWER ", answer)
-          res.redirect("/")
+          res.redirect("/");
         });
       });
     });
