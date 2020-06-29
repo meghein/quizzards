@@ -5,6 +5,8 @@
 
 #quiz {
   display: flex;
+  flex-direction: column;
+  text-align: center;
   border: .1em solid red;
   padding: .5em;
   margin: 1em;

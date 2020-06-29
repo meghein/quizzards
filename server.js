@@ -48,11 +48,7 @@ const quizIdRoute = require("./routes/quiz_id_routes");
 // Note: Feel free to replace the example routes below with your own
 app.use("/users", usersRoutes(dbHelpers));
 // app.use("/api/widgets", widgetsRoutes(dbHelpers));
-<<<<<<< HEAD
-// app.use("/api/quizzes", quizRoutes(dbHelpers));
-=======
 app.use("/quizzes", quizRoutes(dbHelpers));
->>>>>>> 2c2cc744b4e3483fd0c8df7a10c78a4b8faf64c1
 app.use("/login", loginRoute(dbHelpers));
 app.use("/quizzes", quizRoutes(dbHelpers));
 app.use("/:id", quizIdRoute(dbHelpers));

@@ -25,7 +25,6 @@ const createQuizElement = function(quiz) {
       </footer>
     </article>
   `;
-  // const $quizElement = `<h1>HELO</h1>`
   return $quizElement;
 };
 
