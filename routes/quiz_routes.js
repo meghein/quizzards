@@ -43,7 +43,6 @@ module.exports = ({getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers,
       .then ((questions) => {
         templateVars.questions = questions;
         return Promise.all(questions.map(question => {
-          console.log('qid:', question.id)
           return getQuestionAnswers(question.id)
           .then((answers) => {
             question.answers = answers
