@@ -31,10 +31,7 @@ module.exports = (db) => {
     return db.query(query).then((result) => result.rows[0]);
   };
 
-  // JOIN with the quiz
-
   const addQuestion = (quiz_id, question_1) => {
-    console.log("QUIZ ID ", quiz_id);
     const query = {
       text: `INSERT INTO questions(quiz_id, text) 
       VALUES ($1, $2) 

@@ -78,11 +78,9 @@ module.exports = ({ getAllQuizzes, addQuiz, addQuestion, addAnswers }) => {
       is_public = false;
     }
     addQuiz(creator_id, name, is_public).then(quiz => {
-      console.log("QUIZ ", quiz);
       const quiz_id = quiz.id;
       const question_1 = req.body.question_1;
       addQuestion(quiz_id, question_1).then(question => {
-        console.log("QUESTION ", question);
         const question_id = question.id;
         const choice_1 = req.body.choice_1;
         const choice_2 = req.body.choice_2;
@@ -92,11 +90,50 @@ module.exports = ({ getAllQuizzes, addQuiz, addQuestion, addAnswers }) => {
         const is_correct_2 = req.body.is_correct_2 ? true : false;
         const is_correct_3 = req.body.is_correct_3 ? true : false;
         const is_correct_4 = req.body.is_correct_4 ? true : false;
+        addAnswers(question_id, choice_1, is_correct_1, choice_2, is_correct_2, choice_3, is_correct_3, choice_4, is_correct_4);
+      });
+      const question_2 = req.body.question_2;
+      addQuestion(quiz_id, question_2).then(question => {
+        const question_id = question.id;
+        const choice_1 = req.body.q2choice_1;
+        const choice_2 = req.body.q2choice_2;
+        const choice_3 = req.body.q2choice_3;
+        const choice_4 = req.body.q2choice_4;
+        const is_correct_1 = req.body.q2is_correct_1 ? true : false;
+        const is_correct_2 = req.body.q2is_correct_2 ? true : false;
+        const is_correct_3 = req.body.q2is_correct_3 ? true : false;
+        const is_correct_4 = req.body.q2is_correct_4 ? true : false;
+        addAnswers(question_id, choice_1, is_correct_1, choice_2, is_correct_2, choice_3, is_correct_3, choice_4, is_correct_4)
+      });
+      const question_3 = req.body.question_3;
+      addQuestion(quiz_id, question_3).then(question => {
+        const question_id = question.id;
+        const choice_1 = req.body.q3choice_1;
+        const choice_2 = req.body.q3choice_2;
+        const choice_3 = req.body.q3choice_3;
+        const choice_4 = req.body.q3choice_4;
+        const is_correct_1 = req.body.q3is_correct_1 ? true : false;
+        const is_correct_2 = req.body.q3is_correct_2 ? true : false;
+        const is_correct_3 = req.body.q3is_correct_3 ? true : false;
+        const is_correct_4 = req.body.q3is_correct_4 ? true : false;
+        addAnswers(question_id, choice_1, is_correct_1, choice_2, is_correct_2, choice_3, is_correct_3, choice_4, is_correct_4)
+      });
+      const question_4 = req.body.question_4;
+      addQuestion(quiz_id, question_4).then(question => {
+        const question_id = question.id;
+        const choice_1 = req.body.q4choice_1;
+        const choice_2 = req.body.q4choice_2;
+        const choice_3 = req.body.q4choice_3;
+        const choice_4 = req.body.q4choice_4;
+        const is_correct_1 = req.body.q4is_correct_1 ? true : false;
+        const is_correct_2 = req.body.q4is_correct_2 ? true : false;
+        const is_correct_3 = req.body.q4is_correct_3 ? true : false;
+        const is_correct_4 = req.body.q4is_correct_4 ? true : false;
         addAnswers(question_id, choice_1, is_correct_1, choice_2, is_correct_2, choice_3, is_correct_3, choice_4, is_correct_4).then(answer => {
-          console.log("ANSWER ", answer)
+          // console.log("ANSWER ", answer)
           res.redirect("/")
         });
-      })
+      });
     });
 
     ///////////////// ASK A MENTOR - HOW DO I POPULATE THIS QUESTION WITH THE QUIZ_ID of the newly created quiz???
