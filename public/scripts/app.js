@@ -20,15 +20,18 @@ const createQuizElement = function(quiz) {
   console.log(quiz);
   const $quizElement = `
     <article id="quiz">
-      <header>
-        <h4>${quiz.name}</h4>
-      </header>
-
-      <footer>
-        <h6>Results</h6>
-      </footer>
+      <a class="text-reset" href="/quizzes/${quiz.id}">
+        <header>
+          <h4>${quiz.name}</h4>
+        </header>
+      </a>
+      <a class="text-reset" href="/quizzes/results/${quiz.id}">
+        <footer>
+          <h6>Results</h6>
+        </footer>
+      </a>
     </article>
-  `;
+    `;
   return $quizElement;
 };
 
@@ -60,6 +63,10 @@ $(document).ready(() => {
   console.log('ready');
   loadQuizzes();
 });
+
+// SPECIFIC QUIZ RENDER //
+
+
 
 
 
