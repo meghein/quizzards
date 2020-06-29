@@ -13,7 +13,7 @@ module.exports = (db) => {
       values: [name, email, password]
     };
 
-    return db.query(query).then((result) => result.rows);
+    return db.query(query).then((result) => result.rows[0]);
   };
 
   const getAllQuizzes = function(options, limit = 6) {
@@ -49,10 +49,10 @@ module.exports = (db) => {
       LIMIT $${queryParams.length};
     `;
 
-    console.log("dbQuery:", queryString, queryParams);
+    console.log("dbQuery:", queryString, "the param:", queryParams);
 
     return db.query(queryString, queryParams)
-      .then(res => res.rows);
+      .then(res => res.rows[0]);
   };
 
   return {

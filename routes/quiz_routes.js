@@ -9,11 +9,35 @@ const express = require('express');
 const router  = express.Router();
 
 module.exports = ({getAllQuizzes, getQuizById}) => {
+  router.get("/", (req, res) => {
+    getAllQuizzes()
+      .then((quizzes) => {
+        res.render('quizzes', {templateVars: quizzes});
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+  });
+
+  router.get("/json", (req, res) => {
+    getAllQuizzes()
+      .then((quizzes) => {
+        res.json({ quizzes });
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+  });
+
   router.get('/:id', (req, res) => {
     // res.render("quiz_id");
     console.log("request:", req.params);
 
-    getQuizById(1)
+    getQuizById(req.params.id)
       .then((quiz) => {
         res.render('quiz_id', {
           templateVars: quiz
@@ -38,29 +62,6 @@ module.exports = ({getAllQuizzes, getQuizById}) => {
     //   res.status(403).send("no can do!");
   });
 
-  router.get("/", (req, res) => {
-    getAllQuizzes()
-      .then((quizzes) => {
-        res.render('quizzes', {templateVars: quizzes});
-      })
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
-      });
-  });
-
-  router.get("/json", (req, res) => {
-    getAllQuizzes()
-      .then((quizzes) => {
-        res.json({ quizzes });
-      })
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
-      });
-  });
 
   return router;
 };

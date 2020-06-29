@@ -1,21 +1,21 @@
-const escape = require('./escape.js')
+// const escape = require('./escape.js')
 
 $(() => {
   $.ajax({
     method: "GET",
     url: "/users"
   }).done((users) => {
-    for(user of users) {
+    for (user of users) {
       $("<div>").text(user.name).appendTo($("body"));
     }
-  });;
+  });
 });
 
 
 // MAIN QUIZ CONTAINER FUNCTIONALITY TO LOAD QUIZ CARDS //
 
 const createQuizElement = function(quiz) {
-  console.log(quiz)
+  console.log(quiz);
   const $quizElement = `
     <article id="quiz">
       <header>
@@ -36,7 +36,7 @@ const renderQuizzes = function(quizzes) {
   for (let title in quizzes) {
     const quizObj = quizzes[title];
     for (let quiz of quizObj) {
-      console.log(quiz)
+      console.log(quiz);
       quizArr.push(createQuizElement(quiz));
     }
   }
@@ -49,13 +49,13 @@ const loadQuizzes = function() {
     method: 'GET',
     dataType: 'JSON'
   }).then(function(response) {
-    console.log(response)
+    console.log(response);
     renderQuizzes(response);
   });
 };
 
 $(document).ready(() => {
-  console.log('ready')
+  console.log('ready');
   loadQuizzes();
 });
 
