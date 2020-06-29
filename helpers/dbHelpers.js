@@ -57,11 +57,6 @@ module.exports = (db) => {
     return db.query(query).then((result) => result.rows[0]);
   };
 
-
-
-
-
-
   const getAllQuizzes = function(options, limit = 6) {
     const queryParams = [];
 
@@ -98,7 +93,7 @@ module.exports = (db) => {
     const queryParams = [];
 
     let queryString = `
-    SELECT *
+    SELECT questions.*
     FROM questions
     JOIN quizzes ON questions.quiz_id = quizzes.id
     WHERE quizzes.id = $1;
@@ -114,7 +109,7 @@ module.exports = (db) => {
     const queryParams = [];
 
     let queryString = `
-    SELECT *
+    SELECT answers.*
     FROM answers
     JOIN questions ON answers.question_id = questions.id
     WHERE questions.id = $1;
@@ -147,6 +142,18 @@ module.exports = (db) => {
       return res.rows[0];
     });
   };
+  const addUserResults = (response) => {
+    const queryParams = [];
+
+    const queryString = `
+      INSERT INTO responses...
+    `;
+
+    queryParams.push(response);
+
+    return db.query(queryString, queryParams)
+      .then(res => res.rows);
+  };
 
   return {
     getUsers,
@@ -159,6 +166,7 @@ module.exports = (db) => {
     getQuizQuestions,
     getQuestionAnswers,
     isUser,
-    getUserById
+    getUserById,
+    addUserResults
   };
 };

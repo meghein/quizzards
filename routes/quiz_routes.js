@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 // /*
 //  * All routes for Widgets are defined here
 //  * Since this file is loaded in server.js into api/widgets,
@@ -34,31 +35,27 @@ module.exports = ({getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers,
   });
 
   router.get('/:id', (req, res) => {
-
-    console.log("request:", req.params);
-    const templateVars = {}
-
+    const templateVars = {};
     getQuizById(req.params.id)
       .then((quiz) => {
         templateVars.quiz = quiz;
-        return getQuizQuestions(quiz.id)
+        return getQuizQuestions(quiz.id);
       })
-      .then ((questions) => {
+      .then((questions) => {
         templateVars.questions = questions;
-        // console.log("questions:", questions)
         return Promise.all(questions.map(question => {
+          console.log('qid:', question.id);
           return getQuestionAnswers(question.id)
-          .then((answers) => {
-            question.answers = answers
-          })
-        }))
+            .then((answers) => {
+              question.answers = answers;
+            });
+        }));
       })
-      .then (() => {
-        console.log(templateVars.questions)
+      .then(() => {
         res.render('quiz_id', templateVars);
       })
       .catch(err => {
-        console.error(err)
+        console.error(err);
         res
           .status(500)
           .json({
@@ -79,8 +76,8 @@ module.exports = ({getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers,
 
   router.post("/", (req, res) => {
     const name = req.body.name;
-    const creator_id = req.body.creator_id
-    console.log("REQ BODY ", req.body)
+    const creator_id = req.body.creator_id;
+    console.log("REQ BODY ", req.body);
     let is_public = true;
     if (req.body.is_public) {
       is_public = false;
@@ -111,7 +108,7 @@ module.exports = ({getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers,
         const is_correct_2 = req.body.q2is_correct_2 ? true : false;
         const is_correct_3 = req.body.q2is_correct_3 ? true : false;
         const is_correct_4 = req.body.q2is_correct_4 ? true : false;
-        addAnswers(question_id, choice_1, is_correct_1, choice_2, is_correct_2, choice_3, is_correct_3, choice_4, is_correct_4)
+        addAnswers(question_id, choice_1, is_correct_1, choice_2, is_correct_2, choice_3, is_correct_3, choice_4, is_correct_4);
       });
       const question_3 = req.body.question_3;
       addQuestion(quiz_id, question_3).then(question => {
@@ -124,7 +121,7 @@ module.exports = ({getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers,
         const is_correct_2 = req.body.q3is_correct_2 ? true : false;
         const is_correct_3 = req.body.q3is_correct_3 ? true : false;
         const is_correct_4 = req.body.q3is_correct_4 ? true : false;
-        addAnswers(question_id, choice_1, is_correct_1, choice_2, is_correct_2, choice_3, is_correct_3, choice_4, is_correct_4)
+        addAnswers(question_id, choice_1, is_correct_1, choice_2, is_correct_2, choice_3, is_correct_3, choice_4, is_correct_4);
       });
       const question_4 = req.body.question_4;
       addQuestion(quiz_id, question_4).then(question => {
@@ -139,7 +136,7 @@ module.exports = ({getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers,
         const is_correct_4 = req.body.q4is_correct_4 ? true : false;
         addAnswers(question_id, choice_1, is_correct_1, choice_2, is_correct_2, choice_3, is_correct_3, choice_4, is_correct_4).then(answer => {
           // console.log("ANSWER ", answer)
-          res.redirect("/")
+          res.redirect("/");
         });
       });
     });
