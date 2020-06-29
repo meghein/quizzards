@@ -39,6 +39,7 @@ module.exports = ({getAllQuizzes, getQuizById}) => {
 
     getQuizById(req.params.id)
       .then((quiz) => {
+        console.log("quiz specs:", quiz)
         res.render('quiz_id', {
           templateVars: quiz
         });
