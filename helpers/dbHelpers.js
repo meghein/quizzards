@@ -31,24 +31,18 @@ module.exports = (db) => {
       .then(res => res.rows);
   };
 
-  const getQuizById = function(options, limit = 1) { //would need to create a search form by name or id
+  const getQuizById = function(id, limit) { //would need to create a search form by name or id
     const queryParams = [];
 
     let queryString = `
     SELECT quizzes.*, questions.text as text
     FROM quizzes
     JOIN questions ON questions.quiz_id = quizzes.id
+    WHERE is_public = true AND quizzes.id = $1
+    LIMIT 1;
     `;
 
-    if (options.quiz_id) {
-      queryParams.push(`%${options.quiz_id}%`);
-    }
-    queryParams.push(limit);
-    queryString += `
-      WHERE is_public = true AND quizzes.id = $${queryParams.length}
-      LIMIT $${queryParams.length};
-    `;
-
+    queryParams.push(id);
     console.log("dbQuery:", queryString, "the param:", queryParams);
 
     return db.query(queryString, queryParams)
