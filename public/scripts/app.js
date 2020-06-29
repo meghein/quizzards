@@ -1,10 +1,11 @@
-const escape = require('./escape.js')
+// const escape = require('./escape.js')
 
 $(() => {
   $.ajax({
     method: "GET",
     url: "/users"
   }).done((users) => {
+    console.log(users)
     for(user of users) {
       $("<div>").text(user.name).appendTo($("body"));
     }

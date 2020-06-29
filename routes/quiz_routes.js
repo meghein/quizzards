@@ -28,7 +28,7 @@ module.exports = ({getAllQuizzes, getQuizById}) => {
       });
   });
 
-  router.post("/id/delete", (req, res) => {
+  router.post("/:id/delete", (req, res) => {
     //   const user = users[req.session["user_id"]];
     //   if (user) {
     //     const shortURL = req.params.shortURL;
