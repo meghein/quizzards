@@ -1,36 +1,21 @@
 const express = require('express');
 const router = express.Router();
 
-module.exports = ({
-  addUser
-}) => {
+module.exports = ({addUser}
+) => {
   router.get('/', (req, res) => {
-
-
-
+    res.render("login");
   });
 
-
-
-
   router.post("/", (req, res) => {
-    //create a new user
+    const {name, email, password} = req.body;
+    addUser(name, email, password);
 
-    //extract info from request
-    const {
-      name,
-      email,
-      password
-    } = req.body;
+    console.log(req.body);
 
-    console.log(name, email, password);
+    // req.session["user_id"] = user.id;
 
-    //save the user in the db
-    addUser(name, email, password)
-      .then(user => {
-        res.json(user);
-      })
-      .catch(err => console.log(err));
+    res.redirect("/");
   });
 
   return router;

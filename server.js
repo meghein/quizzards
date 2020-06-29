@@ -23,7 +23,9 @@ const dbHelpers = require('./helpers/dbHelpers')(db);
 app.use(morgan('dev'));
 
 app.set("view engine", "ejs");
-
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 app.use(bodyParser.json());
 
 app.use("/styles", sass({
@@ -39,15 +41,21 @@ app.use(express.static("public"));
 const usersRoutes = require("./routes/users");
 const quizRoutes = require("./routes/quiz_routes");
 const loginRoute = require("./routes/login_route");
+const quizIdRoute = require("./routes/quiz_id_routes");
 // const widgetsRoutes = require("./routes/widgets");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
-app.use("/api/users", usersRoutes(dbHelpers));
+app.use("/users", usersRoutes(dbHelpers));
 // app.use("/api/widgets", widgetsRoutes(dbHelpers));
+<<<<<<< HEAD
 // app.use("/api/quizzes", quizRoutes(dbHelpers));
+=======
+app.use("/quizzes", quizRoutes(dbHelpers));
+>>>>>>> 2c2cc744b4e3483fd0c8df7a10c78a4b8faf64c1
 app.use("/login", loginRoute(dbHelpers));
 app.use("/quizzes", quizRoutes(dbHelpers));
+app.use("/:id", quizIdRoute(dbHelpers));
 // Note: mount other resources here, using the same pattern above
 
 // Home page
