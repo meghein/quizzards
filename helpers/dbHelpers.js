@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 module.exports = (db) => {
   const getUsers = () => {
     const query = {
@@ -51,15 +52,10 @@ module.exports = (db) => {
       ($1, $9, $8)
       RETURNING *`,
       values: [question_id, choice_1, is_correct_1, choice_2, is_correct_2, choice_3, is_correct_3, choice_4, is_correct_4]
-    }
+    };
 
     return db.query(query).then((result) => result.rows[0]);
-  }
-
-
-
-
-
+  };
 
   const getAllQuizzes = function(options, limit = 6) {
     const queryParams = [];
@@ -97,7 +93,7 @@ module.exports = (db) => {
     const queryParams = [];
 
     let queryString = `
-    SELECT *
+    SELECT questions.*
     FROM questions
     JOIN quizzes ON questions.quiz_id = quizzes.id
     WHERE quizzes.id = $1;
@@ -113,7 +109,7 @@ module.exports = (db) => {
     const queryParams = [];
 
     let queryString = `
-    SELECT *
+    SELECT answers.*
     FROM answers
     JOIN questions ON answers.question_id = questions.id
     WHERE questions.id = $1;
@@ -125,7 +121,39 @@ module.exports = (db) => {
       .then(res => res.rows);
   };
 
+  const isUser = function(email) {
+    const queryString = `SELECT * FROM users
+    WHERE users.email = $1
+    `;
 
+    return db.query(queryString, [email]).then(res => {
+      return res.rows.length > 0;
+    });
+  };
+
+  const getUserById = function(email) {
+    const queryString = `SELECT * FROM users
+    WHERE users.email = $1
+    `;
+
+    return db.query(queryString, [email]).then(res => {
+      console.log("getUserById:", res.rows[0]);
+
+      return res.rows[0];
+    });
+  };
+  const addUserResults = (response) => {
+    const queryParams = [];
+
+    const queryString = `
+      INSERT INTO responses...
+    `;
+
+    queryParams.push(response);
+
+    return db.query(queryString, queryParams)
+      .then(res => res.rows);
+  };
 
   return {
     getUsers,
@@ -136,6 +164,9 @@ module.exports = (db) => {
     addQuestion,
     addAnswers,
     getQuizQuestions,
-    getQuestionAnswers
+    getQuestionAnswers,
+    isUser,
+    getUserById,
+    addUserResults
   };
 };

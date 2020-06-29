@@ -13,24 +13,27 @@
 
 <body>
   <%- include('partials/_header') %>
-
-  <div id="quiz-attempt">
-    <h1 id="quiz-name">
-      <%= quiz.name %>
-    </h1>
-    <form method="POST" action="/response">
-      <% for (let question of questions) { %>
-        <h3><%= question.text %></h3>
-        <% for (let answer of question.answers) { %>
-          <input type="radio" id="<%= answer.id %>" value="<%= answer.id %>" name="<%= question.id %>">
-          <label for="<%= answer.id %>"><%= answer.choice %></label><br />
-        <% } %>
-      <% } %>
-      <input type="submit" value="Submit">
+  <div class="mx-auto" style=" width: 200px" ;>
+    <h1>Register</h1>
+    <form class="form group" method="POST" action="/register">
+      <div style="width: 20em;">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input style="width: 100%" type="text" name="name" id="name" placeholder="Please enter your name">
+        </div>
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input style="width: 100%" type="email" name="email" id="email" placeholder="Please enter your email">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input style="width: 100%" type="password" name="password" id="password"
+            placeholder="Please enter your password">
+        </div>
+        <input type="submit" class="btn btn-primary" value="Login" />
+      </div>
     </form>
-
   </div>
-
 
   <!-- Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

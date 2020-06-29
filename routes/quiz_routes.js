@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 // /*
 //  * All routes for Widgets are defined here
 //  * Since this file is loaded in server.js into api/widgets,
@@ -8,7 +9,7 @@
 const express = require('express');
 const router = express.Router();
 
-module.exports = ({getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers, getQuizQuestions, getQuestionAnswers}) => {
+module.exports = ({ getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers, getQuizQuestions, getQuestionAnswers }) => {
   router.get("/", (req, res) => {
     getAllQuizzes()
       .then((quizzes) => {
@@ -34,31 +35,27 @@ module.exports = ({getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers,
   });
 
   router.get('/:id', (req, res) => {
-    // res.render("quiz_id");
-    console.log("request:", req.params);
-    const templateVars = {}
-
+    const templateVars = {};
     getQuizById(req.params.id)
       .then((quiz) => {
         templateVars.quiz = quiz;
-        return getQuizQuestions(quiz.id)
+        return getQuizQuestions(quiz.id);
       })
-      .then ((questions) => {
+      .then((questions) => {
         templateVars.questions = questions;
-        // console.log("questions:", questions)
         return Promise.all(questions.map(question => {
+          console.log('qid:', question.id);
           return getQuestionAnswers(question.id)
-          .then((answers) => {
-            question.answers = answers
-          })
-        }))
+            .then((answers) => {
+              question.answers = answers;
+            });
+        }));
       })
-      .then (() => {
-        console.log(templateVars.questions)
+      .then(() => {
         res.render('quiz_id', templateVars);
       })
       .catch(err => {
-        console.error(err)
+        console.error(err);
         res
           .status(500)
           .json({
@@ -79,8 +76,8 @@ module.exports = ({getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers,
 
   router.post("/", (req, res) => {
     const name = req.body.name;
-    const creator_id = req.body.creator_id
-    console.log("REQ BODY ", req.body)
+    const creator_id = req.body.creator_id;
+    console.log("REQ BODY ", req.body);
     let is_public = true;
     if (req.body.is_public) {
       is_public = false;
@@ -139,7 +136,7 @@ module.exports = ({getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers,
         const is_correct_4 = req.body.choice4 === 'q4is_correct_4' ? true : false;
         addAnswers(question_id, choice_1, is_correct_1, choice_2, is_correct_2, choice_3, is_correct_3, choice_4, is_correct_4).then(answer => {
           // console.log("ANSWER ", answer)
-          res.redirect("/")
+          res.redirect("/");
         });
       });
     });
