@@ -1,3 +1,5 @@
+const escape = require('./escape.js')
+
 $(() => {
   $.ajax({
     method: "GET",
