@@ -16,7 +16,14 @@
 
   <div id="quiz-attempt">
     <h1>
+      <%= quiz.name %>
     </h1>
+    <% for (let question of questions) { %>
+      <%= question.text %>
+      <% for (let answer of question.answers) { %>
+        <%= answer.choice %>
+      <% } %>
+    <% } %>
   </div>
 
 

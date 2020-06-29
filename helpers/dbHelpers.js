@@ -35,24 +35,59 @@ module.exports = (db) => {
     const queryParams = [];
 
     let queryString = `
-    SELECT quizzes.*, questions.text as text
+    SELECT *
     FROM quizzes
-    JOIN questions ON questions.quiz_id = quizzes.id
     WHERE is_public = true AND quizzes.id = $1
     LIMIT 1;
     `;
 
     queryParams.push(id);
-    console.log("dbQuery:", queryString, "the param:", queryParams);
+    // console.log("dbQuery:", queryString, "the param:", queryParams);
 
     return db.query(queryString, queryParams)
       .then(res => res.rows[0]);
   };
 
+  const getQuizQuestions = function(quizId) {
+    const queryParams = [];
+
+    let queryString = `
+    SELECT *
+    FROM questions
+    JOIN quizzes ON questions.quiz_id = quizzes.id
+    WHERE quizzes.id = $1;
+    `;
+
+    queryParams.push(quizId);
+
+    return db.query(queryString, queryParams)
+      .then(res => res.rows);
+  };
+
+  const getQuestionAnswers = function(questionId) {
+    const queryParams = [];
+
+    let queryString = `
+    SELECT *
+    FROM answers
+    JOIN questions ON answers.question_id = questions.id
+    WHERE questions.id = $1;
+    `;
+
+    queryParams.push(questionId);
+
+    return db.query(queryString, queryParams)
+      .then(res => res.rows);
+  };
+
+
+
   return {
     getUsers,
     addUser,
     getAllQuizzes,
-    getQuizById
+    getQuizById,
+    getQuizQuestions,
+    getQuestionAnswers
   };
 };

@@ -8,7 +8,7 @@
 const express = require('express');
 const router  = express.Router();
 
-module.exports = ({getAllQuizzes, getQuizById}) => {
+module.exports = ({getAllQuizzes, getQuizById, getQuizQuestions, getQuestionAnswers}) => {
   router.get("/", (req, res) => {
     getAllQuizzes()
       .then((quizzes) => {
@@ -36,15 +36,29 @@ module.exports = ({getAllQuizzes, getQuizById}) => {
   router.get('/:id', (req, res) => {
     // res.render("quiz_id");
     console.log("request:", req.params);
+    const templateVars = {}
 
     getQuizById(req.params.id)
       .then((quiz) => {
-        console.log("quiz specs:", quiz)
-        res.render('quiz_id', {
-          templateVars: quiz
-        });
+        templateVars.quiz = quiz;
+        return getQuizQuestions(quiz.id)
+      })
+      .then ((questions) => {
+        templateVars.questions = questions;
+        // console.log("questions:", questions)
+        return Promise.all(questions.map(question => {
+          return getQuestionAnswers(question.id)
+          .then((answers) => {
+            question.answers = answers
+          })
+        }))
+      })
+      .then (() => {
+        console.log(templateVars.questions)
+        res.render('quiz_id', templateVars);
       })
       .catch(err => {
+        console.error(err)
         res
           .status(500)
           .json({
