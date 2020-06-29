@@ -1,0 +1,33 @@
+#new_quiz_container {
+display: flex;
+justify-content: center;
+display: none;
+}
+
+
+#new_quiz_form {
+  color: blue;
+  background-color: mediumslateblue;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#question_forms {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.question_form {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.new-quiz-small-text {
+  font-size: 10px;
+}

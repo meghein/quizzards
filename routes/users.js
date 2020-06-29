@@ -6,11 +6,11 @@
  */
 
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 
-module.exports = ({getUsers, addUser}) => {
+module.exports = ({ getUsers, addUser }) => {
   router.get("/", (req, res) => {
-      getUsers()
+    getUsers()
       .then((users) => {
         res.json({ users });
       })
@@ -26,21 +26,21 @@ module.exports = ({getUsers, addUser}) => {
 
     //extract info from request
 
-    const {name, email, password} = req.body;
+    const { name, email, password } = req.body;
 
     console.log(name, email, password);
 
     //save the user in the db
     addUser(name, email, password)
-    .then(user => {
-      res.json(user);
-    })
-    .catch(err => console.log(err));
+      .then(user => {
+        res.json(user);
+      })
+      .catch(err => console.log(err));
   });
 
   router.get('id', (req, res) => {
-    const {id} = req.params;
-    res.json({userID: id});
+    const { id } = req.params;
+    res.json({ userID: id });
   })
 
   return router;
