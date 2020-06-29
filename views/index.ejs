@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-  integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <script src="https://kit.fontawesome.com/90ba6681f7.js" crossorigin="anonymous"></script>
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
@@ -20,6 +20,101 @@
   <nav>
     <!-- NAV-BAR with LOGO, HEADER, LOGIN/REGISTER LINK, ETC... * BOBBY * -->
   </nav>
+  <section id="new_quiz_container" display="flex">
+    <div class="isa_error"></div>
+    <h2>Create new quiz</h2>
+    <form id="quiz_form" action="/quizzes" method="POST">
+      <input type="text" name="creator_id" placeholder="quiz: creator_id">
+      <br>
+      <input type="text" name="name" placeholder="quiz: name"></textarea>
+      <br>
+      <label for="public_or_private">Turn is_public FALSE</label>
+      <input type="checkbox" name="is_public">
+      <br>
+      <div id="question_1">
+        <input type="text" name="question_1" placeholder="question_1">
+        <br>
+        <input type="text" name="choice_1" placeholder="choice-1">
+        <input type="checkbox" name="is_correct_1">
+        <br>
+        <input type="text" name="choice_2" placeholder="choice-2">
+        <input type="checkbox" name="is_correct_2">
+        <br>
+        <input type="text" name="choice_3" placeholder="choice-3">
+        <input type="checkbox" name="is_correct_3">
+        <br>
+        <input type="text" name="choice_4" placeholder="choice-4">
+        <input type="checkbox" name="is_correct_4">
+      </div>
+      <br>
+      <div id="question_2">
+        <input type="text" name="question_2" placeholder="question_2">
+        <br>
+        <input type="text" name="q2choice_1" placeholder="q2choice-1">
+        <input type="checkbox" name="q2is_correct_1">
+        <br>
+        <input type="text" name="q2choice_2" placeholder="q2choice-2">
+        <input type="checkbox" name="q2is_correct_2">
+        <br>
+        <input type="text" name="q2choice_3" placeholder="q2choice-3">
+        <input type="checkbox" name="q2is_correct_3">
+        <br>
+        <input type="text" name="q2choice_4" placeholder="q2choice-4">
+        <input type="checkbox" name="q2is_correct_4">
+      </div>
+      <br>
+      <div id="question_3">
+        <input type="text" name="question_3" placeholder="question_3">
+        <br>
+        <input type="text" name="q3choice_1" placeholder="q3choice-1">
+        <input type="checkbox" name="q3is_correct_1">
+        <br>
+        <input type="text" name="q3choice_2" placeholder="q3choice-2">
+        <input type="checkbox" name="q3is_correct_2">
+        <br>
+        <input type="text" name="q3choice_3" placeholder="q3choice-3">
+        <input type="checkbox" name="q3is_correct_3">
+        <br>
+        <input type="text" name="q3choice_4" placeholder="q3choice-4">
+        <input type="checkbox" name="q3is_correct_4">
+      </div>
+      <br>
+      <div id="question_4">
+        <input type="text" name="question_4" placeholder="question_4">
+        <br>
+        <input type="text" name="q4choice_1" placeholder="q4choice-1">
+        <input type="checkbox" name="q4is_correct_1">
+        <br>
+        <input type="text" name="q4choice_2" placeholder="q4choice-2">
+        <input type="checkbox" name="q4is_correct_2">
+        <br>
+        <input type="text" name="q4choice_3" placeholder="q4choice-3">
+        <input type="checkbox" name="q4is_correct_3">
+        <br>
+        <input type="text" name="q4choice_4" placeholder="q4choice-4">
+        <input type="checkbox" name="q4is_correct_4">
+      </div>
+      <!-- <input type="text" name="q1c2" placeholder="choice-2">
+      <input type="text" name="q1c3" placeholder="choice-3">
+      <input type="text" name="q1c4" placeholder="choice-4"> -->
+      <!-- <input type="text" placeholder="QUESTION ONE">
+      <input type="text" placeholder="answer one">
+      <input type="text" placeholder="answer two">
+      <input type="text" placeholder="answer three">
+      <input type="text" placeholder="answer four">
+      <br>
+      <input type="text" placeholder="QUESTION TWO">
+      <input type="text" placeholder="answer one">
+      <input type="text" placeholder="answer two">
+      <input type="text" placeholder="answer three">
+      <br> -->
+      <br>
+      <button type="submit" action="/quizzes" method="POST">POST QUIZ</button>
+    </form>
+  </section>
+
+
+
   <!-- MAIN -->
   <main class="container">
     <!-- LOGIN/REGISTER MOD -->
