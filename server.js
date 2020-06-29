@@ -46,11 +46,8 @@ const loginRoute = require("./routes/login_route");
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/users", usersRoutes(dbHelpers));
-<<<<<<< HEAD
-=======
 // app.use("/api/widgets", widgetsRoutes(dbHelpers));
 // app.use("/quizzes", quizRoutes(dbHelpers));
->>>>>>> feature_new_quiz
 app.use("/login", loginRoute(dbHelpers));
 app.use("/quizzes", quizRoutes(dbHelpers));
 
