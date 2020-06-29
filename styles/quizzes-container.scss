@@ -1,0 +1,11 @@
+#quizzes-container {
+  display: flex;
+  flex-direction: row;
+}
+
+#quiz {
+  display: flex;
+  border: .1em solid red;
+  padding: .5em;
+  margin: 1em;
+}

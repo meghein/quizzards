@@ -25,7 +25,7 @@ module.exports = (db) => {
     WHERE is_public=true
     `;
 
-    console.log(queryString, queryParams);
+    // console.log(queryString, queryParams);
 
     return db.query(queryString, queryParams)
     .then(res => res.rows);

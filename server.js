@@ -45,13 +45,10 @@ const loginRoute = require("./routes/login_route");
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(dbHelpers));
 // app.use("/api/widgets", widgetsRoutes(dbHelpers));
-app.use("/api/quizzes", quizRoutes(dbHelpers));
+// app.use("/api/quizzes", quizRoutes(dbHelpers));
 app.use("/login", loginRoute(dbHelpers));
 app.use("/quizzes", quizRoutes(dbHelpers));
 // Note: mount other resources here, using the same pattern above
-
-// http://localhost:8080/quizzes/ --> / method
-// http://localhost:8080/quizzes/json -> /json method
 
 // Home page
 // Warning: avoid creating more routes in this file!
