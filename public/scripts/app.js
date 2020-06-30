@@ -92,14 +92,43 @@ const loadQuizzesByUser = function() {
 };
 
 
+// renderResults and quizResultModal functions not in use.. but maybe we can work out the functionality later?
+const renderResults = function(response) {
+  const $resultModal = `
+    <div id="ex2" class="modal">
+      <p>${response.score * 100}</p>
+     <a href="#" rel="modal:close">Close</a>
+    </div>
+    `;
+  return $resultModal;
+};
+
+const quizResultModal = function() {
+  $.ajax({
+    url: '/response/:id',
+    method: 'GET',
+    dataType: 'JSON'
+  }).then(function(response) {
+    renderResults(response);
+  })
+}
+
+
 $(document).ready(() => {
   console.log('ready');
   loadQuizzes();
 
+<<<<<<< HEAD
   // SPECIFIC QUIZ RENDER //
 
 
 
+=======
+  $("#fade").modal({
+    fadeDuration: 1000,
+    fadeDelay: 1.75 // Will fade in 750ms after the overlay finishes.
+  });
+>>>>>>> features/quiz
 
 
   $("#get_all_quizzes").on('click', function() {
@@ -119,8 +148,22 @@ $(document).ready(() => {
 
   /////////////////////////////////
 
+<<<<<<< HEAD
   document.getElementById("quiz-submit").addEventListener("click", function(event) {
     event.preventDefault();
   });
+=======
+  // $(".quizSubmit").on("click", function(event) {
+  //   event.preventDefault()
+  //   console.log("quiz submit clicked")
+  //   alert("Hello World!")
+    // quizResultModal()
+  // });
+  // document.getElementById("quizSubmit").addEventListener("click", function(event) {
+  //   event.preventDefault()
+  //   alert("Hello World!");
+  // });
+>>>>>>> features/quiz
 });
+
 
