@@ -1,0 +1,31 @@
+#navigation {
+  padding: 25px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 250px;
+  background-color: royalblue;
+
+  .form-container {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .title {
+    position: relative;
+    top: 0;
+    left: 25px;
+  }
+}
+
+.form-container {
+  .greeting {
+    display: flex;
+    padding: 0 10px;
+  }
+
+  .create_new {
+    padding: 0 10px;
+  }
+}

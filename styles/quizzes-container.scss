@@ -1,13 +1,31 @@
 #quizzes-container {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
 #quiz {
+  // background-image: url('./public/images/goldSparkle.jpg');
+  background-color: rebeccapurple;
+  color: #FFF;
   display: flex;
   flex-direction: column;
+  height: 14em;
   text-align: center;
-  border: .1em solid red;
-  padding: .5em;
+  width: calc(30% - 5px);
+  border-radius: 50px;
+  border: .1em solid black;
   margin: 1em;
+  box-shadow: 5px 5px 0px;
+
+  header,
+  footer {
+    position: relative;
+    top: 75px;
+    left: 0px;
+  }
+}
+
+#quiz:hover {
+  box-shadow: 10px 0px 10px 0px slategrey;
 }

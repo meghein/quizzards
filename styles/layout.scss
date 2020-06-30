@@ -1,6 +1,7 @@
 // See: https://sass-lang.com/
 @import "quizzes-container";
 @import "new-quiz-container";
+@import "nav-header";
 
 body {
   background-color: #EEE;
@@ -9,4 +10,3 @@ body {
     color: #244751;
   }
 }
-
