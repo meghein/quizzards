@@ -4,7 +4,9 @@
       <i class="fas fa-hat-wizard fa-5x"></i>
     </div>
     <div class="title">
-      <h1>QUIZZARDS</h1>
+      <a href="/">
+        <h1>QUIZZARDS</h1>
+      </a>
     </div>
     <div class="form-container">
       <div class="greeting">
@@ -12,17 +14,17 @@
         <h4>Hello, <%= user.name %>!</h4>
       </div>
       <form action="/logout" method="POST">
-        <button type="submit" class="btn btn-outline-dark">Logout</button>
+        <button type="submit" class="std-btn">Logout</button>
       </form>
       <div class="create_new">
-        <button id="create_new_quiz" type="submit" class="btn btn-outline-dark">Create New Quiz</button>
+        <a href="#ex1" rel="modal:open">Create New Quiz</a>
       </div>
       <% } else { %>
       <form action="/login" method="GET">
-        <button type="submit" class="btn btn-outline-dark">Login</button>
+        <button type="submit" class="std-btn">Login</button>
       </form>
       <form action="/register" method="GET">
-        <button type="submit" class="btn btn-outline-dark">Register</button>
+        <button type="submit" class="std-btn">Register</button>
       </form>
     </div>
     <% } %>

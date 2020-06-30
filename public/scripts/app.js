@@ -64,22 +64,25 @@ $(document).ready(() => {
 
 
   // SPECIFIC QUIZ RENDER //
-
-
-
-  let shown = false;
-  $("#create_new_quiz").on('click', function() {
-    if (!shown) {
-      console.log("WHEE")
-      $("#new_quiz_container").slideDown();
-      $("#new_quiz_container").css("display", "block");
-      shown = true;
-    } else {
-      console.log("GOODBYE")
-      $("#new_quiz_container").slideUp();
-      shown = false;
-    }
+  $("#fade").modal({
+    fadeDuration: 1000,
+    fadeDelay: 1.75 // Will fade in 750ms after the overlay finishes.
   });
+
+
+  // let shown = false;
+  // $("#create_new_quiz").on('click', function() {
+  //   if (!shown) {
+  //     console.log("WHEE");
+  //     $("#new_quiz_container").slideDown();
+  //     $("#new_quiz_container").css("display", "block");
+  //     shown = true;
+  //   } else {
+  //     console.log("GOODBYE");
+  //     $("#new_quiz_container").slideUp();
+  //     shown = false;
+  //   }
+  // });
   /////////////////////////////////
 
   // let error = false;
@@ -94,34 +97,34 @@ $(document).ready(() => {
   //   })
   // })
   /////////////////////////////////////
-})
+});
 
-  // $.ajax({
-  //   method: "GET",
-  //   url: "/quizzes/new"
-  // }).then(())
+// $.ajax({
+//   method: "GET",
+//   url: "/quizzes/new"
+// }).then(())
 
 
-  // $.fn.loadNewQuizForm = function() {
-  //   $.ajax('/quizzes/new', { method: 'GET' })
-  //     .then(function(data) {
-  //       // $('#tweets-container').empty();
-  //       console.log(data)
-  //       $('#new_quiz_container').
-  //     });
+// $.fn.loadNewQuizForm = function() {
+//   $.ajax('/quizzes/new', { method: 'GET' })
+//     .then(function(data) {
+//       // $('#tweets-container').empty();
+//       console.log(data)
+//       $('#new_quiz_container').
+//     });
 
-    // })
-    //  POST REQUEST STRUCTURE
-    // // $.ajax({
-    //   url: '/tweets',
-    //   method: 'POST',
-    //   data: $(this).serialize(),
-    // })
-    //   .then(function() {
-    //     $('#tweet-text').val('');
-    //     $('#char-counter').text(140);
-    //     $.fn.loadTweets();
-    //   });
+// })
+//  POST REQUEST STRUCTURE
+// // $.ajax({
+//   url: '/tweets',
+//   method: 'POST',
+//   data: $(this).serialize(),
+// })
+//   .then(function() {
+//     $('#tweet-text').val('');
+//     $('#char-counter').text(140);
+//     $.fn.loadTweets();
+//   });
 
 
 // That’s where our jQuery should go for the newQuiz slider for example.
