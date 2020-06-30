@@ -40,6 +40,7 @@ module.exports = ({ getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers
   });
 
   router.get('/:id', (req, res) => {
+    // console.log("AHAHHH LOOK AT MEAIOSHFOUASFSABFSKDJNFKSDJNF ", req.params)
     const templateVars = {
       user: req.session["user"],
       userId: req.session["user_id"] ? req.session["user_id"] : undefined,

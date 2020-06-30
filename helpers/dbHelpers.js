@@ -96,7 +96,7 @@ module.exports = (db) => {
     let queryString = `
     SELECT *
     FROM quizzes
-    WHERE is_public = true AND quizzes.id = $1
+    WHERE quizzes.id = $1
     LIMIT 1;
     `;
 
