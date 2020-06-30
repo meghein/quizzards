@@ -16,7 +16,7 @@
 // MAIN QUIZ CONTAINER FUNCTIONALITY TO LOAD QUIZ CARDS //
 
 const createQuizElement = function(quiz) {
-  let $quizElement = ``
+  let $quizElement = ``;
   if (quiz.is_public === true) {
     $quizElement = `
     <article class="quiz">
@@ -110,25 +110,18 @@ const quizResultModal = function() {
     dataType: 'JSON'
   }).then(function(response) {
     renderResults(response);
-  })
-}
+  });
+};
 
 
 $(document).ready(() => {
   console.log('ready');
   loadQuizzes();
 
-<<<<<<< HEAD
   // SPECIFIC QUIZ RENDER //
 
 
 
-=======
-  $("#fade").modal({
-    fadeDuration: 1000,
-    fadeDelay: 1.75 // Will fade in 750ms after the overlay finishes.
-  });
->>>>>>> features/quiz
 
 
   $("#get_all_quizzes").on('click', function() {
@@ -148,22 +141,16 @@ $(document).ready(() => {
 
   /////////////////////////////////
 
-<<<<<<< HEAD
-  document.getElementById("quiz-submit").addEventListener("click", function(event) {
-    event.preventDefault();
-  });
-=======
   // $(".quizSubmit").on("click", function(event) {
   //   event.preventDefault()
   //   console.log("quiz submit clicked")
   //   alert("Hello World!")
-    // quizResultModal()
+  // quizResultModal()
   // });
   // document.getElementById("quizSubmit").addEventListener("click", function(event) {
   //   event.preventDefault()
   //   alert("Hello World!");
   // });
->>>>>>> features/quiz
 });
 
 
