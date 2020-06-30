@@ -89,7 +89,6 @@ module.exports = (db) => {
       .then(res => res.rows);
   };
 
-
   const getQuizById = function(id, limit) { //would need to create a search form by name or id
     const queryParams = [];
 

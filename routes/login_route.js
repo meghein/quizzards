@@ -1,12 +1,13 @@
 const express = require('express');
 const router = express.Router();
 
-module.exports = ({isUser, getUserById}
+module.exports = ({ isUser, getUserById }
 ) => {
   router.get('/', (req, res) => {
     const templateVars = {
       user: req.session["user"],
-      userId: req.session["user_id"] ? req.session["user_id"] : undefined
+      userId: req.session["user_id"] ? req.session["user_id"] : undefined,
+      homepage: false
     };
     res.render("login", templateVars);
   });

@@ -6,9 +6,9 @@ const PORT = process.env.PORT || 8080;
 const ENV = process.env.ENV || "development";
 const express = require("express");
 const bodyParser = require("body-parser");
-const sass       = require("node-sass-middleware");
-const app        = express();
-const morgan     = require('morgan');
+const sass = require("node-sass-middleware");
+const app = express();
+const morgan = require('morgan');
 const cookieSession = require('cookie-session');
 
 // PG database client/connection setup
@@ -61,14 +61,16 @@ app.use("/logout", logoutRoute(dbHelpers));
 app.use("/response", responseRoute(dbHelpers));
 
 // Note: mount other resources here, using the same pattern above
-
+//
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
+  console.log("AHH LOOK AT ME AADHH REQ URL ", req.url)
   const templateVars = {
     user: req.session["user"],
     userId: req.session["user_id"],
+    homepage: true
   };
   res.render("index", templateVars);
 });

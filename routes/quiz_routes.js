@@ -44,7 +44,8 @@ module.exports = ({ getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers
     const templateVars = {
       user: req.session["user"],
       userId: req.session["user_id"] ? req.session["user_id"] : undefined,
-      quizId: req.params.id
+      quizId: req.params.id,
+      homepage: false
     };
     getQuizById(req.params.id)
       .then((quiz) => {
