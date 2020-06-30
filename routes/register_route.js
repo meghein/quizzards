@@ -5,8 +5,11 @@ module.exports = ({
   addUser, isUser
 }) => {
   router.get('/', (req, res) => {
-
-    res.render("register");
+    const templateVars = {
+      user: req.session["user"],
+      userId: req.session["user_id"],
+    };
+    res.render("register", templateVars);
   });
 
   router.post("/", (req, res) => {

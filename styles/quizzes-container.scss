@@ -38,3 +38,14 @@
   font-size: 10px;
   font-weight: lighter;
 }
+
+main .container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media only screen and (min-width: 768px) {
+  #main-container {
+    max-width: 840px;
+  }
+}
