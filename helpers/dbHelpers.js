@@ -72,6 +72,32 @@ module.exports = (db) => {
       .then(res => res.rows);
   };
 
+  //////////////////////////
+  // MINE
+  const getQuizzesByCreatorId = function(creator_id, limit) {
+    const queryParams = [];
+
+    let queryString = `
+    SELECT *
+    FROM quizzes
+    WHERE quizzes.creator_id = $1;
+    `;
+
+    queryParams.push(creator_id);
+    // console.log("dbQuery:", queryString, "the param:", queryParams);
+
+    return db.query(queryString, queryParams)
+      .then(res => res.rows);
+  };
+
+  //////////////////////
+
+
+
+
+
+
+
   const getQuizById = function(id, limit) { //would need to create a search form by name or id
     const queryParams = [];
 
@@ -220,6 +246,7 @@ module.exports = (db) => {
     getUsers,
     addUser,
     getAllQuizzes,
+    getQuizzesByCreatorId,
     getQuizById,
     addQuiz,
     addQuestion,

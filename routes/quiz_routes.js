@@ -9,7 +9,28 @@
 const express = require('express');
 const router = express.Router();
 
-module.exports = ({ getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers, getQuizQuestions, getQuestionAnswers }) => {
+
+/////// I think we should reorganize this so that the most-specific routes are first, followed by the least-specific routes. I'll do it soon. - Graham
+module.exports = ({ getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers, getQuizQuestions, getQuestionAnswers, getQuizzesByCreatorId }) => {
+
+
+
+  router.get("/users/:id", (req, res) => {
+    const creator_id = req.session["user_id"];
+    console.log("creator_id ", creator_id);
+    getQuizzesByCreatorId(creator_id)
+      .then((quizzes) => {
+        console.log("USER ID QUIZZES ", quizzes);
+        res.json({ quizzes });
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+  });
+
+
   router.get("/", (req, res) => {
     getAllQuizzes()
       .then((quizzes) => {
@@ -25,6 +46,7 @@ module.exports = ({ getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers
   router.get("/json", (req, res) => {
     getAllQuizzes()
       .then((quizzes) => {
+        console.log("JSON QUIZZES ", quizzes);
         res.json({ quizzes });
       })
       .catch(err => {

@@ -48,27 +48,55 @@ const renderQuizzes = function(quizzes) {
 };
 
 const loadQuizzes = function() {
+  console.log("LOAD QUIZZES FIRES")
   $.ajax({
     url: '/quizzes/json',
     method: 'GET',
     dataType: 'JSON'
   }).then(function(response) {
     console.log(response);
+    // Hey Meg, I added this line below. It makes repopulating the quiz-container visually smoother.
+    $('#quizzes-container').empty();
     renderQuizzes(response);
   });
 };
+
+const loadQuizzesByUser = function() {
+  console.log("IN THE LOAD QUIZZES BY USER FUNCTION")
+  $.ajax({
+    url: '/quizzes/users/:id',
+    method: 'GET',
+    dataType: 'JSON'
+  }).then(function(response) {
+    console.log(response);
+    $('#quizzes-container').empty();
+    renderQuizzes(response);
+  });
+};
+
 
 $(document).ready(() => {
   console.log('ready');
   loadQuizzes();
 
-
-
   // SPECIFIC QUIZ RENDER //
+
+
   $("#fade").modal({
     fadeDuration: 1000,
     fadeDelay: 1.75 // Will fade in 750ms after the overlay finishes.
   });
+
+
+  $("#get_all_quizzes").on('click', function() {
+    console.log("LOUD N CLEAR ALL");
+    loadQuizzes();
+  })
+
+  $("#get_my_quizzes").on('click', function() {
+    console.log("LOUD AND CLEAR MY");
+    loadQuizzesByUser();
+  })
 
 
   /////////////////////////////////
