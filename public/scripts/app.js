@@ -67,27 +67,33 @@ $(document).ready(() => {
 
 
 
-
-
-
-
   let shown = false;
   $("#create_new_quiz").on('click', function() {
     if (!shown) {
       console.log("WHEE")
-
       $("#new_quiz_container").slideDown();
       $("#new_quiz_container").css("display", "block");
-
       shown = true;
     } else {
       console.log("GOODBYE")
-
       $("#new_quiz_container").slideUp();
-      // $("#new_quiz_container").css("display", "none");
       shown = false;
     }
   });
+  /////////////////////////////////
+
+  // let error = false;
+  // $('#new_quiz_form').submit(function(evt) {
+  //   evt.preventDefault();
+  //   $(".isa_error").css("display", "none");
+
+  //   $.ajax({
+  //     url: '/tweets',
+  //     method: 'POST',
+  //     data: $(this).serialize(),
+  //   })
+  // })
+  /////////////////////////////////////
 })
 
   // $.ajax({

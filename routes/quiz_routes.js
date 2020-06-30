@@ -77,8 +77,23 @@ module.exports = ({ getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers
   });
 
   router.post("/", (req, res) => {
+    if (!req.body.choice1 || !req.body.choice2 || !req.body.choice3 || !req.body.choice4) {
+      console.log("NOOOOOOOOOOOOOOOOOOOO")
+      res.status(400).json({ error: 'Every question must have a correct answer.' });
+      return;
+    };
+    if (!req.body.name) {
+      console.log("NOOOOOOOOOOOOOOOOOOOO")
+      res.status(400).json({ error: 'Every quiz must have a name.' });
+      return;
+    }
+    // if (!req.body.question_1 || !req.body.question_2 || !req.body.question_3 || !req.body.question_4) {
+    //   console.log("NOOOOOOOOOOOOOOOOOOOO")
+    //   res.status(400).json({ error: '' });
+    //   return;
+    // }
     const name = req.body.name;
-    const creator_id = req.body.creator_id;
+    const creator_id = req.session["user_id"]
     console.log("REQ BODY ", req.body);
     let is_public = true;
     if (req.body.is_public) {
@@ -126,6 +141,10 @@ module.exports = ({ getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers
         addAnswers(question_id, choice_1, is_correct_1, choice_2, is_correct_2, choice_3, is_correct_3, choice_4, is_correct_4)
       });
       const question_4 = req.body.question_4;
+      if (!question_4) {
+        /// use if statements to account for shorter quizzes? Accommodate for the redirect below, putting it in the escape cases too.
+        res.redirect("/");
+      }
       addQuestion(quiz_id, question_4).then(question => {
         const question_id = question.id;
         const choice_1 = req.body.q4choice_1;

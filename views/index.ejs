@@ -22,15 +22,16 @@
   </nav>
   <section id="new_quiz_container">
     <div class="isa_error"></div>
+
     <form id="new_quiz_form" action="/quizzes" method="POST">
+      <!-- // move this form down and adjust front end. -->
+
       <section id="quiz_form">
         <h2>Create new quiz</h2>
         <br>
-        <input type="text" name="creator_id" placeholder="quiz: creator_id">
-        <br>
         <input type="text" name="name" placeholder="quiz: name"></textarea>
         <br>
-        <label for="public_or_private" class="new-quiz-small-text">Create unlisted quiz</label>
+        <label for="is_public" class="new-quiz-small-text">Create unlisted quiz</label>
         <input type="checkbox" name="is_public">
         <br>
       </section>
@@ -106,7 +107,7 @@
       <br>
       <!-- <input type="radio" value="left" name="test">
       <input type="radio" value="right" name="test"> -->
-      <button type="submit" action="/quizzes" method="POST">POST QUIZ</button>
+      <button type="submit">POST QUIZ</button>
     </form>
   </section>
 
