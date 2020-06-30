@@ -7,7 +7,7 @@ CREATE TABLE results
 (
   id SERIAL PRIMARY KEY NOT NULL,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-  quiz_id INTEGER REFERENCES quizzes(id) ON DELETE CASCADE
+  quiz_id INTEGER REFERENCES quizzes(id) ON DELETE CASCADE,
 );
 
 CREATE TABLE responses
@@ -17,3 +17,4 @@ CREATE TABLE responses
   answer_id INTEGER REFERENCES answers(id) ON DELETE CASCADE,
   result_id INTEGER REFERENCES results(id) ON DELETE CASCADE
 );
+

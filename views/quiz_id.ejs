@@ -19,7 +19,7 @@
     <h1 id="quiz-name">
       <%= quiz.name %>
     </h1>
-    <form method="POST" action="/response">
+    <form method="POST" action="/response/<%= quizId %>">
       <% for (let question of questions) { %>
       <h3><%= question.text %></h3>
       <% for (let answer of question.answers) { %>

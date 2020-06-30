@@ -62,15 +62,6 @@ $(document).ready(() => {
   console.log('ready');
   loadQuizzes();
 
-
-  // SPECIFIC QUIZ RENDER //
-
-
-
-
-
-
-
   let shown = false;
   $("#create_new_quiz").on('click', function() {
     if (!shown) {
@@ -89,6 +80,12 @@ $(document).ready(() => {
     }
   });
 })
+
+
+
+// event listener for submit button, prevent default and then do ajax post with form data, response json object (info), create html modal (bootstrap), disable inputs and button after
+
+
 
   // $.ajax({
   //   method: "GET",

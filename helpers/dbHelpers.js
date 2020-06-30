@@ -144,31 +144,77 @@ module.exports = (db) => {
   };
 
   const checkAnswers = (key, value) => {
-
     const query = {
-      text: `SELECT *
+      text: `SELECT answers.*, quizzes.id as quiz_id
       FROM answers
+      JOIN questions ON questions.id = question_id
+      JOIN quizzes ON quizzes.id = quiz_id
       WHERE question_id = $1
-      AND id = $2`,
+      AND answers.id = $2`,
       values: [key, value]
     };
-
     return db.query(query).then((res) => res.rows[0]);
-
   }
 
-  const addUserResults = (response) => {
-    const queryParams = [];
+  const storeAnswers = (results) => {
+    let score = 0;
+    const promises = [];
+    const answersArr = [];
+    for (let key in results) {
+      promises.push(checkAnswers(key, results[key]))
+    }
 
-    const queryString = `
-      INSERT INTO responses...
-    `;
+    return Promise.all(promises).then(results => {
+       for (let answer in results) {
+         answersArr.push(results[answer].is_correct)
+         if (results[answer].is_correct) {
+           score++
+         }
+       }
+      console.log("score:", score)
+      console.log("answersArr:", answersArr)
+      return {score, answersArr}
+    })
+  }
 
-    queryParams.push(response);
+  const getUserResults = (resultId) => {
+    const query = `
+    SELECT array_agg(answers.is_correct) as answers,
+           sum(case when answers.is_correct then 1 else 0 end) as correct
+    FROM results
+    JOIN responses ON responses.result_id = results.id
+    JOIN answers ON answers.id = responses.answer_id
+    WHERE results.id = $1`;
 
-    return db.query(queryString, queryParams)
-      .then(res => res.rows);
+    return db.query(query, [resultId])
+    .then((res) => {
+      const info = res.rows[0]
+      info.score = info.correct / info.answers.length
+      return info;
+    });
   };
+
+  const addUserResults = (userId, quizId) => {
+    const query = {
+      text: `INSERT INTO results(user_id, quiz_id)
+      VALUES ($1, $2)
+      RETURNING *;`,
+      values: [userId, quizId]
+    };
+    return db.query(query)
+      .then(res => res.rows[0]);
+  };
+
+  const addUserResponse = (questionId, answerId, resultsId) => {
+    const query = {
+      text: `INSERT INTO responses(question_id, answer_id, result_id)
+      VALUES ($1, $2, $3)
+      RETURNING *;`,
+      values: [questionId, answerId, resultsId]
+    };
+    return db.query(query)
+      .then(res => res.rows);
+  }
 
   return {
     getUsers,
@@ -183,6 +229,9 @@ module.exports = (db) => {
     isUser,
     getUserById,
     checkAnswers,
-    addUserResults
+    storeAnswers,
+    addUserResults,
+    addUserResponse,
+    getUserResults
   };
 };

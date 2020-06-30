@@ -1,34 +1,55 @@
 const express = require('express');
 const router = express.Router();
 
-module.exports = ({ checkAnswers, addUserResults }) => {
+module.exports = ({ checkAnswers, storeAnswers, addUserResults, addUserResponse, getUserResults }) => {
 
-  router.post("/", (req, res) => {
-    const response = {
+  router.post("/:id", (req, res) => {
+    const templateVars = {
       user: req.session["user"],
       userId: req.session["user_id"] ? req.session["user_id"] : undefined,
-      quizResponse: req.body
+      quizId: req.params.id
     };
-    console.log("keys:", Object.keys(response.quizResponse));
-    console.log("vals:", Object.values(response.quizResponse));
 
-    let results = 0;
 
-    for (let key in req.body) {
-      checkAnswers(key, req.body[key])
-      .then((answer) => {
-        console.log("answers:", answer.is_correct)
-        if (answer.is_correct) {
-          results++
-        }
-        return results;
+    addUserResults(templateVars.userId, templateVars["quizId"])
+    .then((result) => {
+      const promises = [Promise.resolve(result.id)];
+      for (let key in req.body) {
+        promises.push(addUserResponse(key, req.body[key], result.id))
+      }
+      return Promise.all(promises).then(responses => {
+        console.log(responses);
+        return responses;
       })
-      .then((results) => {
-        console.log(results)
-      })
-    }
+    })
+    /* MPA style */
+    /*
+    .then(([resultId, ...responses]) => {
+      // redirect to the page for this result to display it
+      res.redirect(`/response/${resultId}`); // this route below would render the results
+      return true;
+    }). */
+    .then(([resultId, _responses]) => {
+      return getUserResults(resultId);
+    })
+    .then((results) => res.json(results))
+    .catch((err) => {
+      res.status(500).json(err);
+    });
+  });
 
-    res.redirect("/");
+  router.get("/:resultId", (req, res) => {
+
+    getUserResults(req.params.resultId)
+    .then((results) => {
+      // render the page
+      res.json({ results });
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
   });
 
   return router;
