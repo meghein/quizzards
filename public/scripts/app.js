@@ -104,11 +104,15 @@ $(document).ready(() => {
 
   $("#get_all_quizzes").on('click', function() {
     console.log("LOUD N CLEAR ALL");
+    $("#get_my_quizzes").css("display", "initial");
+    $("#get_all_quizzes").css("display", "none");
     loadQuizzes();
   });
 
   $("#get_my_quizzes").on('click', function() {
     console.log("LOUD AND CLEAR MY");
+    $("#get_my_quizzes").css("display", "none");
+    $("#get_all_quizzes").css("display", "initial");
     loadQuizzesByUser();
   });
 

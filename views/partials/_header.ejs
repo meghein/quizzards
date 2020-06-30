@@ -18,12 +18,25 @@
     <div class="create_new">
       <a href="#ex1" rel="modal:open">Create New Quiz</a>
     </div>
+
+    <% if (homepage){ %>
+
     <div class="user-quizzes">
       <button id="get_all_quizzes" class="std-btn">All quizzes</button>
     </div>
     <div class="user-quizzes">
       <button id="get_my_quizzes" class="std-btn">My quizzes</button>
     </div>
+
+    <% } else { %>
+
+    <form action="/" method="GET">
+      <button type="submit" id="get_all_quizzes_redirect" class="btn btn-outline-dark">Quizzes</button>
+    </form>
+
+    <% } %>
+
+
     <form action="/logout" method="POST">
       <button type="submit" class="std-btn">Logout</button>
     </form>
@@ -38,5 +51,3 @@
   <% } %>
   </div>
 </header>
-
-<!-- action="/quizzes/new" method="GET" -->

@@ -59,3 +59,18 @@
 .greeting form {
   padding: 0px 10px;
 }
+
+#get_all_quizzes {
+  display: none;
+  width: 8rem;
+}
+
+#get_my_quizzes {
+  display: initial;
+  width: 8rem;
+}
+
+#get_all_quizzes_redirect {
+  display: initial;
+  width: 8rem;
+}
