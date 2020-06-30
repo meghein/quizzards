@@ -88,7 +88,6 @@ $(document).ready(() => {
   });
 
 
-<<<<<<< HEAD
   $("#get_all_quizzes").on('click', function() {
     console.log("LOUD N CLEAR ALL");
     loadQuizzes();
@@ -101,9 +100,7 @@ $(document).ready(() => {
 
 
   /////////////////////////////////
-=======
   // event listener for submit button, prevent default and then do ajax post with form data, response json object (info), create html modal (bootstrap), disable inputs and button after
->>>>>>> features/quiz
 
   document.getElementById("quiz-submit").addEventListener("click", function(event) {
     event.preventDefault()
