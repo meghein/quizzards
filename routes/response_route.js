@@ -42,7 +42,8 @@ module.exports = ({ checkAnswers, storeAnswers, addUserResults, addUserResponse,
         userId: req.session["user_id"] ? req.session["user_id"] : undefined,
         answers: results.answers,
         correct: results.correct,
-        score: results.score
+        score: results.score,
+        homepage: false
       };
       console.log("tempVars:", templateVars)
       res.render('quiz_results', templateVars);
