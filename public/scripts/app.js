@@ -48,7 +48,7 @@ const renderQuizzes = function(quizzes) {
 };
 
 const loadQuizzes = function() {
-  console.log("LOAD QUIZZES FIRES")
+  console.log("LOAD QUIZZES FIRES");
   $.ajax({
     url: '/quizzes/json',
     method: 'GET',
@@ -62,7 +62,7 @@ const loadQuizzes = function() {
 };
 
 const loadQuizzesByUser = function() {
-  console.log("IN THE LOAD QUIZZES BY USER FUNCTION")
+  console.log("IN THE LOAD QUIZZES BY USER FUNCTION");
   $.ajax({
     url: '/quizzes/users/:id',
     method: 'GET',
@@ -91,19 +91,18 @@ $(document).ready(() => {
   $("#get_all_quizzes").on('click', function() {
     console.log("LOUD N CLEAR ALL");
     loadQuizzes();
-  })
+  });
 
   $("#get_my_quizzes").on('click', function() {
     console.log("LOUD AND CLEAR MY");
     loadQuizzesByUser();
-  })
+  });
 
 
   /////////////////////////////////
-  // event listener for submit button, prevent default and then do ajax post with form data, response json object (info), create html modal (bootstrap), disable inputs and button after
 
   document.getElementById("quiz-submit").addEventListener("click", function(event) {
-    event.preventDefault()
+    event.preventDefault();
   });
 });
 
