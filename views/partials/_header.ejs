@@ -2,6 +2,8 @@
   <nav id="navigation">
     <div class="logo">
       <i class="fas fa-hat-wizard fa-5x"></i>
+      <button id="get_all_quizzes" class="btn btn-outline-dark">All quizzes</button>
+      <button id="get_my_quizzes" class="btn btn-outline-dark">My quizzes</button>
     </div>
     <div class="title">
       <a href="/">
@@ -14,8 +16,6 @@
         <h4>Hello, <%= user.name %>!</h4>
       </div>
 
-      <button id="get_all_quizzes" class="btn btn-outline-dark">All quizzes</button>
-      <button id="get_my_quizzes" class="btn btn-outline-dark">My quizzes</button>
 
 
       <form action="/logout" method="POST">
