@@ -19,11 +19,16 @@
       <button id="get_all_quizzes" class="btn btn-outline-dark">All Quizzes</button>
       <button id="get_my_quizzes" class="btn btn-outline-dark">My Quizzes</button>
       <% } else { %>
-      <button id="get_all_quizzes" class="btn btn-outline-dark">All Quizzes</button>
-      <button id="get_my_quizzes" class="btn btn-outline-dark">My Quizzes</button>
+
+
+      <form action="/" method="GET" id="get_all_quizzes_redirect">
+        <button type="submit" class="btn btn-outline-dark">Quizzes</button>
+      </form>
+      <!-- <form action="users/:id" method="GET" id="get_my_quizzes_redirect">
+        <button type="submit" class="btn btn-outline-dark">My Quizzes RR</button>
+      </form> -->
+
       <% } %>
-
-
 
 
       <form action="/logout" method="POST">

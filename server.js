@@ -66,7 +66,6 @@ app.use("/response", responseRoute(dbHelpers));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  console.log("AHH LOOK AT ME AADHH REQ URL ", req.url)
   const templateVars = {
     user: req.session["user"],
     userId: req.session["user_id"],
