@@ -142,6 +142,21 @@ module.exports = (db) => {
       return res.rows[0];
     });
   };
+
+  const checkAnswers = (key, value) => {
+
+    const query = {
+      text: `SELECT *
+      FROM answers
+      WHERE question_id = $1
+      AND id = $2`,
+      values: [key, value]
+    };
+
+    return db.query(query).then((res) => res.rows[0]);
+
+  }
+
   const addUserResults = (response) => {
     const queryParams = [];
 
@@ -167,6 +182,7 @@ module.exports = (db) => {
     getQuestionAnswers,
     isUser,
     getUserById,
+    checkAnswers,
     addUserResults
   };
 };
