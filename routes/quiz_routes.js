@@ -9,11 +9,7 @@
 const express = require('express');
 const router = express.Router();
 
-
-/////// I think we should reorganize this so that the most-specific routes are first, followed by the least-specific routes. I'll do it soon. - Graham
 module.exports = ({ getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers, getQuizQuestions, getQuestionAnswers, getQuizzesByCreatorId }) => {
-
-
 
   router.get("/users/:id", (req, res) => {
     const creator_id = req.session["user_id"];
@@ -22,19 +18,6 @@ module.exports = ({ getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers
       .then((quizzes) => {
         console.log("USER ID QUIZZES ", quizzes);
         res.json({ quizzes });
-      })
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
-      });
-  });
-
-
-  router.get("/", (req, res) => {
-    getAllQuizzes()
-      .then((quizzes) => {
-        res.render('quizzes', { templateVars: quizzes });
       })
       .catch(err => {
         res
@@ -86,6 +69,18 @@ module.exports = ({ getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers
           .json({
             error: err.message
           });
+      });
+  });
+
+  router.get("/", (req, res) => {
+    getAllQuizzes()
+      .then((quizzes) => {
+        res.render('quizzes', { templateVars: quizzes });
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
       });
   });
 

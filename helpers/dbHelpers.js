@@ -72,30 +72,22 @@ module.exports = (db) => {
       .then(res => res.rows);
   };
 
-  //////////////////////////
-  // MINE
+
   const getQuizzesByCreatorId = function(creator_id, limit) {
     const queryParams = [];
 
     let queryString = `
     SELECT *
     FROM quizzes
-    WHERE quizzes.creator_id = $1;
+    WHERE quizzes.creator_id = $1
+    ORDER BY is_public;
     `;
 
     queryParams.push(creator_id);
-    // console.log("dbQuery:", queryString, "the param:", queryParams);
 
     return db.query(queryString, queryParams)
       .then(res => res.rows);
   };
-
-  //////////////////////
-
-
-
-
-
 
 
   const getQuizById = function(id, limit) { //would need to create a search form by name or id
@@ -191,15 +183,15 @@ module.exports = (db) => {
     }
 
     return Promise.all(promises).then(results => {
-       for (let answer in results) {
-         answersArr.push(results[answer].is_correct)
-         if (results[answer].is_correct) {
-           score++
-         }
-       }
+      for (let answer in results) {
+        answersArr.push(results[answer].is_correct)
+        if (results[answer].is_correct) {
+          score++
+        }
+      }
       console.log("score:", score)
       console.log("answersArr:", answersArr)
-      return {score, answersArr}
+      return { score, answersArr }
     })
   }
 
@@ -213,11 +205,11 @@ module.exports = (db) => {
     WHERE results.id = $1`;
 
     return db.query(query, [resultId])
-    .then((res) => {
-      const info = res.rows[0]
-      info.score = info.correct / info.answers.length
-      return info;
-    });
+      .then((res) => {
+        const info = res.rows[0]
+        info.score = info.correct / info.answers.length
+        return info;
+      });
   };
 
   const addUserResults = (userId, quizId) => {

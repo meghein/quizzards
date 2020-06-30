@@ -16,9 +16,10 @@
 // MAIN QUIZ CONTAINER FUNCTIONALITY TO LOAD QUIZ CARDS //
 
 const createQuizElement = function(quiz) {
-  console.log(quiz);
-  const $quizElement = `
-    <article id="quiz">
+  let $quizElement = ``
+  if (quiz.is_public === true) {
+    $quizElement = `
+    <article class="quiz">
       <a class="text-reset" href="/quizzes/${quiz.id}">
         <header>
           <h4>${quiz.name}</h4>
@@ -31,6 +32,23 @@ const createQuizElement = function(quiz) {
       </a>
     </article>
     `;
+  } else {
+    $quizElement = `
+    <article class="quiz" id="quiz-unlisted">
+      <a class="text-reset" href="/quizzes/${quiz.id}">
+        <header>
+          <h4>${quiz.name}</h4>
+        </header>
+      </a>
+      <a class="text-reset" href="/quizzes/results/${quiz.id}">
+        <footer>
+          <h6>Results</h6>
+          <h6 class="quiz_small_text">Unlisted Quiz</h6>
+        </footer>
+      </a>
+    </article>
+    `;
+  }
   return $quizElement;
 };
 
@@ -55,7 +73,6 @@ const loadQuizzes = function() {
     dataType: 'JSON'
   }).then(function(response) {
     console.log(response);
-    // Hey Meg, I added this line below. It makes repopulating the quiz-container visually smoother.
     $('#quizzes-container').empty();
     renderQuizzes(response);
   });

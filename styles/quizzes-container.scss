@@ -4,7 +4,7 @@
   flex-wrap: wrap;
 }
 
-#quiz {
+.quiz {
   // background-image: url('./public/images/goldSparkle.jpg');
   background-color: rebeccapurple;
   color: #FFF;
@@ -26,6 +26,15 @@
   }
 }
 
-#quiz:hover {
+.quiz:hover {
   box-shadow: 10px 0px 10px 0px slategrey;
+}
+
+#quiz-unlisted {
+  background-color: slateblue;
+}
+
+.quiz_small_text {
+  font-size: 10px;
+  font-weight: lighter;
 }
