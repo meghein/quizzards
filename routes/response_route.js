@@ -22,15 +22,10 @@ module.exports = ({ checkAnswers, storeAnswers, addUserResults, addUserResponse,
         return responses;
       })
     })
-    /* MPA style */
-    /*
-    .then(([resultId, ...responses]) => {
-      // redirect to the page for this result to display it
-      res.redirect(`/response/${resultId}`); // this route below would render the results
-      return true;
-    }). */
     .then(([resultId, _responses]) => {
-      return getUserResults(resultId);
+      // return getUserResults(resultId); // => if we end up going the SPA way
+      res.redirect(`/response/${resultId}`);
+      return true;
     })
     .then((results) => res.json(results))
     .catch((err) => {
@@ -42,8 +37,15 @@ module.exports = ({ checkAnswers, storeAnswers, addUserResults, addUserResponse,
 
     getUserResults(req.params.resultId)
     .then((results) => {
-      // render the page
-      res.json({ results });
+      const templateVars = {
+        user: req.session["user"],
+        userId: req.session["user_id"] ? req.session["user_id"] : undefined,
+        answers: results.answers,
+        correct: results.correct,
+        score: results.score
+      };
+      console.log("tempVars:", templateVars)
+      res.render('quiz_results', templateVars);
     })
     .catch(err => {
       res
