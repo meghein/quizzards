@@ -13,9 +13,16 @@
   }
 
   .title {
+    width: 50%;
     position: relative;
     top: 0;
     left: 25px;
+    flex-grow: 2;
+    text-align: center;
+  }
+
+  .logo {
+    flex-grow: 1;
   }
 }
 
