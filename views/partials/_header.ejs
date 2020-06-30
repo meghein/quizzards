@@ -8,32 +8,34 @@
         <h1>QUIZZARDS</h1>
       </a>
     </div>
-    <div class="form-container">
-      <div class="greeting">
-        <% if(user){ %>
-        <h4>Hello, <%= user.name %>!</h4>
-      </div>
-
-      <button id="get_all_quizzes" class="btn btn-outline-dark">All quizzes</button>
-      <button id="get_my_quizzes" class="btn btn-outline-dark">My quizzes</button>
-
-
-      <form action="/logout" method="POST">
-        <button type="submit" class="std-btn">Logout</button>
-      </form>
-      <div class="create_new">
-        <a href="#ex1" rel="modal:open">Create New Quiz</a>
-      </div>
-      <% } else { %>
-      <form action="/login" method="GET">
-        <button type="submit" class="std-btn">Login</button>
-      </form>
-      <form action="/register" method="GET">
-        <button type="submit" class="std-btn">Register</button>
-      </form>
+    <div class="greeting">
+      <% if(user){ %>
+      <h4>Hello, <%= user.name %>!</h4>
     </div>
-    <% } %>
   </nav>
+  <div class="form-container">
+    <div class="create_new">
+      <a href="#ex1" rel="modal:open">Create New Quiz</a>
+    </div>
+    <div class="user-quizzes">
+      <button id="get_all_quizzes" class="std-btn">All quizzes</button>
+    </div>
+    <div class="user-quizzes">
+      <button id="get_my_quizzes" class="std-btn">My quizzes</button>
+    </div>
+    <form action="/logout" method="POST">
+      <button type="submit" class="std-btn">Logout</button>
+    </form>
+    <% } else { %>
+    <form action="/login" method="GET">
+      <button type="submit" class="std-btn">Login</button>
+    </form>
+    <form action="/register" method="GET">
+      <button type="submit" class="std-btn">Register</button>
+    </form>
+  </div>
+  <% } %>
+  </div>
 </header>
 
 <!-- action="/quizzes/new" method="GET" -->

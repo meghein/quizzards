@@ -29,3 +29,14 @@
 #quiz:hover {
   box-shadow: 10px 0px 10px 0px slategrey;
 }
+
+main .container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media only screen and (min-width: 768px) {
+  #main-container {
+    max-width: 840px;
+  }
+}

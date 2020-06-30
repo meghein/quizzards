@@ -25,87 +25,86 @@
         <!-- // move this form down and adjust front end. -->
 
         <section id="quiz_form">
-          <h2>Create new quiz</h2>
-          <br>
-          <input type="text" name="name" placeholder="quiz: name"></textarea>
-          <br>
-          <label for="is_public" class="new-quiz-small-text">Create unlisted quiz</label>
-          <input type="checkbox" name="is_public">
-          <br>
+          <h2>Create New Quiz</h2>
+          <input type="text" name="name" placeholder="Give your quiz a name:"></textarea>
+          <div class="name-private">
+            <label for="is_public" class="new-quiz-small-text">Private</label>
+            <input type="checkbox" name="is_public">
+          </div>
         </section>
         <section id="question_forms">
           <div id="question_1" class="question_form">
-            <input type="text" name="question_1" placeholder="question_1"><span class="new-quiz-small-text">Correct
+            <input type="text" name="question_1" placeholder="Question 1"><span class="new-quiz-small-text">Correct
               Answer</span>
             <br>
-            <input type="text" name="choice_1" placeholder="choice-1">
+            <input type="text" name="choice_1" placeholder="option 1">
             <input type="radio" value="is_correct_1" name="choice1">
             <br>
-            <input type="text" name="choice_2" placeholder="choice-2">
+            <input type="text" name="choice_2" placeholder="option 2">
             <input type="radio" value="is_correct_2" name="choice1">
             <br>
-            <input type="text" name="choice_3" placeholder="choice-3">
+            <input type="text" name="choice_3" placeholder="option 3">
             <input type="radio" value="is_correct_3" name="choice1">
             <br>
-            <input type="text" name="choice_4" placeholder="choice-4">
+            <input type="text" name="choice_4" placeholder="option 4">
             <input type="radio" value="is_correct_4" name="choice1">
           </div>
           <br>
           <div id="question_2" class="question_form">
-            <input type="text" name="question_2" placeholder="question_2"><span class="new-quiz-small-text">Correct
+            <input type="text" name="question_2" placeholder="Question 2"><span class="new-quiz-small-text">Correct
               Answer</span>
             <br>
-            <input type="text" name="q2choice_1" placeholder="q2choice-1">
+            <input type="text" name="q2choice_1" placeholder="option 1">
             <input type="radio" value="q2is_correct_1" name="choice2">
             <br>
-            <input type="text" name="q2choice_2" placeholder="q2choice-2">
+            <input type="text" name="q2choice_2" placeholder="option 2">
             <input type="radio" value="q2is_correct_2" name="choice2">
             <br>
-            <input type="text" name="q2choice_3" placeholder="q2choice-3">
+            <input type="text" name="q2choice_3" placeholder="option 3">
             <input type="radio" value="q2is_correct_3" name="choice2">
             <br>
-            <input type="text" name="q2choice_4" placeholder="q2choice-4">
+            <input type="text" name="q2choice_4" placeholder="option 4">
             <input type="radio" value="q2is_correct_4" name="choice2">
           </div>
           <br>
           <div id="question_3" class="question_form">
-            <input type="text" name="question_3" placeholder="question_3"><span class="new-quiz-small-text">Correct
+            <input type="text" name="question_3" placeholder="Question 3"><span class="new-quiz-small-text">Correct
               Answer</span>
             <br>
-            <input type="text" name="q3choice_1" placeholder="q3choice-1">
+            <input type="text" name="q3choice_1" placeholder="option 1">
             <input type="radio" value="q3is_correct_1" name="choice3">
             <br>
-            <input type="text" name="q3choice_2" placeholder="q3choice-2">
+            <input type="text" name="q3choice_2" placeholder="option 2">
             <input type="radio" value="q3is_correct_2" name="choice3">
             <br>
-            <input type="text" name="q3choice_3" placeholder="q3choice-3">
-            <input type="radio" value="q3is_correct_3" name="choice3">
+            <input type="text" name="q3choice_3" placeholder="option 3">
+            <input type=" radio" value="q3is_correct_3" name="choice3">
             <br>
-            <input type="text" name="q3choice_4" placeholder="q3choice-4">
+            <input type="text" name="q3choice_4" placeholder="option 4">
             <input type="radio" value="q3is_correct_4" name="choice3">
           </div>
           <br>
           <div id="question_4" class="question_form">
-            <input type="text" name="question_4" placeholder="question_4"><span class="new-quiz-small-text">Correct
+            <input type="text" name="question_4" placeholder="Question 4"><span class="new-quiz-small-text">Correct
               Answer</span>
             <br>
-            <input type="text" name="q4choice_1" placeholder="q4choice-1">
+            <input type="text" name="q4choice_1" placeholder="option 1">
             <input type="radio" value="q4is_correct_1" name="choice4">
             <br>
-            <input type="text" name="q4choice_2" placeholder="q4choice-2">
+            <input type="text" name="q4choice_2" placeholder="option 2">
             <input type="radio" value="q4is_correct_2" name="choice4">
             <br>
-            <input type="text" name="q4choice_3" placeholder="q4choice-3">
+            <input type="text" name="q4choice_3" placeholder="option 3">
             <input type="radio" value="q4is_correct_3" name="choice4">
             <br>
-            <input type="text" name="q4choice_4" placeholder="q4choice-4">
+            <input type="text" name="q4choice_4" placeholder="option 4">
             <input type="radio" value="q4is_correct_4" name="choice4">
           </div>
         </section>
         <br>
         <!-- <input type="radio" value="left" name="test">
       <input type="radio" value="right" name="test"> -->
-        <button type="submit">POST QUIZ</button>
+        <button class="std-btn" type="submit">POST QUIZ</button>
       </form>
     </section>
   </div>
@@ -115,15 +114,16 @@
     </h1>
     <form method="POST" action="/response/<%= quizId %>">
       <% for (let question of questions) { %>
-      <h3><%= question.text %></h3>
-      <% for (let answer of question.answers) { %>
-      <input type="radio" id="<%= answer.id %>" value="<%= answer.id %>" name="<%= question.id %>">
-      <label for="<%= answer.id %>"><%= answer.choice %></label><br />
-      <% } %>
+      <div class="question-card">
+        <h3><%= question.text %></h3>
+        <% for (let answer of question.answers) { %>
+        <input type="radio" id="<%= answer.id %>" value="<%= answer.id %>" name="<%= question.id %>">
+        <label for="<%= answer.id %>"><%= answer.choice %></label><br />
+        <% } %>
+      </div>
       <% } %>
       <input type="submit" value="Submit">
     </form>
-
   </div>
 
 
