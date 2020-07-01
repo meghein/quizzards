@@ -57,7 +57,7 @@ const renderQuizzes = function(quizzes) {
   for (let title in quizzes) {
     const quizObj = quizzes[title];
     for (let quiz of quizObj) {
-      console.log(quiz);
+      // console.log(quiz);
       quizArr.push(createQuizElement(quiz));
     }
   }
@@ -70,7 +70,7 @@ const loadQuizzes = function() {
     method: 'GET',
     dataType: 'JSON'
   }).then(function(response) {
-    console.log(response);
+    // console.log(response);
     $('#quizzes-container').empty();
     renderQuizzes(response);
   });
@@ -82,7 +82,7 @@ const loadQuizzesByUser = function() {
     method: 'GET',
     dataType: 'JSON'
   }).then(function(response) {
-    console.log(response);
+    // console.log(response);
     $('#quizzes-container').empty();
     renderQuizzes(response);
   });
@@ -101,14 +101,32 @@ const renderResults = function(response) {
   return $resultModal;
 };
 
-
-
 const copyUrlToClipboard = function() {
   var copyText = document.getElementById("hidden-url");
   copyText.select();
   copyText.setSelectionRange(0, 99999);
   document.execCommand("copy");
-}
+};
+
+//MEG FOR YOU
+/////////////////////////////////////////////
+// const copyRESULTSUrlToClipboard = function() {
+//   var copyText = document.getElementById("#####THE-INPUT-ELEMENT-ID-YOU-WANT#######");
+//   copyText.select();
+//   copyText.setSelectionRange(0, 99999);
+//   document.execCommand("copy");
+// }
+////////////////////////////////////////// Reference quiz-id.ejs lines 33-38 to see how it works with the input field
+
+
+
+
+// const copyUrlToClipboard = function() {
+//   var copyText = document.getElementById("hidden-url");
+//   copyText.select();
+//   copyText.setSelectionRange(0, 99999);
+//   document.execCommand("copy");
+// }
 /////////////////////////////////////////////
 const copyRESULTSUrlToClipboard = function() {
   var copyText = document.getElementById("#####THE-INPUT-ELEMENT-ID-YOU-WANT#######");
@@ -122,22 +140,20 @@ $(document).ready(() => {
   console.log('ready TEST');
   loadQuizzes();
 
-  // SPECIFIC QUIZ RENDER //
-
   $("#copy-url-button").on('click', function() {
     copyUrlToClipboard();
     $("#url-container").fadeOut(500)
     $("#url-container").fadeIn(1000)
   });
 
+  // MEG FOR YOU
   ////////////////////////////////////////////////
-  $("#####THE-INPUT-ELEMENT-ID-YOU-WANT#######").on('click', function() {
-    copyRESULTSUrlToClipboard();
-    $("#url-container").fadeOut(500)
-    $("#url-container").fadeIn(1000)
-  });
+  // $("#####THE-INPUT-ELEMENT-ID-YOU-WANT#######").on('click', function() {
+  //   copyRESULTSUrlToClipboard();
+  //   $("#url-container").fadeOut(500)
+  //   $("#url-container").fadeIn(1000)
+  // });
   //////////////////////////////////////////////////
-
 
   $("#get_all_quizzes").on('click', function() {
     $("#get_my_quizzes").css("display", "initial");
