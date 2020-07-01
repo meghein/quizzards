@@ -58,7 +58,7 @@ const renderQuizzes = function(quizzes) {
   for (let title in quizzes) {
     const quizObj = quizzes[title];
     for (let quiz of quizObj) {
-      console.log(quiz);
+      // console.log(quiz);
       quizArr.push(createQuizElement(quiz));
     }
   }
@@ -72,7 +72,7 @@ const loadQuizzes = function() {
     method: 'GET',
     dataType: 'JSON'
   }).then(function(response) {
-    console.log(response);
+    // console.log(response);
     $('#quizzes-container').empty();
     renderQuizzes(response);
   });
@@ -85,7 +85,7 @@ const loadQuizzesByUser = function() {
     method: 'GET',
     dataType: 'JSON'
   }).then(function(response) {
-    console.log(response);
+    // console.log(response);
     $('#quizzes-container').empty();
     renderQuizzes(response);
   });
