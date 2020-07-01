@@ -20,6 +20,13 @@
   <%- include('partials/_header') %>
   <%- include('partials/_newQuiz') %>
 
+  <% const quizUrl = `http://localhost:8080/quizzes/${quiz.id}` %>
+  <div id="url-container">
+    <input type="text" value="<%= quizUrl %>" id="hidden-url">
+    <button id="copy-url-button">Copy Quiz Url</button>
+    <input type="text">
+  </div>
+
   <div id="quiz-attempt">
     <h1 id="quiz-name">
       <%= quiz.name %>
