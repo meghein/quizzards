@@ -19,113 +19,17 @@
 
 <body>
   <%- include('partials/_header') %>
-  <nav>
-    <!-- NAV-BAR with LOGO, HEADER, LOGIN/REGISTER LINK, ETC... * BOBBY * -->
-  </nav>
-  <!-- Modal HTML embedded directly into document -->
-  <div id="ex1" class="modal">
-    <section id="new_quiz_container">
-      <div class="isa_error"></div>
-      <form id="new_quiz_form" action="/quizzes" method="POST">
-        <section id="quiz_form">
-          <h2>Create New Quiz</h2>
-          <input type="text" name="name" placeholder="Give your quiz a name:"></textarea>
-          <div class="name-private">
-            <label for="is_public" class="new-quiz-small-text">Private</label>
-            <input type="checkbox" name="is_public">
-          </div>
-        </section>
-        <section id="question_forms">
-          <div id="question_1" class="question_form">
-            <input type="text" name="question_1" placeholder="Question 1"><span class="new-quiz-small-text">Correct
-              Answer</span>
-            <br>
-            <input type="text" name="choice_1" placeholder="option 1">
-            <input type="radio" value="is_correct_1" name="choice1">
-            <br>
-            <input type="text" name="choice_2" placeholder="option 2">
-            <input type="radio" value="is_correct_2" name="choice1">
-            <br>
-            <input type="text" name="choice_3" placeholder="option 3">
-            <input type="radio" value="is_correct_3" name="choice1">
-            <br>
-            <input type="text" name="choice_4" placeholder="option 4">
-            <input type="radio" value="is_correct_4" name="choice1">
-          </div>
-          <br>
-          <div id="question_2" class="question_form">
-            <input type="text" name="question_2" placeholder="Question 2"><span class="new-quiz-small-text">Correct
-              Answer</span>
-            <br>
-            <input type="text" name="q2choice_1" placeholder="option 1">
-            <input type="radio" value="q2is_correct_1" name="choice2">
-            <br>
-            <input type="text" name="q2choice_2" placeholder="option 2">
-            <input type="radio" value="q2is_correct_2" name="choice2">
-            <br>
-            <input type="text" name="q2choice_3" placeholder="option 3">
-            <input type="radio" value="q2is_correct_3" name="choice2">
-            <br>
-            <input type="text" name="q2choice_4" placeholder="option 4">
-            <input type="radio" value="q2is_correct_4" name="choice2">
-          </div>
-          <br>
-          <div id="question_3" class="question_form">
-            <input type="text" name="question_3" placeholder="Question 3"><span class="new-quiz-small-text">Correct
-              Answer</span>
-            <br>
-            <input type="text" name="q3choice_1" placeholder="option 1">
-            <input type="radio" value="q3is_correct_1" name="choice3">
-            <br>
-            <input type="text" name="q3choice_2" placeholder="option 2">
-            <input type="radio" value="q3is_correct_2" name="choice3">
-            <br>
-            <input type="text" name="q3choice_3" placeholder="option 3">
-            <input type="radio" value="q3is_correct_3" name="choice3">
-            <br>
-            <input type="text" name="q3choice_4" placeholder="option 4">
-            <input type="radio" value="q3is_correct_4" name="choice3">
-          </div>
-          <br>
-          <div id="question_4" class="question_form">
-            <input type="text" name="question_4" placeholder="Question 4"><span class="new-quiz-small-text">Correct
-              Answer</span>
-            <br>
-            <input type="text" name="q4choice_1" placeholder="option 1">
-            <input type="radio" value="q4is_correct_1" name="choice4">
-            <br>
-            <input type="text" name="q4choice_2" placeholder="option 2">
-            <input type="radio" value="q4is_correct_2" name="choice4">
-            <br>
-            <input type="text" name="q4choice_3" placeholder="option 3">
-            <input type="radio" value="q4is_correct_3" name="choice4">
-            <br>
-            <input type="text" name="q4choice_4" placeholder="option 4">
-            <input type="radio" value="q4is_correct_4" name="choice4">
-          </div>
-        </section>
-        <br>
-        <!-- <input type="radio" value="left" name="test">
-      <input type="radio" value="right" name="test"> -->
-        <button class="std-btn" type="submit">POST QUIZ</button>
-      </form>
-    </section>
-  </div>
+  <%- include('partials/_newQuiz') %>
 
-
-
-    <main class="container">
-      <h1>Results:</h1>
-      <%= score * 100 %>%
-      You got <%= correct %> out of <%= answers.length %> right!
-    </main>
+  <main class="container">
+    <h1>Results:</h1>
+    <%= score * 100 %>%
+    You got <%= correct %> out of <%= answers.length %> right!
+  </main>
 
   </main>
 
-  <footer>
-
-  </footer>
+  <%- include('partials/_footer') %>
 </body>
 
 </html>
-
