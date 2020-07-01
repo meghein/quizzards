@@ -39,3 +39,14 @@
   }
 
 }
+
+#results {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  padding: 10px;
+  border: 1px solid #343a40;
+  margin: 25px 0px;
+  border-radius: 10px;
+}

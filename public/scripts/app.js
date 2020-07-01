@@ -90,7 +90,7 @@ const loadQuizzesByUser = function() {
 
 const renderResults = function(response) {
   const $resultModal = `
-    <div>
+    <div id="results">
     <h1>Results:</h1>
     ${Math.round(response.score * 100)}%
     You got ${response.correct} out of ${response.answers.length} right!
