@@ -29,7 +29,7 @@ module.exports = ({ getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers
   router.get("/json", (req, res) => {
     getAllQuizzes()
       .then((quizzes) => {
-        console.log("JSON QUIZZES ", quizzes);
+        // console.log("JSON QUIZZES ", quizzes);
         res.json({ quizzes });
       })
       .catch(err => {
@@ -98,18 +98,18 @@ module.exports = ({ getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers
 
   router.post("/", (req, res) => {
     if ((!req.body.choice1 && req.body.question_1) || (!req.body.choice2 && req.body.question_2) || (!req.body.choice3 && req.body.question_3) || (!req.body.choice4 && req.body.question_4)) {
-      console.log("NOOOOOOOOOOOOOOOOOOOO")
+      console.log("NOOOOOOOOOOOOOOOOOOOO");
       res.status(400).json({ error: 'Every question must have a correct answer.' });
       return;
-    };
+    }
     if (!req.body.name || !req.body.question_1) {
-      console.log("NOOOOOOOOOOOOOOOOOOOO")
+      console.log("NOOOOOOOOOOOOOOOOOOOO");
       res.status(400).json({ error: 'Every quiz must have a name and at least one question.' });
       return;
-    };
+    }
     const name = req.body.name;
-    const creator_id = req.session["user_id"]
-    console.log("REQ BODY ", req.body);
+    const creator_id = req.session["user_id"];
+    // console.log("REQ BODY ", req.body);
     let is_public = true;
     if (req.body.is_public) {
       is_public = false;
@@ -140,7 +140,7 @@ module.exports = ({ getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers
         const is_correct_2 = req.body.choice2 === 'q2is_correct_2' ? true : false;
         const is_correct_3 = req.body.choice2 === 'q2is_correct_3' ? true : false;
         const is_correct_4 = req.body.choice2 === 'q2is_correct_4' ? true : false;
-        addAnswers(question_id, choice_1, is_correct_1, choice_2, is_correct_2, choice_3, is_correct_3, choice_4, is_correct_4)
+        addAnswers(question_id, choice_1, is_correct_1, choice_2, is_correct_2, choice_3, is_correct_3, choice_4, is_correct_4);
       });
       const question_3 = req.body.question_3;
       addQuestion(quiz_id, question_3).then(question => {
@@ -153,7 +153,7 @@ module.exports = ({ getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers
         const is_correct_2 = req.body.choice3 === 'q3is_correct_2' ? true : false;
         const is_correct_3 = req.body.choice3 === 'q3is_correct_3' ? true : false;
         const is_correct_4 = req.body.choice3 === 'q3is_correct_4' ? true : false;
-        addAnswers(question_id, choice_1, is_correct_1, choice_2, is_correct_2, choice_3, is_correct_3, choice_4, is_correct_4)
+        addAnswers(question_id, choice_1, is_correct_1, choice_2, is_correct_2, choice_3, is_correct_3, choice_4, is_correct_4);
       });
       const question_4 = req.body.question_4;
       addQuestion(quiz_id, question_4).then(question => {

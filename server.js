@@ -49,6 +49,7 @@ const loginRoute = require("./routes/login_route");
 const registerRoute = require("./routes/register_route");
 const logoutRoute = require("./routes/logout_route");
 const responseRoute = require("./routes/response_route");
+const scoreboardRoute = require("./routes/scoreboard_route");
 // const widgetsRoutes = require("./routes/widgets");
 
 // Mount all resource routes
@@ -59,6 +60,8 @@ app.use("/quizzes", quizRoutes(dbHelpers));
 app.use("/register", registerRoute(dbHelpers));
 app.use("/logout", logoutRoute(dbHelpers));
 app.use("/response", responseRoute(dbHelpers));
+app.use("/scoreboard", scoreboardRoute(dbHelpers));
+
 
 // Note: mount other resources here, using the same pattern above
 //
