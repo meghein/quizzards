@@ -107,6 +107,10 @@ $(document).ready(() => {
   console.log('ready TEST');
   loadQuizzes();
 
+  // SPECIFIC QUIZ RENDER //
+
+
+
   $("#get_all_quizzes").on('click', function() {
     console.log("LOUD N CLEAR ALL");
     $("#get_my_quizzes").css("display", "initial");

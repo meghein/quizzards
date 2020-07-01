@@ -14,3 +14,28 @@
   margin: 25px 0px;
   border-radius: 10px;
 }
+
+
+#url-container {
+  display: flex;
+  justify-content: center;
+
+
+  input {
+   pointer-events: none;
+   background-color: whitesmoke;
+   color: whitesmoke;
+   width: 5px;
+  //  If width goes any smaller it breaks the function.
+  //  Eventually we will have to change the color and background-color to blend in with the body background.
+  //  These inputs are invisible, but have to exist for the copy-to-clipboard-function to work.
+   border: transparent;
+   outline: none;
+  }
+
+  button {
+    background-color: cyan;
+    width: 15rem;
+  }
+
+}
