@@ -53,7 +53,6 @@ const createQuizElement = function(quiz) {
 };
 
 const renderQuizzes = function(quizzes) {
-  // console.log(quizzes)
   const quizArr = [];
   for (let title in quizzes) {
     const quizObj = quizzes[title];
@@ -66,7 +65,6 @@ const renderQuizzes = function(quizzes) {
 };
 
 const loadQuizzes = function() {
-  console.log("LOAD QUIZZES FIRES");
   $.ajax({
     url: '/quizzes/json',
     method: 'GET',
@@ -79,7 +77,6 @@ const loadQuizzes = function() {
 };
 
 const loadQuizzesByUser = function() {
-  console.log("IN THE LOAD QUIZZES BY USER FUNCTION");
   $.ajax({
     url: '/quizzes/users/:id',
     method: 'GET',
@@ -95,9 +92,11 @@ const renderResults = function(response) {
   const $resultModal = `
     <div>
     <h1>Results:</h1>
-    ${response.score * 100}%
+    ${Math.round(response.score * 100)}%
     You got ${response.correct} out of ${response.answers.length} right!
+    <a>Click here for a link to share your results</a>
     </div>
+
     `;
   return $resultModal;
 };
@@ -126,10 +125,9 @@ $(document).ready(() => {
   });
 
   $("#quiz-form").on("submit", event => {
-    console.log("this is the event:", event)
     const obj = {};
     const answers = $("input:checked")
-    answers.each((id, input) => {
+    answers.each((_id, input) => {
       obj[input.name] = input.id;
     })
     event.preventDefault();
