@@ -139,8 +139,6 @@ $(document).ready(() => {
   //////////////////////////////////////////////////
 
 
-
-
   $("#get_all_quizzes").on('click', function() {
     $("#get_my_quizzes").css("display", "initial");
     $("#get_all_quizzes").css("display", "none");
