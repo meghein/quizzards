@@ -233,6 +233,27 @@ module.exports = (db) => {
       .then(res => res.rows);
   };
 
+  // const getAllUserResults = () => {
+  //   const reqParams = [];
+  //   const query = `
+  //   SELECT  users.name,
+  //           array_agg(answers.is_correct) as answers,
+  //           sum(case when answers.is_correct then 1 else 0 end) as correct
+  //   FROM results
+  //   JOIN users ON users.id = results.user_id
+  //   JOIN responses ON responses.result_id = results.id
+  //   JOIN answers ON answers.id = responses.answer_id
+  //   GROUP BY users.id
+  //   LIMIT 10
+  //   `;
+
+  //   return db.query(query, reqParams)
+  //     .then((res) => {
+  //       const info = res.rows;
+  //       return info;
+  //     });
+  // };
+
   const getAllUserResults = () => {
     const reqParams = [];
     const query = `
@@ -252,7 +273,8 @@ module.exports = (db) => {
         const info = res.rows;
         return info;
       });
-  };
+  }
+
 
   return {
     getUsers,

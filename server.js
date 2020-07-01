@@ -62,7 +62,6 @@ app.use("/logout", logoutRoute(dbHelpers));
 app.use("/response", responseRoute(dbHelpers));
 app.use("/scoreboard", scoreboardRoute(dbHelpers));
 
-
 // Note: mount other resources here, using the same pattern above
 //
 // Home page

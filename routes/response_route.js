@@ -24,9 +24,9 @@ module.exports = ({ addUserResults, addUserResponse, getUserResults }) => {
         });
       })
       .then(([resultId, _responses]) => {
-      // return getUserResults(resultId); // => if we end up going the SPA way
-        res.redirect(`/response/${resultId}`);
-        return true;
+        return getUserResults(resultId); // => if we end up going the SPA way
+        // res.redirect(`/response/${resultId}`);
+        // return true;
       })
       .then((results) => res.json(results))
       .catch((err) => {
