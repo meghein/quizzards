@@ -119,23 +119,6 @@ const copyUrlToClipboard = function() {
 ////////////////////////////////////////// Reference quiz-id.ejs lines 33-38 to see how it works with the input field
 
 
-
-
-// const copyUrlToClipboard = function() {
-//   var copyText = document.getElementById("hidden-url");
-//   copyText.select();
-//   copyText.setSelectionRange(0, 99999);
-//   document.execCommand("copy");
-// }
-/////////////////////////////////////////////
-const copyRESULTSUrlToClipboard = function() {
-  var copyText = document.getElementById("#####THE-INPUT-ELEMENT-ID-YOU-WANT#######");
-  copyText.select();
-  copyText.setSelectionRange(0, 99999);
-  document.execCommand("copy");
-}
-////////////////////////////////////////// Reference quiz-id.ejs lines 33-38 to see how it works with the input field
-
 $(document).ready(() => {
   console.log('ready TEST');
   loadQuizzes();

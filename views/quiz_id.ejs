@@ -14,14 +14,6 @@
   <script src="https://kit.fontawesome.com/90ba6681f7.js" crossorigin="anonymous"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
 
-  <!-- <script>function myFunction() {
-    var copyText = document.getElementById("hidden-url");
-    copyText.select();
-    copyText.setSelectionRange(0, 99999);
-    document.execCommand("copy");
-    alert("Copied the text: " + copyText.value);
-  }
-</script> -->
 
   <title>Quizzards</title>
 </head>
@@ -33,7 +25,7 @@
   <% const quizUrl = `http://localhost:8080/quizzes/${quiz.id}` %>
   <div id="url-container">
     <input type="text" value="<%= quizUrl %>" id="hidden-url">
-    <button onclick="myFunction()">Copy Quiz Url</button>
+    <button id="copy-url-button">Copy Quiz Url</button>
     <input type="text">
   </div>
 
@@ -43,7 +35,7 @@
     </h1>
     <form id="quiz-form" method="POST" action="/response/<%= quizId %>">
       <% for (let question of questions) { %>
-      <div class="question-card" >
+      <div class="question-card">
         <h3><%= question.text %></h3>
         <% for (let answer of question.answers) { %>
         <input type="radio" id="<%= answer.id %>" value="<%= answer.id %>" name="<%= question.id %>">
@@ -70,7 +62,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
   integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-</script>
+  </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 
