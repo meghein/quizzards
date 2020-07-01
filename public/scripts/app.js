@@ -122,8 +122,6 @@ $(document).ready(() => {
 
 
 
-
-
   $("#get_all_quizzes").on('click', function() {
     console.log("LOUD N CLEAR ALL");
     $("#get_my_quizzes").css("display", "initial");
@@ -137,6 +135,10 @@ $(document).ready(() => {
     $("#get_all_quizzes").css("display", "initial");
     loadQuizzesByUser();
   });
+
+
+
+
 
 
   /////////////////////////////////
