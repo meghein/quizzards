@@ -91,38 +91,21 @@ const loadQuizzesByUser = function() {
   });
 };
 
-
-// renderResults and quizResultModal functions not in use.. but maybe we can work out the functionality later?
 const renderResults = function(response) {
   const $resultModal = `
-    <div id="ex2" class="modal">
-      <p>${response.score * 100}</p>
-     <a href="#" rel="modal:close">Close</a>
+    <div>
+    <h1>Results:</h1>
+    ${response.score * 100}%
+    You got ${response.correct} out of ${response.answers.length} right!
     </div>
     `;
   return $resultModal;
 };
 
-const quizResultModal = function() {
-  $.ajax({
-    url: '/response/:id',
-    method: 'GET',
-    dataType: 'JSON'
-  }).then(function(response) {
-    renderResults(response);
-  });
-};
-
 
 $(document).ready(() => {
-  console.log('ready');
+  console.log('ready TEST');
   loadQuizzes();
-
-  // SPECIFIC QUIZ RENDER //
-
-
-
-
 
   $("#get_all_quizzes").on('click', function() {
     console.log("LOUD N CLEAR ALL");
@@ -138,19 +121,22 @@ $(document).ready(() => {
     loadQuizzesByUser();
   });
 
-
-  /////////////////////////////////
-
-  // $(".quizSubmit").on("click", function(event) {
-  //   event.preventDefault()
-  //   console.log("quiz submit clicked")
-  //   alert("Hello World!")
-  // quizResultModal()
-  // });
-  // document.getElementById("quizSubmit").addEventListener("click", function(event) {
-  //   event.preventDefault()
-  //   alert("Hello World!");
-  // });
+  $("#quiz-form").on("submit", event => {
+    console.log("this is the event:", event)
+    const obj = {};
+    const answers = $("input:checked")
+    answers.each((id, input) => {
+      obj[input.name] = input.id;
+    })
+    event.preventDefault();
+    $.ajax({
+      url: event.target.action,
+      method: 'POST',
+      data: obj
+    }).then(function(response) {
+      $('#results-container').append(renderResults(response));
+    });
+  });
 });
 
 

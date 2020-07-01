@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
-module.exports = ({ checkAnswers, storeAnswers, addUserResults, addUserResponse, getUserResults }) => {
+module.exports = ({ addUserResults, addUserResponse, getUserResults }) => {
 
   router.post("/:id", (req, res) => {
+    console.log(req.body);
     const templateVars = {
       user: req.session["user"],
       userId: req.session["user_id"] ? req.session["user_id"] : undefined,
@@ -23,11 +24,11 @@ module.exports = ({ checkAnswers, storeAnswers, addUserResults, addUserResponse,
       })
     })
     .then(([resultId, _responses]) => {
-      // return getUserResults(resultId); // => if we end up going the SPA way
-      res.redirect(`/response/${resultId}`);
-      return true;
+      return getUserResults(resultId);
     })
-    .then((results) => res.json(results))
+    .then((results) => {
+      res.json(results)
+    })
     .catch((err) => {
       res.status(500).json(err);
     });
