@@ -72,45 +72,33 @@ const loadQuizzesByUser = function() {
 };
 
 const renderResults = function(response) {
-  const $resultModal = `
+  const $result = `
     <div id="results">
       ${Math.round(response.score * 100)}%
       You got ${response.correct} out of ${response.answers.length} right!
-    <div id="copy-results">
+    <div id="copy-results" data-quizid="${response.id}">
       <h5>Share your results:</h5>
-      <input type="text" value="http://localhost:8080/response/${response.id}" id="hidden-results">
       <button id="copy-results-button" class="btn btn-info btn-lg"><i class="fa fa-link" aria-hidden="true"></i> Copy Link</button>
     </div>
     </div>
     `;
-  return $resultModal;
-};
-
-const copyToClipboard = function(id) {
-  const $copyText = document.getElementById(id);
-  $copyText.select();
-  $copyText.setSelectionRange(0, 99999);
-  document.execCommand("copy");
+  return $result;
 };
 
 
 $(document).ready(() => {
-  console.log('ready TEST');
   loadQuizzes();
 
+  new ClipboardJS('#copy-url-button', {
+    text: function(trigger) {
+        return window.location.origin + '/quizzes/' + trigger.dataset.quizid;
+    }
+  });
+
   $("#copy-url-button").on('click', function() {
-    copyToClipboard("hidden-url");
     $("#url-container").fadeOut(500)
     $("#url-container").fadeIn(1000)
   });
-
-
-  $("#copy-results-button").on('click', function() {
-    copyToClipboard("hidden-results");
-    $("#copy-results").fadeOut(500)
-    $("#copy-results").fadeIn(1000)
-  });
-
 
   $("#get_all_quizzes").on('click', function() {
     $("#get_my_quizzes").css("display", "initial");
@@ -136,8 +124,18 @@ $(document).ready(() => {
       method: 'POST',
       data: obj
     }).then(function(response) {
-      // console.log("response:", response)
       $('#results-container').append(renderResults(response));
+      new ClipboardJS('#copy-results-button', {
+        text: function(trigger) {
+            const responseId = document.getElementById("copy-results").dataset.quizid;
+            return window.location.origin + '/response/' + responseId;
+        }
+      });
+      $("#copy-results-button").on('click', function() {
+        $("#copy-results").fadeOut(500)
+        $("#copy-results").fadeIn(1000)
+      });
+
     });
   });
 });
