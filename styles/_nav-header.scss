@@ -137,3 +137,25 @@
   }
 
 }
+
+#login-button {
+  color: #007bff;
+  background-color: wheat;
+  background-image: $navcontainer-button-bg-img;
+
+  &:hover {
+    background-color: $navcontainer-button-hover-color;
+    color: $header-footer-text;
+  }
+}
+
+#register-button {
+  color: #007bff;
+  background-color: wheat;
+  background-image: $navcontainer-button-bg-img;
+
+  &:hover {
+    background-color: $navcontainer-button-hover-color;
+    color: $header-footer-text;
+  }
+}

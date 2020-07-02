@@ -1,24 +1,35 @@
+//body background:
+$background: #0E0B1E;
+$bg-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+
+// header and footer background:
 $nav: #1F3670;
 $navbordercolor: #162650;
-$navcontainer: #F5DEB3;
+$header-footer-bg-img: url("https://www.transparenttextures.com/patterns/navy.png");
 $navcontainer-bg-img: url("https://www.transparenttextures.com/patterns/cartographer.png");
+
+// nav buttons:
 $navcontainer-button-color: #007bff;
+$btn-text-color: #007bff;
 $navcontainer-button-bg-color: #D1BB6A;
 $navcontainer-button-bg-img: url("https://www.transparenttextures.com/patterns/black-thread-light.png");
 $navcontainer-button-hover-color: #211921;
-$background: #0E0B1E;
+$navcontainer: #F5DEB3;
+
+// quiz buttons:
+
+//button styles
+
+// text:
 $header-footer-text: #F5DEB3;
-$header-footer-bg-img: url("https://www.transparenttextures.com/patterns/navy.png");
-$box: #141052;
-$shadow: #4056A1;
 $text: #7699D4;
-$button: #F5DEB3;
-$bg-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
 $font-body: 'Gafata',
 sans-serif;
 $font-title: 'Jolly Lodger',
 cursive;
-$btn-text-color: #007bff;
+
+
+
 
 
 // // Potential Colours:
