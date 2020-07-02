@@ -9,7 +9,12 @@ VALUES
   (2, 'What is Vasilys favourite breakfast food?'),
   (2, 'How old is Vasily?'),
   (2, 'What is Vasilys favourite videogame?'),
-  (2, 'Another Vasily questions, time to guess.');
+  (2, 'Another Vasily questions, time to guess.'),
+
+  (3, 'What is Doms favourite meal of the day?'),
+  (3, 'What was Doms previous startup business?'),
+  (3, 'How does Dom live on the edge?'),
+  (3, 'What is Doms nickname?');
 
 
 
@@ -54,7 +59,27 @@ VALUES
   (8, 'This one?', false),
   (8, 'ThIs OnE?', true),
   (8, 'This_one?', false),
-  (8, '.this.one.?', false);
+  (8, '.this.one.?', false),
+
+  (9, 'Dom does not eat - he is self sustaining', true),
+  (9, 'Late night waffles', false),
+  (9, 'Breakfast tacos', false),
+  (9, 'Skittles', false),
+
+  (10, 'Bitmoji', false),
+  (10, 'MySpace', false),
+  (10, 'Limewire', false),
+  (10, 'Gify', true),
+
+  (11, 'Parkour', false),
+  (11, 'He does not plug in his laptop before lectures', true),
+  (11, 'LARPing', false),
+  (11, 'Base jumping', false),
+
+  (12, 'The Object Model?', false),
+  (12, 'The Dominator?', true),
+  (12, 'DT', false),
+  (12, 'Captain Waffle', false);
 
 -- CREATE TABLE questions
 -- (
