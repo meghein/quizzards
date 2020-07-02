@@ -261,12 +261,14 @@ module.exports = (db) => {
     const query = `
     SELECT  users.name,
             array_agg(answers.is_correct) as answers,
-            sum(case when answers.is_correct then 1 else 0 end) as correct
+            sum(case when answers.is_correct then 1 else 0 end) as correct,
+            avg(case when answers.is_correct then 1 else 0 end) as average
     FROM results
     JOIN users ON users.id = results.user_id
     JOIN responses ON responses.result_id = results.id
     JOIN answers ON answers.id = responses.answer_id
     GROUP BY users.id
+    ORDER BY average DESC
     LIMIT 10
     `;
 
