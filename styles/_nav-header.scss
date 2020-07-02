@@ -30,7 +30,7 @@
   .greeting {
     display: flex;
     padding: 0 10px;
-    
+
   }
 
   h1 {
@@ -44,6 +44,7 @@
 }
 
 .form-container {
+  color: $btn-text-color;
   margin-bottom: 75px;
   padding: 15px;
   display: flex;
@@ -75,7 +76,7 @@
 
 
 .std-btn {
-  
+
   text-decoration: none;
   border: 1px solid #343a40;
   padding: 10px;
