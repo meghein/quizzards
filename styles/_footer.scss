@@ -12,7 +12,7 @@
   margin-top: 100px;
   font-family: $font-title;
   font-size: 1.5em;
-  color: $text-color;
+  color: $navcontainer-button-color;
   border-top: groove .3rem $navbordercolor;
   border-right: groove .3rem $navbordercolor;
   border-left: groove .3rem $navbordercolor;
@@ -27,7 +27,7 @@
   }
 
   button {
-    color: $text-color;
+    color: $navcontainer-button-color;
     background-color: wheat;
 
     &:hover {
