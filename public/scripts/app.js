@@ -1,20 +1,6 @@
 // const escape = require('./escape.js')
 
-// $(() => {
-//   $.ajax({
-//     method: "GET",
-//     url: "/users"
-//   }).done((users) => {
-//     console.log(users);
-//     for (user of users) {
-//       $("<div>").text(user.name).appendTo($("body"));
-//     }
-//   });
-// });
-
-
 // MAIN QUIZ CONTAINER FUNCTIONALITY TO LOAD QUIZ CARDS //
-
 const createQuizElement = function(quiz) {
   let $quizElement = ``;
   if (quiz.is_public === true) {
@@ -57,7 +43,6 @@ const renderQuizzes = function(quizzes) {
   for (let title in quizzes) {
     const quizObj = quizzes[title];
     for (let quiz of quizObj) {
-      // console.log(quiz);
       quizArr.push(createQuizElement(quiz));
     }
   }
@@ -70,7 +55,6 @@ const loadQuizzes = function() {
     method: 'GET',
     dataType: 'JSON'
   }).then(function(response) {
-    // console.log(response);
     $('#quizzes-container').empty();
     renderQuizzes(response);
   });
@@ -82,7 +66,6 @@ const loadQuizzesByUser = function() {
     method: 'GET',
     dataType: 'JSON'
   }).then(function(response) {
-    // console.log(response);
     $('#quizzes-container').empty();
     renderQuizzes(response);
   });
@@ -90,33 +73,25 @@ const loadQuizzesByUser = function() {
 
 const renderResults = function(response) {
   const $resultModal = `
-    <div>
-    <h1>Results:</h1>
-    ${Math.round(response.score * 100)}%
-    You got ${response.correct} out of ${response.answers.length} right!
-    <a>Click here for a link to share your results</a>
+    <div id="results">
+      ${Math.round(response.score * 100)}%
+      You got ${response.correct} out of ${response.answers.length} right!
+    <div id="copy-results">
+      <h5>Share your results:</h5>
+      <input type="text" value="http://localhost:8080/response/${response.id}" id="hidden-results">
+      <button id="copy-results-button" class="btn btn-info btn-lg"><i class="fa fa-link" aria-hidden="true"></i> Copy Link</button>
     </div>
-
+    </div>
     `;
   return $resultModal;
 };
 
-const copyUrlToClipboard = function() {
-  var copyText = document.getElementById("hidden-url");
-  copyText.select();
-  copyText.setSelectionRange(0, 99999);
+const copyToClipboard = function(id) {
+  const $copyText = document.getElementById(id);
+  $copyText.select();
+  $copyText.setSelectionRange(0, 99999);
   document.execCommand("copy");
 };
-
-//MEG FOR YOU
-/////////////////////////////////////////////
-// const copyRESULTSUrlToClipboard = function() {
-//   var copyText = document.getElementById("#####THE-INPUT-ELEMENT-ID-YOU-WANT#######");
-//   copyText.select();
-//   copyText.setSelectionRange(0, 99999);
-//   document.execCommand("copy");
-// }
-////////////////////////////////////////// Reference quiz-id.ejs lines 33-38 to see how it works with the input field
 
 
 $(document).ready(() => {
@@ -124,19 +99,18 @@ $(document).ready(() => {
   loadQuizzes();
 
   $("#copy-url-button").on('click', function() {
-    copyUrlToClipboard();
+    copyToClipboard("hidden-url");
     $("#url-container").fadeOut(500)
     $("#url-container").fadeIn(1000)
   });
 
-  // MEG FOR YOU
-  ////////////////////////////////////////////////
-  // $("#####THE-INPUT-ELEMENT-ID-YOU-WANT#######").on('click', function() {
-  //   copyRESULTSUrlToClipboard();
-  //   $("#url-container").fadeOut(500)
-  //   $("#url-container").fadeIn(1000)
-  // });
-  //////////////////////////////////////////////////
+
+  $("#copy-results-button").on('click', function() {
+    copyToClipboard("hidden-results");
+    $("#copy-results").fadeOut(500)
+    $("#copy-results").fadeIn(1000)
+  });
+
 
   $("#get_all_quizzes").on('click', function() {
     $("#get_my_quizzes").css("display", "initial");
@@ -162,6 +136,7 @@ $(document).ready(() => {
       method: 'POST',
       data: obj
     }).then(function(response) {
+      // console.log("response:", response)
       $('#results-container').append(renderResults(response));
     });
   });

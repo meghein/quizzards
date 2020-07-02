@@ -196,12 +196,14 @@ module.exports = (db) => {
 
   const getUserResults = (resultId) => {
     const query = `
-    SELECT array_agg(answers.is_correct) as answers,
+    SELECT results.id, array_agg(answers.is_correct) as answers,
            sum(case when answers.is_correct then 1 else 0 end) as correct
     FROM results
     JOIN responses ON responses.result_id = results.id
     JOIN answers ON answers.id = responses.answer_id
-    WHERE results.id = $1`;
+    WHERE results.id = $1
+    GROUP BY results.id
+    `;
 
     return db.query(query, [resultId])
       .then((res) => {

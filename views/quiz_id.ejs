@@ -26,13 +26,6 @@
   <%- include('partials/_header') %>
   <%- include('partials/_newQuiz') %>
 
-  <% const quizUrl = `http://localhost:8080/quizzes/${quiz.id}` %>
-  <div id="url-container">
-    <input type="text" value="<%= quizUrl %>" id="hidden-url">
-    <button id="copy-url-button">Copy Quiz Url</button>
-    <input type="text">
-  </div>
-
   <div id="quiz-attempt">
     <h1 id="quiz-name">
       <%= quiz.name %>
@@ -53,6 +46,12 @@
   </div>
 
   <section id="results-container"></section>
+
+  <div id="url-container">
+    <h5>Share this quiz:</h5>
+    <input type="text" value="http://localhost:8080/quizzes/<%= quiz.id %>" id="hidden-url">
+    <button id="copy-url-button" class="btn btn-info btn-lg"><i class="fa fa-link" aria-hidden="true"></i> Copy Link</button>
+  </div>
 
 
   </div>
