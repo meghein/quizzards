@@ -3,12 +3,12 @@ INSERT INTO questions
 VALUES
   (1, 'When Francis has extra cookies, what does he do with them?'),
   (1, 'Francis knows how to:'),
-  (1, 'What is Francis\'s secret protest technique?'),
+  (1, 'What is Francis secret protest technique?'),
   (1, 'Will Francis a will give you cookies some day?'),
 
-  (2, 'What is Vasily\'s favourite breakfast food? '),
+  (2, 'What is Vasilys favourite breakfast food? '),
   (2, 'How old is Vasily?'),
-  (2, 'What is Vasily\'s favourite videogame?'),
+  (2, 'What is Vasilys favourite videogame?'),
   (2, 'Another Vasily questions, time to guess.');
 
 
@@ -46,7 +46,7 @@ VALUES
   (6, 'Thirty-one', false),
   (6, 'Twenty-Eight', true),
 
-  (7, 'My Hero: One\'s Justice', false),
+  (7, 'My Hero: One Justice', false),
   (7, 'Slither.io', true),
   (7, 'Legend of Zelda: Ocarina of Time', false),
   (7, 'MYST', false),
@@ -54,7 +54,7 @@ VALUES
   (8, 'This one?', false),
   (8, 'ThIs OnE?', true),
   (8, 'This_one?', false),
-  (8, '.this.one.?', false),
+  (8, '.this.one.?', false);
 
 -- CREATE TABLE questions
 -- (
