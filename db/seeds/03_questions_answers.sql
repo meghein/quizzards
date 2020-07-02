@@ -6,7 +6,7 @@ VALUES
   (1, 'What is Francis secret protest technique?'),
   (1, 'Will Francis a will give you cookies some day?'),
 
-  (2, 'What is Vasilys favourite breakfast food? '),
+  (2, 'What is Vasilys favourite breakfast food?'),
   (2, 'How old is Vasily?'),
   (2, 'What is Vasilys favourite videogame?'),
   (2, 'Another Vasily questions, time to guess.');

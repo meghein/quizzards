@@ -4,10 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
   <!-- Font Family -->
   <link href="https://fonts.googleapis.com/css2?family=Gafata&family=Jolly+Lodger&display=swap" rel="stylesheet">
-
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -18,15 +16,12 @@
   <script src="https://kit.fontawesome.com/90ba6681f7.js" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
-
-
   <title>Quizzards</title>
 </head>
 
 <body class="body-override">
   <%- include('partials/_header') %>
   <%- include('partials/_newQuiz') %>
-
   <div id="quiz-attempt">
     <h1 id="quiz-name">
       <%= quiz.name %>
@@ -41,35 +36,26 @@
         <% } %>
       </div>
       <% } %>
-
       <button class="quizSubmit btn btn-info btn-lg">Submit</button>
     </form>
   </div>
-
   <section id="results-container"></section>
-
   <div id="url-container">
     <label for="copy-url-button">Share this quiz:</label>
     <button data-quizid="<%= quiz.id%>" id="copy-url-button" class="btn btn-info btn-lg"><i class="fa fa-link"
         aria-hidden="true"></i> Copy Link</button>
   </div>
-
-
   </div>
   <%- include('partials/_footer') %>
 </body>
 
 </html>
-
-
 <!-- Bootstrap JS -->
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
   integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-  </script>
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
-
 </body>
 
 </html>
