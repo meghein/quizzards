@@ -28,7 +28,8 @@
 
   button {
     color: $navcontainer-button-color;
-    background-color: wheat;
+    background-color: $navcontainer;
+    width: 9rem;
 
     &:hover {
       background-color: $navcontainer-button-hover-color;

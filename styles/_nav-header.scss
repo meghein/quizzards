@@ -17,7 +17,6 @@
   .form-container {
     display: flex;
     align-items: baseline;
-    background-color: $navcontainer;
   }
 
   .title a {
@@ -32,12 +31,17 @@
     padding: 0 10px;
   }
 
-  h4 {
-    font-size: 2em;
+    h4 {
+      font-size: 2.5rem;
+
+    }
+
   }
 
   h1 {
-    font-size: 4.5em;
+    font-size: 6rem;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
   }
 
   .title a:hover {
@@ -55,11 +59,11 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: $navcontainer;
+  background-color: $background;
   background-image: $navcontainer-bg-img;
   border-left: groove .3rem $navbordercolor;
   border-right: groove .3rem $navbordercolor;
-  border: groove .2rem #8C772B;
+  border-top: double .2rem $navbordercolor;
 
   button {
     color: $navcontainer-button-color;
@@ -76,13 +80,13 @@
 
 }
 
-
-
-
 .std-btn {
 
   text-decoration: none;
+  font-size: 2rem;
   border: 1px solid #343a40;
+  width: 7rem;
+  height: 4rem;
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 10px;
@@ -101,52 +105,40 @@
   padding: 0px 10px;
 }
 
-#get_all_quizzes {
 
-  display: none;
-  color: $navcontainer-button-color;
-  background-image: $navcontainer-button-bg-img;
-  background-color: $navcontainer-button-bg-color;
-  font-family: $font-title;
+header {
 
-  &:hover {
-    background-color: $navcontainer-button-hover-color;
-    color: $header-footer-text;
+  button  {
+
+    color: $navcontainer-button-color;
+    background-image: $navcontainer-button-bg-img;
+    background-color: $navcontainer-button-bg-color;
+    font-family: $font-title;
+
+    &:hover {
+      background-color: $navcontainer-button-hover-color;
+      color: $header-footer-text;
+    }
+
   }
 
+#get_all_quizzes {
+  display: none;
+  width: 8rem;
 }
 
 #get_my_quizzes {
   display: initial;
-  color: $navcontainer-button-color;
-  background-image: $navcontainer-button-bg-img;
-  background-color: $navcontainer-button-bg-color;
-  font-family: $font-title;
-
-  &:hover {
-    background-color: $navcontainer-button-hover-color;
-    color: $header-footer-text;
-  }
-
+  width: 8rem;
 }
-
+ 
 #get_all_quizzes_redirect {
   display: initial;
-  color: $navcontainer-button-color;
-  background-image: $navcontainer-button-bg-img;
-  background-color: $navcontainer-button-bg-color;
-  font-family: $font-title;
-
-  &:hover {
-    background-color: $navcontainer-button-hover-color;
-    color: $header-footer-text;
-  }
-
 }
 
 #login-button {
-  color: #007bff;
-  background-color: wheat;
+  color: $btn-text-color;
+  background-color: $header-footer-text;
   background-image: $navcontainer-button-bg-img;
 
   &:hover {
@@ -156,12 +148,13 @@
 }
 
 #register-button {
-  color: #007bff;
-  background-color: wheat;
+  color: $btn-text-color;
+  background-color: $header-footer-text;
   background-image: $navcontainer-button-bg-img;
 
   &:hover {
     background-color: $navcontainer-button-hover-color;
     color: $header-footer-text;
   }
+}
 }
