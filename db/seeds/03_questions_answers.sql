@@ -80,19 +80,3 @@ VALUES
   (12, 'The Dominator', false),
   (12, 'DT', false),
   (12, 'Captain Waffle', false);
-
--- CREATE TABLE questions
--- (
---   id SERIAL PRIMARY KEY NOT NULL,
---   quiz_id INTEGER REFERENCES quizzes(id) ON DELETE CASCADE,
---   text VARCHAR(255) NOT NULL
--- );
-
-
--- CREATE TABLE answers
--- (
---   id SERIAL PRIMARY KEY NOT NULL,
---   question_id INTEGER REFERENCES questions(id) ON DELETE CASCADE,
---   choice VARCHARR(255) NOT NULL,
---   is_correct BOOLEAN NOT NULL
--- );

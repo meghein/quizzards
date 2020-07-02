@@ -13,9 +13,13 @@
     color: $header-footer-text;
     background-image: url("https://www.transparenttextures.com/patterns/black-linen.png");
 
-    h3 {
+    h2 {
       font-family: $font-title;
-      font-size: 3rem;
+      font-size: 4rem;
+    }
+    h4 {
+      font-family: $font-title;
+      font-size: 2.5rem;
     }
   }
 }
