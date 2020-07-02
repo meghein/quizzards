@@ -1,22 +1,25 @@
-/* eslint-disable camelcase */
-// /*
-//  * All routes for Widgets are defined here
-//  * Since this file is loaded in server.js into api/widgets,
-//  *   these routes are mounted onto /widgets
-//  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
-//  */
-
 const express = require('express');
 const router = express.Router();
 
 module.exports = ({ getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers, getQuizQuestions, getQuestionAnswers, getQuizzesByCreatorId }) => {
+
+  router.get("/", (_req, res) => {
+    getAllQuizzes()
+      .then((quizzes) => {
+        res.render('quizzes', { templateVars: quizzes });
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+  });
 
   router.get("/users/:id", (req, res) => {
     const creator_id = req.session["user_id"];
     console.log("creator_id ", creator_id);
     getQuizzesByCreatorId(creator_id)
       .then((quizzes) => {
-        console.log("USER ID QUIZZES ", quizzes);
         res.json({ quizzes });
       })
       .catch(err => {
@@ -26,10 +29,10 @@ module.exports = ({ getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers
       });
   });
 
-  router.get("/json", (req, res) => {
+  // test route for json object of quizzes
+  router.get("/json", (_req, res) => {
     getAllQuizzes()
       .then((quizzes) => {
-        // console.log("JSON QUIZZES ", quizzes);
         res.json({ quizzes });
       })
       .catch(err => {
@@ -40,7 +43,6 @@ module.exports = ({ getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers
   });
 
   router.get('/:id', (req, res) => {
-    // console.log("AHAHHH LOOK AT MEAIOSHFOUASFSABFSKDJNFKSDJNF ", req.params)
     const templateVars = {
       user: req.session["user"],
       userId: req.session["user_id"] ? req.session["user_id"] : undefined,
@@ -74,42 +76,18 @@ module.exports = ({ getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers
       });
   });
 
-  router.get("/", (req, res) => {
-    getAllQuizzes()
-      .then((quizzes) => {
-        res.render('quizzes', { templateVars: quizzes });
-      })
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
-      });
-  });
-
-  router.post("/:id/delete", (req, res) => {
-    //   const user = users[req.session["user_id"]];
-    //   if (user) {
-    //     const shortURL = req.params.shortURL;
-    //     delete urlDatabase[shortURL];
-    //     res.redirect("/urls");
-    //   }
-    //   res.status(403).send("no can do!");
-  });
-
   router.post("/", (req, res) => {
     if ((!req.body.choice1 && req.body.question_1) || (!req.body.choice2 && req.body.question_2) || (!req.body.choice3 && req.body.question_3) || (!req.body.choice4 && req.body.question_4)) {
-      console.log("NOOOOOOOOOOOOOOOOOOOO");
       res.status(400).json({ error: 'Every question must have a correct answer.' });
       return;
     }
     if (!req.body.name || !req.body.question_1) {
-      console.log("NOOOOOOOOOOOOOOOOOOOO");
       res.status(400).json({ error: 'Every quiz must have a name and at least one question.' });
       return;
     }
     const name = req.body.name;
     const creator_id = req.session["user_id"];
-    // console.log("REQ BODY ", req.body);
+
     let is_public = true;
     if (req.body.is_public) {
       is_public = false;
@@ -166,8 +144,7 @@ module.exports = ({ getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers
         const is_correct_2 = req.body.choice4 === 'q4is_correct_2' ? true : false;
         const is_correct_3 = req.body.choice4 === 'q4is_correct_3' ? true : false;
         const is_correct_4 = req.body.choice4 === 'q4is_correct_4' ? true : false;
-        addAnswers(question_id, choice_1, is_correct_1, choice_2, is_correct_2, choice_3, is_correct_3, choice_4, is_correct_4).then(answer => {
-          // console.log("ANSWER ", answer)
+        addAnswers(question_id, choice_1, is_correct_1, choice_2, is_correct_2, choice_3, is_correct_3, choice_4, is_correct_4).then(() => {
           res.redirect("/");
         });
       });

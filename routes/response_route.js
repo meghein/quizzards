@@ -41,7 +41,8 @@ module.exports = ({ addUserResults, addUserResponse, getUserResults }) => {
           answers: results.answers,
           correct: results.correct,
           score: results.score,
-          homepage: false
+          homepage: false,
+          quiz: results.name
         };
         res.render('quiz_results', templateVars);
       })
