@@ -23,6 +23,8 @@ module.exports = ({
       if (!user) {
         addUser(name, email, password).then(row => {
           const userId = row.id;
+          const user = row;
+          req.session["user"] = user;
           req.session["user_id"] = userId;
           res.redirect("/");
         });
