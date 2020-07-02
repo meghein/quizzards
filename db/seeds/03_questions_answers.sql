@@ -76,8 +76,8 @@ VALUES
   (11, 'LARPing', false),
   (11, 'Base jumping', false),
 
-  (12, 'The Object Model?', false),
-  (12, 'The Dominator?', true),
+  (12, 'The Object Model', true),
+  (12, 'The Dominator', false),
   (12, 'DT', false),
   (12, 'Captain Waffle', false);
 
