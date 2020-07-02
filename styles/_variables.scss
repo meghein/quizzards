@@ -1,14 +1,19 @@
-$nav: #1B0C1D;
-$navcontainer: #171342;
+$nav: #1F3670;
+$navcontainer: #F5DEB3;
+$navcontainer-bg-img: url("https://www.transparenttextures.com/patterns/cartographer.png");
 $background: #0E0B1E;
-// $border: ;
+$header-footer-text: #F5DEB3;
+$header-footer-bg-img: url("https://www.transparenttextures.com/patterns/navy.png");
 $box: #141052;
 $shadow: #4056A1;
 $text: #7699D4;
 $alert: #FF0000;
 $bg-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
-$font-body: 'Gafata', sans-serif;
-$font-title: 'Jolly Lodger', cursive;
+$font-body: 'Gafata',
+sans-serif;
+$font-title: 'Jolly Lodger',
+cursive;
+$text-color: #007bff;
 
 
 // // Potential Colours:
@@ -19,7 +24,7 @@ $font-title: 'Jolly Lodger', cursive;
 // #5441B4 - ocean blue (purple....)
 // #8C6CB2 - middle blue purple (LIGHT PURPLE)
 // #7B506F - twilight lavander
-
+//  #007bff;
 // #008AB8 - blue ncs
 // #7699D4 - cornflower blue ---- GRAHAM LOVES
 

@@ -4,12 +4,15 @@
 #footer-container {
   display: flex;
   background-color: $nav;
+  color: $header-footer-text;
+  background-image: $header-footer-bg-img;
   justify-content: space-between;
   align-items: center;
   padding: 25px;
   margin-top: 100px;
   font-family: $font-title;
-  font-size: 36px;
+  font-size: 1.5em;
+  color: $text-color;
 
   .contact-icon {
     padding: 10px;
@@ -20,11 +23,16 @@
     padding: 0;
   }
 
+  button {
+    color: $text-color;
+  }
+
 }
 
 #credit {
   background-color: $nav;
   text-align: center;
+  color: $navcontainer;
 
   p {
     margin: 0;
