@@ -60,6 +60,14 @@ main .container {
   h1 {
     font-size: 3rem;
   }
+
+  input[type='submit'] {
+    color: #007bff;
+    background-image: url(https://www.transparenttextures.com/patterns/black-thread-light.png);
+    background-color: #F5DEB3;
+    font-family: "Jolly Lodger",
+      cursive;
+  }
 }
 
 @media only screen and (min-width: 768px) {
