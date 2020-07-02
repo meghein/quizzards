@@ -13,6 +13,9 @@
   font-family: $font-title;
   font-size: 1.5em;
   color: $text-color;
+  border-top: groove .3rem $navbordercolor;
+  border-right: groove .3rem $navbordercolor;
+  border-left: groove .3rem $navbordercolor;
 
   .contact-icon {
     padding: 10px;
@@ -40,6 +43,10 @@
   background-color: $nav;
   text-align: center;
   color: $navcontainer;
+  border-bottom: groove .3rem $navbordercolor;
+  border-right: groove .3rem $navbordercolor;
+  border-left: groove .3rem $navbordercolor;
+  border-top: groove  .1rem $navbordercolor;
 
   p {
     margin: 0;

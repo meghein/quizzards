@@ -26,6 +26,13 @@
 #url-container {
   display: flex;
   justify-content: center;
+
+  label {
+    color: $header-footer-text;
+    font-family: $font-title;
+    font-size: 2.5rem;
+    margin-right: 1rem;
+  }
 }
 
 #results {
