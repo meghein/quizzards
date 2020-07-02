@@ -1,0 +1,77 @@
+#navigation {
+  padding: 25px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #453643;
+
+  .form-container {
+    display: flex;
+    align-items: baseline;
+  }
+
+  .title {
+    width: 50%;
+    position: relative;
+    top: 0;
+    left: 25px;
+    text-align: center;
+  }
+
+  .title a:hover {
+    text-decoration: none;
+  }
+
+}
+
+.form-container {
+  margin-bottom: 75px;
+  padding: 0 25px 25px 25px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: royalblue;
+
+  .greeting {
+    display: flex;
+    padding: 0 10px;
+  }
+}
+
+.std-btn {
+  background-color: inherit;
+  text-decoration: none;
+  border: 1px solid #343a40;
+  padding: 10px;
+  border-radius: 10px;
+  color: black;
+  margin-bottom: 10px;
+}
+
+.std-btn:hover {
+  text-decoration: none;
+  cursor: pointer;
+  color: #FFF;
+  background-color: #343a40;
+}
+
+.greeting form {
+  padding: 0px 10px;
+}
+
+#get_all_quizzes {
+  display: none;
+  width: 8rem;
+}
+
+#get_my_quizzes {
+  display: initial;
+  width: 8rem;
+}
+
+#get_all_quizzes_redirect {
+  display: initial;
+  width: 8rem;
+}

@@ -6,12 +6,12 @@ VALUES
 INSERT INTO quizzes
   (creator_id, name, is_public)
 VALUES
-  (1, 'How tall are your classmates?', true);
+  (1, 'Very Vasily', true);
 
 INSERT INTO quizzes
   (creator_id, name, is_public)
 VALUES
-  (1, 'Guess the Disney princess?', true);
+  (1, 'DOM', true);
 
 
 
