@@ -4,13 +4,12 @@
 @import "nav-header";
 @import "quiz-id";
 @import "footer";
+@import "variables";
 
 
-body {
-  background-color: #EEE;
-
-  h1 {
-    color: #244751;
-
-  }
+.body-override {
+  background-color: $background;
+  background-image: $bg-image;
+  font-family: $font-body;
+  font-size: 24px;
 }

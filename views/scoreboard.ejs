@@ -31,7 +31,25 @@
     <!--CREATE QUIZ FORM (SCROLLDOWN) * GRAHAM * -->
 
     <!-- QUIZ CARD GALLERY * MEG * -->
-    <div id="quizzes-container"></div>
+    <div id="scoreboard-container">
+      <h2>Scoreboard</h2>
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Average Quiz Score %</th>
+          </tr>
+        </thead class="table-striped">
+        <tbody>
+          <tr>
+            <% for (let key of scores) { %>
+            <td><%= key.name %></td>
+            <td><%= Math.floor(key.score * 100) %></td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
 
   </main>
 

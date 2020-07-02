@@ -1,14 +1,18 @@
+@import "variables";
+
 #navigation {
   padding: 25px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: #7699D4;
+  background-color: $nav;
+  font-family: $font-title;
 
   .form-container {
     display: flex;
     align-items: baseline;
+    background-color: $navcontainer;
   }
 
   .title {
@@ -26,12 +30,13 @@
 }
 
 .form-container {
-  padding: 25px;
+  margin-bottom: 75px;
+  padding: 0 25px 25px 25px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: royalblue;
+  background-color: $navcontainer;
 
   .greeting {
     display: flex;

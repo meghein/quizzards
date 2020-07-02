@@ -171,28 +171,28 @@ module.exports = (db) => {
       values: [key, value]
     };
     return db.query(query).then((res) => res.rows[0]);
-  }
+  };
 
   const storeAnswers = (results) => {
     let score = 0;
     const promises = [];
     const answersArr = [];
     for (let key in results) {
-      promises.push(checkAnswers(key, results[key]))
+      promises.push(checkAnswers(key, results[key]));
     }
 
     return Promise.all(promises).then(results => {
       for (let answer in results) {
-        answersArr.push(results[answer].is_correct)
+        answersArr.push(results[answer].is_correct);
         if (results[answer].is_correct) {
-          score++
+          score++;
         }
       }
-      console.log("score:", score)
-      console.log("answersArr:", answersArr)
-      return { score, answersArr }
-    })
-  }
+      console.log("score:", score);
+      console.log("answersArr:", answersArr);
+      return { score, answersArr };
+    });
+  };
 
   const getUserResults = (resultId) => {
     const query = `
@@ -205,8 +205,8 @@ module.exports = (db) => {
 
     return db.query(query, [resultId])
       .then((res) => {
-        const info = res.rows[0]
-        info.score = info.correct / info.answers.length
+        const info = res.rows[0];
+        info.score = info.correct / info.answers.length;
         return info;
       });
   };
@@ -231,7 +231,50 @@ module.exports = (db) => {
     };
     return db.query(query)
       .then(res => res.rows);
+  };
+
+  // const getAllUserResults = () => {
+  //   const reqParams = [];
+  //   const query = `
+  //   SELECT  users.name,
+  //           array_agg(answers.is_correct) as answers,
+  //           sum(case when answers.is_correct then 1 else 0 end) as correct
+  //   FROM results
+  //   JOIN users ON users.id = results.user_id
+  //   JOIN responses ON responses.result_id = results.id
+  //   JOIN answers ON answers.id = responses.answer_id
+  //   GROUP BY users.id
+  //   LIMIT 10
+  //   `;
+
+  //   return db.query(query, reqParams)
+  //     .then((res) => {
+  //       const info = res.rows;
+  //       return info;
+  //     });
+  // };
+
+  const getAllUserResults = () => {
+    const reqParams = [];
+    const query = `
+    SELECT  users.name,
+            array_agg(answers.is_correct) as answers,
+            sum(case when answers.is_correct then 1 else 0 end) as correct
+    FROM results
+    JOIN users ON users.id = results.user_id
+    JOIN responses ON responses.result_id = results.id
+    JOIN answers ON answers.id = responses.answer_id
+    GROUP BY users.id
+    LIMIT 10
+    `;
+
+    return db.query(query, reqParams)
+      .then((res) => {
+        const info = res.rows;
+        return info;
+      });
   }
+
 
   return {
     getUsers,
@@ -250,6 +293,7 @@ module.exports = (db) => {
     storeAnswers,
     addUserResults,
     addUserResponse,
-    getUserResults
+    getUserResults,
+    getAllUserResults
   };
 };

@@ -28,7 +28,7 @@ module.exports = ({ getUsers, addUser }) => {
 
     const { name, email, password } = req.body;
 
-    console.log(name, email, password);
+    // console.log(name, email, password);
 
     //save the user in the db
     addUser(name, email, password)
@@ -41,7 +41,7 @@ module.exports = ({ getUsers, addUser }) => {
   router.get('id', (req, res) => {
     const { id } = req.params;
     res.json({ userID: id });
-  })
+  });
 
   return router;
 };
