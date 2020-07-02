@@ -1,6 +1,25 @@
 @import "variables";
 
-#user-results {
-  display: flex;
-  justify-content: center;
+#results-main {
+  text-align: center;
+  #user-results {
+    display: inline-block;
+    padding: 50px;
+    border: 1px solid $navbordercolor;
+    margin: 25px;
+    border-radius: 10px;
+    font-family: $font-body;
+    font-size: 2rem;
+    color: $header-footer-text;
+    background-image: url("https://www.transparenttextures.com/patterns/black-linen.png");
+
+    h3 {
+      font-family: $font-title;
+      font-size: 3rem;
+    }
+  }
 }
+
+
+
+
