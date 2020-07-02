@@ -1,16 +1,32 @@
 @import "variables";
 
 #new_quiz_form {
-  color: #343a40;
-  background-color: #c3b1db;
+  background-color: $navbordercolor;
+  background-image: url("https://www.transparenttextures.com/patterns/black-linen.png");
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-family: $font-body;
+  border: 1px solid $navbordercolor;
+  color: $header-footer-text;
 
   span {
     margin-left: 5px;
+  }
+}
+
+#quiz-submit {
+  color: #007bff;
+  background-image: url(https://www.transparenttextures.com/patterns/black-thread-light.png);
+  background-color: #F5DEB3;
+  font-family: "Jolly Lodger",
+    cursive;
+  margin-bottom: 0px;
+
+  &:hover {
+    background-color: #211921;
+    color: #F5DEB3;
   }
 }
 
@@ -48,6 +64,7 @@
     border: none;
     width: 100%;
     padding-left: 10px;
+    background-color: #F5DEB3;
   }
 
   .name-private {
@@ -62,6 +79,7 @@
   flex-direction: column;
 
   input[type="text"] {
+    background-color: #F5DEB3;
     border-radius: 10px;
     border: none;
     margin: 5px 5px;
@@ -70,5 +88,6 @@
 
   [type="radio"] {
     margin-left: 50px;
+    background-color: #F5DEB3;
   }
 }
