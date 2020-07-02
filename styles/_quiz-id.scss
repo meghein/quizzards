@@ -1,3 +1,5 @@
+@import "variables";
+
 #quiz-attempt {
   display: flex;
   flex-direction: column;
@@ -5,14 +7,17 @@
 
   #quiz-name {
     margin-top: 20px;
+    font-family: $font-title;
   }
 }
+
 
 .question-card {
   padding: 10px;
   border: 1px solid #343a40;
   margin: 25px 0px;
   border-radius: 10px;
+  font-family: $font-body;
 }
 
 
