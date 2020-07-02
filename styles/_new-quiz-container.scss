@@ -17,9 +17,10 @@
 .create_new a {
   text-decoration: none;
   border: 1px solid #343a40;
-  padding: 13px;
-  border-radius: 10px;
   margin-right: 15px;
+  padding: 10px;
+  border-radius: 10px;
+
   color: $navcontainer-button-color;
   background-color: $navcontainer-button-bg-color;
   background-image: $navcontainer-button-bg-img;

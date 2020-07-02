@@ -12,12 +12,12 @@
     </div>
     <div class="greeting">
       <% if(user){ %>
-      <h4 id="greeting-font">Hello, <%= user.name %>!</h4>
+      <h4>Hello, <%= user.name %>!</h4>
     </div>
   </nav>
   <div class="form-container">
     <div class="create_new">
-      <a href="#ex1" rel="modal:open">Create New Quiz</a>
+      <a href="#ex1" rel="modal:open" class="std-btn">Create New Quiz</a>
     </div>
 
     <% if (homepage){ %>
@@ -32,7 +32,7 @@
     <% } else { %>
 
     <form action="/" method="GET">
-      <button type="submit" id="get_all_quizzes_redirect" class="btn btn-outline-dark">Quizzes</button>
+      <button type="submit" id="get_all_quizzes_redirect" class="std-btn">Quizzes</button>
     </form>
 
     <% } %>
@@ -43,10 +43,10 @@
     </form>
     <% } else { %>
     <form action="/login" method="GET">
-      <button type="submit" class="std-btn">Login</button>
+      <button id="login-button" type="submit" class="std-btn">Login</button>
     </form>
     <form action="/register" method="GET">
-      <button type="submit" class="std-btn">Register</button>
+      <button id="register-button" type="submit" class="std-btn">Register</button>
     </form>
   </div>
   <% } %>
