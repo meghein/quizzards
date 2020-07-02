@@ -1,7 +1,32 @@
 #scoreboard-container {
-  color: #FFF;
+  color: $header-footer-text;
+
+
+  h2 {
+    font-family: $font-title;
+  }
+
+  #score-name {
+    color: $background;
+    background-color: $header-footer-text;
+    background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+  }
+
+  #score-average {
+    color: $background;
+    background-color: $header-footer-text;
+    background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+  }
+
+  .score-text th {
+    
+    color: $header-footer-text;
+  }
 
   table {
-    color: #FFF;
+    color: $header-footer-text;
+
+
   }
 }
+
