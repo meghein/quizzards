@@ -86,15 +86,7 @@ module.exports = ({ getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers
       });
   });
 
-  router.post("/:id/delete", (req, res) => {
-    //   const user = users[req.session["user_id"]];
-    //   if (user) {
-    //     const shortURL = req.params.shortURL;
-    //     delete urlDatabase[shortURL];
-    //     res.redirect("/urls");
-    //   }
-    //   res.status(403).send("no can do!");
-  });
+
 
   router.post("/", (req, res) => {
     if ((!req.body.choice1 && req.body.question_1) || (!req.body.choice2 && req.body.question_2) || (!req.body.choice3 && req.body.question_3) || (!req.body.choice4 && req.body.question_4)) {

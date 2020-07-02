@@ -7,7 +7,7 @@ module.exports = (db) => {
     };
     return db.query(query).then((result) => result.rows);
   };
-
+  //add a user to the db
   const addUser = (name, email, password) => {
     const query = {
       text: `
@@ -19,7 +19,7 @@ module.exports = (db) => {
     };
     return db.query(query).then((result) => result.rows[0]);
   };
-
+  //validation to determine whether someone has an existing email registered
   const isUser = email => {
     const query = {
       text: `
@@ -30,7 +30,7 @@ module.exports = (db) => {
     };
     return db.query(query).then(res => res.rows.length > 0);
   };
-
+  //login validation that returns the user ID
   const getUserById = function(email) {
     const query = {
       text: `
@@ -66,7 +66,7 @@ module.exports = (db) => {
     return db.query(query).then((result) => result.rows[0]);
   };
 
-  const addAnswers = ( question_id, choice_1, is_correct_1, choice_2, is_correct_2, choice_3, is_correct_3, choice_4, is_correct_4) => {
+  const addAnswers = (question_id, choice_1, is_correct_1, choice_2, is_correct_2, choice_3, is_correct_3, choice_4, is_correct_4) => {
     const query = {
       text: `
         INSERT INTO answers(question_id, is_correct, choice)
@@ -195,7 +195,7 @@ module.exports = (db) => {
         return info;
       });
   };
-
+  //gets all users quiz results for the scoreboard
   const getAllUserResults = () => {
     const query = `
     SELECT  users.name,
