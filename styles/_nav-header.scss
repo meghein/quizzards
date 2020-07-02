@@ -1,5 +1,10 @@
 @import "variables";
 
+
+header {
+  position: relative;
+}
+
 #navigation {
   padding: .5rem;
   display: flex;
@@ -32,6 +37,9 @@
     font-size: 1em;
     text-align: center;
     color: $header-footer-text;
+    position: absolute;
+    top: 3rem;
+    right: 29.5rem;
   }
 
   .greeting {
@@ -47,7 +55,7 @@
   }
 
   h1 {
-    font-size: 6rem;
+    font-size: 7rem;
     margin-top: 0rem;
     margin-bottom: 0rem;
 
