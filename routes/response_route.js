@@ -19,7 +19,6 @@ module.exports = ({ addUserResults, addUserResponse, getUserResults }) => {
           promises.push(addUserResponse(key, req.body[key], result.id));
         }
         return Promise.all(promises).then(responses => {
-        // console.log(responses);
           return responses;
         });
       })
