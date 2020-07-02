@@ -4,6 +4,8 @@
 #footer-container {
   display: flex;
   background-color: $nav;
+  color: $header-footer-text;
+  background-image: $header-footer-bg-img;
   justify-content: space-between;
   align-items: center;
   padding: 25px;
