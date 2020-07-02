@@ -3,8 +3,13 @@ INSERT INTO questions
 VALUES
   (1, 'When Francis has extra cookies, what does he do with them?'),
   (1, 'Francis knows how to:'),
-  (1, 'What is Francis secret protest technique?'),
-  (1, 'True or False: Francis a will give you cookies some day.');
+  (1, 'What is Francis\'s secret protest technique?'),
+  (1, 'Will Francis a will give you cookies some day?'),
+
+  (2, 'What is Vasily\'s favourite breakfast food? '),
+  (2, 'How old is Vasily?'),
+  (2, 'What is Vasily\'s favourite videogame?'),
+  (2, 'Another Vasily questions, time to guess.');
 
 
 
@@ -18,18 +23,38 @@ VALUES
 
   (2, 'Levitate', false),
   (2, 'Forge knives', true),
-  (2, 'Train dogs to do backflips', false),
+  (2, 'Speak five languages', false),
   (2, 'Sing opera', false),
 
   (3, 'Shirtless screaming', false),
   (3, 'Giving out cookies', false),
   (3, 'Making barricades with shopping carts', true),
-  (3, 'Trained support-cats', false),
+  (3, 'Francis is actually Anonymous, shhh...', false),
 
-  (4, 'True', true),
-  (4, 'False', false);
+  (4, 'Absolutely', true),
+  (4, 'Nope', false),
+  (4, 'If and only if you do all your stretch', false),
+  (4, 'If you pay for it, sure', false),
 
+  (5, 'Pancakes', false),
+  (5, 'Cereal', false),
+  (5, 'Waffles', true),
+  (5, 'Brisket', false),
 
+  (6, 'Eight', false),
+  (6, 'Thirteen', false),
+  (6, 'Thirty-one', false),
+  (6, 'Twenty-Eight', true),
+
+  (7, 'My Hero: One\'s Justice', false),
+  (7, 'Slither.io', true),
+  (7, 'Legend of Zelda: Ocarina of Time', false),
+  (7, 'MYST', false),
+
+  (8, 'This one?', false),
+  (8, 'ThIs OnE?', true),
+  (8, 'This_one?', false),
+  (8, '.this.one.?', false),
 
 -- CREATE TABLE questions
 -- (
