@@ -1,7 +1,7 @@
 <header>
   <nav id="navigation">
     <div class="logo">
-      <img src="/images/LizardWizard.png" height="150px" width="150px">
+      <img src="/images/LizardWizard.png">
     </div>
     </div>
     <div class="title">
@@ -18,28 +18,29 @@
     <div class="create_new">
       <a href="#ex1" rel="modal:open" class="std-btn">Create New Quiz</a>
     </div>
+    <div id="nav-left-buttons">
+      <% if (homepage){ %>
 
-    <% if (homepage){ %>
+      <div class="user-quizzes">
+        <button id="get_all_quizzes" class="std-btn">All Quizzes</button>
+      </div>
+      <div class="user-quizzes">
+        <button id="get_my_quizzes" class="std-btn">My Quizzes</button>
+      </div>
 
-    <div class="user-quizzes">
-      <button id="get_all_quizzes" class="std-btn">All Quizzes</button>
+      <% } else { %>
+
+      <form action="/" method="GET">
+        <button type="submit" id="get_all_quizzes_redirect" class="std-btn">Quizzes</button>
+      </form>
+
+      <% } %>
+
+
+      <form action="/logout" method="POST">
+        <button type="submit" class="std-btn">Logout</button>
+      </form>
     </div>
-    <div class="user-quizzes">
-      <button id="get_my_quizzes" class="std-btn">My Quizzes</button>
-    </div>
-
-    <% } else { %>
-
-    <form action="/" method="GET">
-      <button type="submit" id="get_all_quizzes_redirect" class="std-btn">Quizzes</button>
-    </form>
-
-    <% } %>
-
-
-    <form action="/logout" method="POST">
-      <button type="submit" class="std-btn">Logout</button>
-    </form>
     <% } else { %>
     <form action="/login" method="GET">
       <button id="login-button" type="submit" class="std-btn">Login</button>

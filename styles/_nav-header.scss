@@ -1,7 +1,7 @@
 @import "variables";
 
 #navigation {
-  padding: 25px;
+  padding: .5rem;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -13,6 +13,14 @@
   border-top: groove .2rem $navbordercolor;
   border-left: groove .3rem $navbordercolor;
   border-right: groove .3rem $navbordercolor;
+
+  img {
+    height: 12rem;
+    width: 12rem;
+    margin-left: .5rem;
+    margin-top: .5rem;
+    padding: 0;
+  }
 
   .form-container {
     display: flex;
@@ -33,7 +41,7 @@
 
     h4 {
       font-size: 2.5rem;
-
+      margin-right: .5rem;
     }
 
   }
@@ -42,6 +50,7 @@
     font-size: 6rem;
     margin-top: 0rem;
     margin-bottom: 0rem;
+
   }
 
   .title a:hover {
@@ -78,6 +87,11 @@
 
 }
 
+#nav-left-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .std-btn {
 
   text-decoration: none;
@@ -112,6 +126,7 @@ header {
     background-image: $navcontainer-button-bg-img;
     background-color: $navcontainer-button-bg-color;
     font-family: $font-title;
+    margin-right: .5rem;
 
     &:hover {
       background-color: $navcontainer-button-hover-color;
@@ -123,15 +138,19 @@ header {
 #get_all_quizzes {
   display: none;
   width: 8rem;
+  margin-right: 2rem;
 }
 
 #get_my_quizzes {
   display: initial;
   width: 8rem;
+  margin-right: 2rem;
 }
  
 #get_all_quizzes_redirect {
   display: initial;
+  width: 8rem;
+  margin-right: 2rem;
 }
 
 #login-button {
