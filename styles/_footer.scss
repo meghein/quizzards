@@ -25,8 +25,15 @@
 
   button {
     color: $text-color;
-  }
+    background-color: wheat;
 
+    &:hover {
+      background-color: $navcontainer-button-hover-color;
+      color: $header-footer-text;
+      background-image: $navcontainer-button-bg-img;
+    }
+    
+  }
 }
 
 #credit {

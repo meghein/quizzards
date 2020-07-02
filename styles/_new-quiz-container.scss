@@ -20,14 +20,17 @@
   padding: 13px;
   border-radius: 10px;
   margin-bottom: 10px;
-  color: #007bff;
+  color: $navcontainer-button-color;
+  background-color: $navcontainer-button-bg-color;
+  background-image: $navcontainer-button-bg-img;
+  font-family: $font-title;
 }
 
 .create_new a:hover {
   text-decoration: none;
   cursor: pointer;
-  color: #FFF;
-  background-color: #343a40;
+  background-color: $navcontainer-button-hover-color;
+  color: $header-footer-text;
 }
 
 #ex1 {

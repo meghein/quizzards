@@ -15,7 +15,6 @@
     display: flex;
     align-items: baseline;
     background-color: $navcontainer;
-    
   }
 
   .title a {
@@ -50,18 +49,31 @@
   justify-content: space-between;
   background-color: $navcontainer;
   background-image: $navcontainer-bg-img;
+
+  button {
+    color: $navcontainer-button-color;
+    background-image: $navcontainer-button-bg-img;
+    background-color: $navcontainer-button-bg-color;
+    font-family: $font-title;
+
+    &:hover {
+      background-color: $navcontainer-button-hover-color;
+      color: $header-footer-text;
+    }
+
+  }
+
 }
 
 
 
 
 .std-btn {
-  background-color: inherit;
+  
   text-decoration: none;
   border: 1px solid #343a40;
   padding: 10px;
   border-radius: 10px;
-  color: #007bff;
   margin-bottom: 10px;
   color: $header-footer-text;
 }
@@ -79,18 +91,42 @@
 
 #get_all_quizzes {
   display: none;
-  color: #007bff;
+  color: $navcontainer-button-color;
+  background-image: $navcontainer-button-bg-img;
+  background-color: $navcontainer-button-bg-color;
+  font-family: $font-title;
+
+  &:hover {
+    background-color: $navcontainer-button-hover-color;
+    color: $header-footer-text;
+  }
 
 }
 
 #get_my_quizzes {
   display: initial;
-  color: #007bff;
+  color: $navcontainer-button-color;
+  background-image: $navcontainer-button-bg-img;
+  background-color: $navcontainer-button-bg-color;
+  font-family: $font-title;
+
+  &:hover {
+    background-color: $navcontainer-button-hover-color;
+    color: $header-footer-text;
+  }
 
 }
 
 #get_all_quizzes_redirect {
   display: initial;
-  color: #007bff;
+  color: $navcontainer-button-color;
+  background-image: $navcontainer-button-bg-img;
+  background-color: $navcontainer-button-bg-color;
+  font-family: $font-title;
+
+  &:hover {
+    background-color: $navcontainer-button-hover-color;
+    color: $header-footer-text;
+  }
 
 }
