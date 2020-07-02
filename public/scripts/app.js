@@ -74,11 +74,11 @@ const loadQuizzesByUser = function() {
 const renderResults = function(response) {
   const $result = `
     <div id="results">
-      ${Math.round(response.score * 100)}%
-      You got ${response.correct} out of ${response.answers.length} right!
+      <h2><b>${Math.round(response.score * 100)}%</b><br></h2>
+      You got ${response.correct} out of ${response.answers.length} right! <br>
     <div id="copy-results" data-quizid="${response.id}">
       <h5>Share your results:</h5>
-      <button id="copy-results-button" class="btn btn-info btn-lg"><i class="fa fa-link" aria-hidden="true"></i> Copy Link</button>
+      <button id="copy-results-button" class="btn btn-outline-primary"><i class="fa fa-link" aria-hidden="true"></i> Copy Link</button>
     </div>
     </div>
     `;

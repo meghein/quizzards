@@ -8,40 +8,78 @@
 
   #quiz-name {
     margin-top: 20px;
+    font-size: 3rem;
     font-family: $font-title;
+  }
+
+  .question-card {
+
+    padding: 10px;
+    border: 1px solid $navbordercolor;
+    margin: 25px auto;
+    border-radius: 10px;
+    font-family: $font-body;
+    font-size: 1.2rem;
+    background-image: url("https://www.transparenttextures.com/patterns/black-linen.png");
+  }
+
+  button {
+    color: $header-footer-text;
+    border-color: $header-footer-text;
+  }
+
+}
+
+#results-container {
+  text-align: center;
+  #results {
+    display: inline-block;
+    padding: 50px;
+    border: 1px solid $navbordercolor;
+    margin-top: 0px;
+    margin: 25px;
+    border-radius: 10px;
+    font-family: $font-body;
+    font-size: 2rem;
+    color: $header-footer-text;
+    background-image: url("https://www.transparenttextures.com/patterns/black-linen.png");
+
+    h2 {
+      font-family: $font-title;
+      font-size: 5rem;
+    }
+  }
+
+  button {
+    color: $header-footer-text;
+    border-color: $header-footer-text;
   }
 }
 
 
-.question-card {
-  padding: 10px;
-  border: 1px solid #343a40;
-  margin: 25px 0px;
-  border-radius: 10px;
-  font-family: $font-body;
-  background-image: url("https://www.transparenttextures.com/patterns/black-linen.png");
-}
-
 
 #url-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
 
   label {
+    align-self: center;
     color: $header-footer-text;
     font-family: $font-title;
     font-size: 2.5rem;
     margin-right: 1rem;
   }
+
+  button {
+    align-self: center;
+    color: $header-footer-text;
+    border-color: $header-footer-text;
+  }
+
 }
 
-#results {
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  justify-content: center;
-  padding: 10px;
-  border: 1px solid #343a40;
-  margin: 25px 0px;
-  border-radius: 10px;
-}
+// #results-container {
+
+// }
+
