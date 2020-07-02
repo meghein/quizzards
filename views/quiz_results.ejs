@@ -24,10 +24,12 @@
   <%- include('partials/_header') %>
   <%- include('partials/_newQuiz') %>
 
-  <main class="container">
-    <h1>Results:</h1>
+  <main>
+    <section id="user-results">
+      <h1>Results:</h1>
     <%= score * 100 %>%
     You got <%= correct %> out of <%= answers.length %> right!
+    </section>
   </main>
 
 
