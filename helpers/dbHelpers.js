@@ -89,7 +89,7 @@ module.exports = (db) => {
       .then(res => res.rows);
   };
 
-  const getQuizById = function(id, limit) { //would need to create a search form by name or id
+  const getQuizById = function(id, limit) {
     const queryParams = [];
 
     let queryString = `
@@ -257,7 +257,7 @@ module.exports = (db) => {
   // };
 
   const getAllUserResults = () => {
-    const reqParams = [];
+
     const query = `
     SELECT  users.name,
             array_agg(answers.is_correct) as answers,
@@ -272,12 +272,12 @@ module.exports = (db) => {
     LIMIT 10
     `;
 
-    return db.query(query, reqParams)
+    return db.query(query)
       .then((res) => {
         const info = res.rows;
         return info;
       });
-  }
+  };
 
 
   return {

@@ -2,7 +2,6 @@
   <nav id="navigation">
     <div class="logo">
       <img src="/images/LizardWizard.png" height="150px" width="150px">
-      <!-- <i class="fas fa-hat-wizard fa-5x"></i> -->
     </div>
     </div>
     <div class="title">
@@ -23,16 +22,16 @@
     <% if (homepage){ %>
 
     <div class="user-quizzes">
-      <button id="get_all_quizzes" class="std-btn">All quizzes</button>
+      <button id="get_all_quizzes" class="std-btn">All Quizzes</button>
     </div>
     <div class="user-quizzes">
-      <button id="get_my_quizzes" class="std-btn">My quizzes</button>
+      <button id="get_my_quizzes" class="std-btn">My Quizzes</button>
     </div>
 
     <% } else { %>
 
     <form action="/" method="GET">
-      <button type="submit" id="get_all_quizzes_redirect" class="btn btn-outline-dark">Quizzes</button>
+      <button type="submit" class="std-btn" id="get_all_quizzes_redirect">Quizzes</button>
     </form>
 
     <% } %>

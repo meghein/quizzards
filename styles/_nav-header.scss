@@ -30,7 +30,10 @@
   .greeting {
     display: flex;
     padding: 0 10px;
+  }
 
+  h4 {
+    font-size: 2em;
   }
 
   h1 {
@@ -44,6 +47,7 @@
 }
 
 .form-container {
+  font-size: 1.5em;
   color: $btn-text-color;
   margin-bottom: 75px;
   padding: 15px;
@@ -93,10 +97,12 @@
 }
 
 .greeting form {
+  font-size: 1.5em;
   padding: 0px 10px;
 }
 
 #get_all_quizzes {
+
   display: none;
   color: $navcontainer-button-color;
   background-image: $navcontainer-button-bg-img;
