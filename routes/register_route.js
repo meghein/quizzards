@@ -4,14 +4,14 @@ const router = express.Router();
 module.exports = ({
   addUser, isUser
 }) => {
-  router.get('/', (req, res) => {
+  router.get('/', (req, res) => { //gets the registration route and passes the cookie session
     const templateVars = {
       user: req.session["user"],
       userId: req.session["user_id"],
     };
     res.render("register", templateVars);
   });
-
+  //checks whether the users email already exists in the db and either redirects them to home or asks them to login
   router.post("/", (req, res) => {
     const {
       name,

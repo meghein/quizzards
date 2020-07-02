@@ -3,7 +3,7 @@ const router = express.Router();
 
 module.exports = ({ isUser, getUserById }
 ) => {
-  router.get('/', (req, res) => {
+  router.get('/', (req, res) => { //passed templateVars to the header partial from cookie session
     const templateVars = {
       user: req.session["user"],
       userId: req.session["user_id"] ? req.session["user_id"] : undefined,
@@ -11,7 +11,7 @@ module.exports = ({ isUser, getUserById }
     };
     res.render("login", templateVars);
   });
-
+  //checks the users email to validate login and sets the cookie session
   router.post("/", (req, res) => {
     const {
       email,

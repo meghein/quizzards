@@ -6,7 +6,7 @@ module.exports = ({
   getAllUserResults
 }) => {
   router.get('/', (req, res) => {
-
+    //iterates through all users quiz results and populates the top 10 in the scoreboard
     getAllUserResults()
       .then((results) =>{
         let templateVars = {
