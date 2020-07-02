@@ -15,7 +15,7 @@
     display: flex;
     align-items: baseline;
     background-color: $navcontainer;
-    
+
   }
 
   .title a {
@@ -28,7 +28,7 @@
   .greeting {
     display: flex;
     padding: 0 10px;
-    
+
   }
 
   h1 {
@@ -42,6 +42,7 @@
 }
 
 .form-container {
+  color: $btn-text-color;
   margin-bottom: 75px;
   padding: 15px;
   display: flex;
