@@ -17,14 +17,13 @@
 .create_new a {
   text-decoration: none;
   border: 1px solid #343a40;
-  margin-right: 15px;
   padding: 10px;
   border-radius: 10px;
-
   color: $navcontainer-button-color;
   background-color: $navcontainer-button-bg-color;
   background-image: $navcontainer-button-bg-img;
   font-family: $font-title;
+  margin-left: .4rem;
 }
 
 .create_new a:hover {
