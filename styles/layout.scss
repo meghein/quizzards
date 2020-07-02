@@ -4,6 +4,7 @@
 @import "nav-header";
 @import "quiz-id";
 @import "footer";
+@import "scoreboard";
 @import "variables";
 
 
@@ -11,7 +12,7 @@
   background-color: $background;
   background-image: $bg-image;
   font-family: $font-body;
-  font-size: 24px;
+  font-size: 16px;
 }
 
 
