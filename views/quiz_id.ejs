@@ -42,8 +42,8 @@
       <div class="question-card">
         <h3><%= question.text %></h3>
         <% for (let answer of question.answers) { %>
-        <input type="radio" id="<%= answer.id %>" value="<%= answer.id %>" name="<%= question.id %>">
-        <label for="<%= answer.id %>"><%= answer.choice %></label><br />
+        <input type="radio" id="<%= answer.id %>" value="<%= answer.id %>" name="<%= question.id %>" required>
+        <label for="<%= answer.id %>" required><%= answer.choice %></label><br />
         <% } %>
       </div>
       <% } %>
@@ -66,7 +66,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
   integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-  </script>
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 

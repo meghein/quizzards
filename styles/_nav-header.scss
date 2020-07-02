@@ -17,10 +17,12 @@
 
   .title {
     width: 50%;
-    position: relative;
-    top: 0;
-    left: 25px;
+    font-size: 1em;
     text-align: center;
+  }
+
+  h1 {
+    font-size: 4.5em;
   }
 
   .title a:hover {
@@ -31,17 +33,23 @@
 
 .form-container {
   margin-bottom: 75px;
-  padding: 0 25px 25px 25px;
+  padding: 15px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: $navcontainer;
+  background-color: #1B0C1D;
 
   .greeting {
     display: flex;
     padding: 0 10px;
+
   }
+}
+
+.greeting h4 {
+  font-size: 1.4em;
+  color: $text-color;
 }
 
 .std-btn {
@@ -50,7 +58,7 @@
   border: 1px solid #343a40;
   padding: 10px;
   border-radius: 10px;
-  color: black;
+  color: #007bff;
   margin-bottom: 10px;
 }
 
@@ -67,15 +75,18 @@
 
 #get_all_quizzes {
   display: none;
-  width: 8rem;
+  color: #007bff;
+
 }
 
 #get_my_quizzes {
   display: initial;
-  width: 8rem;
+  color: #007bff;
+
 }
 
 #get_all_quizzes_redirect {
   display: initial;
-  width: 8rem;
+  color: #007bff;
+
 }
