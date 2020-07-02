@@ -10,6 +10,9 @@
   font-family: $font-title;
   color: $header-footer-text;
   background-image: $header-footer-bg-img;
+  border-top: groove .2rem $navbordercolor;
+  border-left: groove .3rem $navbordercolor;
+  border-right: groove .3rem $navbordercolor;
 
   .form-container {
     display: flex;
@@ -49,6 +52,9 @@
   justify-content: space-between;
   background-color: $navcontainer;
   background-image: $navcontainer-bg-img;
+  border-left: groove .3rem $navbordercolor;
+  border-right: groove .3rem $navbordercolor;
+  border: groove .2rem #8C772B;
 
   button {
     color: $navcontainer-button-color;
