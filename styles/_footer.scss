@@ -4,6 +4,7 @@
 #footer-container {
   display: flex;
   background-color: $nav;
+  position: relative;
   color: $header-footer-text;
   background-image: $header-footer-bg-img;
   justify-content: space-between;
@@ -30,6 +31,9 @@
     color: $navcontainer-button-color;
     background-color: $navcontainer;
     width: 9rem;
+    position: absolute;
+    bottom: 6rem;
+    right: 48%;
 
     &:hover {
       background-color: $navcontainer-button-hover-color;
