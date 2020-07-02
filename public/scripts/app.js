@@ -11,11 +11,6 @@ const createQuizElement = function(quiz) {
           <h4>${quiz.name}</h4>
         </header>
       </a>
-      <a class="text-reset" href="/quizzes/results/${quiz.id}">
-        <footer>
-          <h6>Results</h6>
-        </footer>
-      </a>
     </article>
     `;
   } else {
@@ -26,12 +21,9 @@ const createQuizElement = function(quiz) {
           <h4>${quiz.name}</h4>
         </header>
       </a>
-      <a class="text-reset" href="/quizzes/results/${quiz.id}">
         <footer>
-          <h6>Results</h6>
-          <h6 class="quiz_small_text">Unlisted Quiz</h6>
+          <h4 class="quiz_small_text">Unlisted Quiz</h4>
         </footer>
-      </a>
     </article>
     `;
   }
