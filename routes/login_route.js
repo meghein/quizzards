@@ -29,6 +29,7 @@ module.exports = ({ isUser, getUserById }
         res
           .status(400)
           .send("The login information provided does not match a registered user account. Please try again, or register for a new Quizzards account.");
+        return;
       }
     });
   });

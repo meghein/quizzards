@@ -32,6 +32,7 @@ module.exports = ({ addUser, isUser }) => {
         res
           .status(400)
           .send("Please login.");
+        return;
       }
     });
   });
