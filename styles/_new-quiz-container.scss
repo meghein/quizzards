@@ -17,27 +17,26 @@
 }
 
 #quiz-submit {
-  color: #007bff;
+  color: $light-blue;
   background-image: url(https://www.transparenttextures.com/patterns/black-thread-light.png);
   background-color: $text-wheat;
-  font-family: "Jolly Lodger",
-    cursive;
+  font-family: $font-title;
   margin-bottom: 0px;
 
   &:hover {
-    background-color: #211921;
+    background-color: $hover-grey-black;
     color: $text-wheat;
   }
 }
 
 .create_new a {
   text-decoration: none;
-  border: 1px solid #343a40;
+  border: 1px solid $hover-grey-black;
   padding: 10px;
   border-radius: 10px;
   color: $light-blue;
   background-color: $text-wheat;
-  background-image: $navcontainer-button-bg-img;
+  background-image: $button-web-bg-img;
   font-family: $font-title;
   margin-left: .4rem;
 }
@@ -45,7 +44,7 @@
 .create_new a:hover {
   text-decoration: none;
   cursor: pointer;
-  background-color: $navcontainer-button-hover-color;
+  background-color: $hover-grey-black;
   color: $text-wheat;
 }
 

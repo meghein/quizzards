@@ -14,13 +14,13 @@
   #score-name {
     color: $background;
     background-color: $text-wheat;
-    background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+    background-image: $score-bg-img;
   }
 
   #score-average {
     color: $background;
     background-color: $text-wheat;
-    background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+    background-image: $score-bg-img;
   }
 
   .score-text th {

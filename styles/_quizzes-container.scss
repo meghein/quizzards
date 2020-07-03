@@ -38,7 +38,12 @@
 }
 
 #quiz-unlisted {
-  background-color: slateblue;
+  border: .16em solid #0F0D1C;
+
+  &:hover {
+    box-shadow: 10px 10px 10px 0px slateblue;
+  }
+
 }
 
 .quiz_small_text {
@@ -62,11 +67,10 @@ main .container {
   }
 
   input[type='submit'] {
-    color: #007bff;
-    background-image: url(https://www.transparenttextures.com/patterns/black-thread-light.png);
+    color: $light-blue;
+    background-image: $button-web-bg-img;
     background-color: $text-wheat;
-    font-family: "Jolly Lodger",
-      cursive;
+    font-family: $font-title;
   }
 
   input {

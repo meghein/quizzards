@@ -82,12 +82,12 @@ header {
 
   button {
     color: $light-blue;
-    background-image: $navcontainer-button-bg-img;
+    background-image: $button-web-bg-img;
     background-color: $text-wheat;
     font-family: $font-title;
 
     &:hover {
-      background-color: $navcontainer-button-hover-color;
+      background-color: $hover-grey-black;
       color: $text-wheat;
     }
 
@@ -104,7 +104,7 @@ header {
 
   text-decoration: none;
   font-size: 2rem;
-  border: 1px solid #343a40;
+  border: 1px solid $hover-grey-black;
   width: 7rem;
   height: 4rem;
   padding: 10px;
@@ -117,7 +117,7 @@ header {
   text-decoration: none;
   cursor: pointer;
   color: #FFF;
-  background-color: #343a40;
+  background-color: $hover-grey-black;
 }
 
 .greeting form {
@@ -131,13 +131,13 @@ header {
   button  {
 
     color: $light-blue;
-    background-image: $navcontainer-button-bg-img;
+    background-image: $button-web-bg-img;
     background-color: $text-wheat;
     font-family: $font-title;
     margin-right: .5rem;
 
     &:hover {
-      background-color: $navcontainer-button-hover-color;
+      background-color: $hover-grey-black;
       color: $text-wheat;
     }
 
@@ -164,10 +164,10 @@ header {
 #login-button {
   color: $light-blue;
   background-color: $text-wheat;
-  background-image: $navcontainer-button-bg-img;
+  background-image: $button-web-bg-img;
 
   &:hover {
-    background-color: $navcontainer-button-hover-color;
+    background-color: $hover-grey-black;
     color: $text-wheat;
   }
 }
@@ -175,10 +175,10 @@ header {
 #register-button {
   color: $light-blue;
   background-color: $text-wheat;
-  background-image: $navcontainer-button-bg-img;
+  background-image: $button-web-bg-img;
 
   &:hover {
-    background-color: $navcontainer-button-hover-color;
+    background-color: $hover-grey-black;
     color: $text-wheat;
   }
 }

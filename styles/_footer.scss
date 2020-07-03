@@ -36,9 +36,9 @@
     right: 48%;
 
     &:hover {
-      background-color: $navcontainer-button-hover-color;
+      background-color: $hover-grey-black;
       color: $text-wheat;
-      background-image: $navcontainer-button-bg-img;
+      background-image: $button-web-bg-img;
     }
 
   }
