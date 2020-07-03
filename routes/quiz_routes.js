@@ -81,18 +81,19 @@ module.exports = ({ getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers
 
   // post request for building a new quiz
   router.post("/", (req, res) => {
-    if ((!req.body.choice1 && req.body.question_1) || (!req.body.choice2 && req.body.question_2) || (!req.body.choice3 && req.body.question_3) || (!req.body.choice4 && req.body.question_4)) {
+    if (!req.body.name || !req.body.question_1 || !req.body.question_2 || !req.body.question_3 || !req.body.question_4) {
       res
-      .status(400)
-      .send('Every question must have a correct answer.');
+        .status(400)
+        .send('Every quiz must have a name and four questions.');
       return;
     }
-    if (!req.body.name || !req.body.question_1) {
+    if (!req.body.choice1 || !req.body.choice2 || !req.body.choice3 || !req.body.choice4) {
       res
-      .status(400)
-      .send('Every quiz must have a name and at least one question.');
+        .status(400)
+        .send('Every question must have a correct answer.');
       return;
     }
+
     const name = req.body.name;
     const creator_id = req.session["user_id"];
     let is_public = true;
