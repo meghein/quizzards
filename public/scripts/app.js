@@ -82,7 +82,7 @@ $(document).ready(() => {
   // initial load of quizzes to index.ejs
   loadQuizzes();
 
-  // loads all quizzes
+  // loads all public quizzes
   $("#get_all_quizzes").on('click', function() {
     $("#get_my_quizzes").css("display", "initial");
     $("#get_all_quizzes").css("display", "none");
@@ -99,7 +99,7 @@ $(document).ready(() => {
   // copy to clipboard for quiz url
   new ClipboardJS('#copy-url-button', {
     text: function(trigger) {
-        return window.location.origin + '/quizzes/' + trigger.dataset.quizid;
+      return window.location.origin + '/quizzes/' + trigger.dataset.quizid;
     }
   });
 
@@ -127,10 +127,12 @@ $(document).ready(() => {
       // results copy to clipboard functionality
       new ClipboardJS('#copy-results-button', {
         text: function(trigger) {
-            const responseId = document.getElementById("copy-results").dataset.quizid;
-            return window.location.origin + '/response/' + responseId;
+          const responseId = document.getElementById("copy-results").dataset.quizid;
+          return window.location.origin + '/response/' + responseId;
         }
       });
+
+      // copy to clipboard animation
       $("#copy-results-button").on('click', function() {
         $("#copy-results").fadeOut(500)
         $("#copy-results").fadeIn(1000)
