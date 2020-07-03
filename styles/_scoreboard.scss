@@ -1,5 +1,5 @@
 #scoreboard-container {
-  color: $header-footer-text;
+  color: $text-wheat;
   font-size: 1.5em;
   margin-top: 100px;
   height: inherit;
@@ -13,23 +13,23 @@
 
   #score-name {
     color: $background;
-    background-color: $header-footer-text;
+    background-color: $text-wheat;
     background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
   }
 
   #score-average {
     color: $background;
-    background-color: $header-footer-text;
+    background-color: $text-wheat;
     background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
   }
 
   .score-text th {
 
-    color: $header-footer-text;
+    color: $text-wheat;
   }
 
   table {
-    color: $header-footer-text;
+    color: $text-wheat;
 
 
   }

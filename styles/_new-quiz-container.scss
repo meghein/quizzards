@@ -9,7 +9,7 @@
   align-items: center;
   font-family: $font-body;
   border: 1px solid $navbordercolor;
-  color: $header-footer-text;
+  color: $text-wheat;
 
   span {
     margin-left: 5px;
@@ -19,14 +19,14 @@
 #quiz-submit {
   color: #007bff;
   background-image: url(https://www.transparenttextures.com/patterns/black-thread-light.png);
-  background-color: #F5DEB3;
+  background-color: $text-wheat;
   font-family: "Jolly Lodger",
     cursive;
   margin-bottom: 0px;
 
   &:hover {
     background-color: #211921;
-    color: #F5DEB3;
+    color: $text-wheat;
   }
 }
 
@@ -35,8 +35,8 @@
   border: 1px solid #343a40;
   padding: 10px;
   border-radius: 10px;
-  color: $navcontainer-button-color;
-  background-color: $navcontainer-button-bg-color;
+  color: $light-blue;
+  background-color: $text-wheat;
   background-image: $navcontainer-button-bg-img;
   font-family: $font-title;
   margin-left: .4rem;
@@ -46,7 +46,7 @@
   text-decoration: none;
   cursor: pointer;
   background-color: $navcontainer-button-hover-color;
-  color: $header-footer-text;
+  color: $text-wheat;
 }
 
 #ex1 {
@@ -64,7 +64,7 @@
     border: none;
     width: 100%;
     padding-left: 10px;
-    background-color: #F5DEB3;
+    background-color: $text-wheat;
   }
 
   .name-private {
@@ -79,7 +79,7 @@
   flex-direction: column;
 
   input[type="text"] {
-    background-color: #F5DEB3;
+    background-color: $text-wheat;
     border-radius: 10px;
     border: none;
     margin: 5px 5px;
@@ -88,6 +88,6 @@
 
   [type="radio"] {
     margin-left: 50px;
-    background-color: #F5DEB3;
+    background-color: $text-wheat;
   }
 }

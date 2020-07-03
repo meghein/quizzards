@@ -1,27 +1,25 @@
 //body background:
 $background: #0E0B1E;
-$bg-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+$main-bg-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
 
 // header and footer background:
-$nav: #1F3670;
+$nav-blue: #1F3670;
 $navbordercolor: #162650;
-$header-footer-bg-img: url("https://www.transparenttextures.com/patterns/navy.png");
+$nav-bg-img: url("https://www.transparenttextures.com/patterns/navy.png");
 $navcontainer-bg-img: url("https://www.transparenttextures.com/patterns/billie-holiday.png");
 
 // nav buttons:
-$navcontainer-button-color: #007bff;
-$btn-text-color: #007bff;
-$navcontainer-button-bg-color: #F5DEB3;
+$light-blue: #007bff;
+$text-wheat: #F5DEB3;
+
 $navcontainer-button-bg-img: url("https://www.transparenttextures.com/patterns/black-thread-light.png");
 $navcontainer-button-hover-color: #211921;
-$navcontainer: #F5DEB3;
 
 // quiz buttons:
 
 //button styles
 
 // text:
-$header-footer-text: #F5DEB3;
 $text: #7699D4;
 $font-body: 'Gafata',
 sans-serif;
