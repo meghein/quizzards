@@ -1,3 +1,5 @@
+# Group Plan
+=========
 Option 2: Quiz App
 An app that lets you create quizzes and share them between friends. The creator of the quiz can view and share all the results at the end of the quiz.
 
@@ -16,39 +18,34 @@ users can share a link to the result of their attempt
 - I want to... GOAL
 - Because... BENEFIT
 
-# Users can create quizzes
+### Users can create quizzes
 As a user, I want to create my own quiz because I have unique interests an humour.
 
-# Users can make their quiz unlisted (make them private and not available on the home page, but if someone knows the quiz URL they can visit and take the quiz)
+### Users can make their quiz unlisted (make them private and not available on the home page, but if someone knows the quiz URL they can visit and take the quiz)
 As a user, I want the option of making my quiz private or sharing it to the homepage or with a URL
 
-# User should be able to create private or public quizzes
+### User should be able to create private or public quizzes
 As a user, I want to make my own quizzes because I enjoy making my own creative content.
 
-# Users can share a link to a single quiz
+### Users can share a link to a single quiz
 As a user, I want to share a link to a quiz because my quizzes are so good, they need to be recognized. 
 
-# Users can see a list of public quizzes
+### Users can see a list of public quizzes
 As a user, I want to see a list of public quizzes because I need something to occupy my time in this pandemic. Also I want to see how clearly superior my own quizzes are.
 
-# Users can see a list of public quizzes on the home page
+### Users can see a list of public quizzes on the home page
 As a user, I want to see the public quizzes on the home page, because I want the home page to show me what this website is about.
 
-# Users can share a link to the result of their attempt
+### Users can share a link to the result of their attempt
 As a user, I want to share the results of my quiz because I need to flex on others with my brain power
 
-# Users can attempt a quiz
+### Users can attempt a quiz
 As a user, I want to attempt quizzes, because I want to get 100% and dominate the leaderboard.
-
-
-////////////////////////
 
 # FEATURES
 - Single Page App
 - Simple user authentication w/o passwords
-- 
-:: MVP: Minimum Viable Product ::
-- Core features: 
+## MVP: Minimum Viable Product
   - user login/registration => scroll-down form
   - build quizzes (listed/unlisted) => scroll-down form
   - share quizzes (url) => link copy
@@ -57,7 +54,8 @@ As a user, I want to attempt quizzes, because I want to get 100% and dominate th
   - scoreboard/results => scroll-down page
   - share link to the results of user quiz-attempt => link copy
 
-  /users/quizzes/:id/results/:user
+# ERD
+!["ERD"](https://github.com/meghein/bmg-quiz-party/blob/master/public/images/quizzard_erd.png)
 
 # WIREFRAMES
 - Sketch a wireframe with a prototyping tool like Figma
