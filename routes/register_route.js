@@ -29,7 +29,7 @@ module.exports = ({ addUser, isUser }) => {
           res.redirect("/");
         });
       } else {
-        res.send("Please login");
+        res.send("Please login.");
       }
     });
   });

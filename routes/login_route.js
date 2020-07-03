@@ -26,7 +26,7 @@ module.exports = ({ isUser, getUserById }
           res.redirect("/");
         });
       } else {
-        res.send("you need to register");
+        res.send("The login information provided does not match a registered user account. Please try again, or register for a new Quizzards account.");
       }
     });
   });
