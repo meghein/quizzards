@@ -2,9 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 
-module.exports = ({
-  getAllUserResults
-}) => {
+module.exports = ({ getAllUserResults }) => {
   router.get('/', (req, res) => {
     //iterates through all users quiz results and populates the top 10 in the scoreboard
     getAllUserResults()
@@ -20,7 +18,6 @@ module.exports = ({
             {score: parseInt(result.correct) / result.answers.length,
               name: result.name});
         }
-        console.log("tempVars", templateVars);
         res.render("scoreboard", templateVars);
       }).catch((err) => {
         console.error(err);

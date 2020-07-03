@@ -3,6 +3,7 @@ const router = express.Router();
 
 module.exports = ({ addUserResults, addUserResponse, getUserResults }) => {
 
+  // post request to access user results from a quiz attempt
   router.post("/:id", (req, res) => {
     console.log(req.body);
     const templateVars = {
@@ -10,8 +11,6 @@ module.exports = ({ addUserResults, addUserResponse, getUserResults }) => {
       userId: req.session["user_id"] ? req.session["user_id"] : undefined,
       quizId: req.params.id
     };
-
-
     addUserResults(templateVars.userId, templateVars["quizId"])
       .then((result) => {
         const promises = [Promise.resolve(result.id)];
@@ -31,8 +30,8 @@ module.exports = ({ addUserResults, addUserResponse, getUserResults }) => {
       });
   });
 
+  // get request for showing user results based on a specific quiz attempt
   router.get("/:resultId", (req, res) => {
-
     getUserResults(req.params.resultId)
       .then((results) => {
         const templateVars = {

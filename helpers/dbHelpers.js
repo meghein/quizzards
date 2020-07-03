@@ -229,6 +229,6 @@ module.exports = (db) => {
     addUserResponse,
     addUserResults,
     getUserResults,
-    getAllUserResults
+    getAllUserResults,
   };
 };

@@ -22,10 +22,8 @@ module.exports = ({ getUsers, addUser }) => {
   });
 
   router.post("/", (req, res) => {
-    //create a new user
-    //extract info from request
+    //create a new user and extract info from request
     const { name, email, password } = req.body;
-
     //save the user in the db
     addUser(name, email, password)
       .then(user => {

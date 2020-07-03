@@ -1,5 +1,3 @@
-// const escape = require('./escape.js')
-
 // MAIN QUIZ CONTAINER FUNCTIONALITY TO LOAD QUIZ CARDS //
 const createQuizElement = function(quiz) {
   let $quizElement = ``;
@@ -63,6 +61,7 @@ const loadQuizzesByUser = function() {
   });
 };
 
+// ADD RESULTS TO ON SUBMIT OF QUIZ FORM //
 const renderResults = function(response) {
   const $result = `
     <div id="results">
@@ -77,33 +76,40 @@ const renderResults = function(response) {
   return $result;
 };
 
+/////////////////////////////////////////////////////////////
 
 $(document).ready(() => {
+  // initial load of quizzes to index.ejs
   loadQuizzes();
 
-  new ClipboardJS('#copy-url-button', {
-    text: function(trigger) {
-        return window.location.origin + '/quizzes/' + trigger.dataset.quizid;
-    }
-  });
-
-  $("#copy-url-button").on('click', function() {
-    $("#url-container").fadeOut(500)
-    $("#url-container").fadeIn(1000)
-  });
-
+  // loads all quizzes
   $("#get_all_quizzes").on('click', function() {
     $("#get_my_quizzes").css("display", "initial");
     $("#get_all_quizzes").css("display", "none");
     loadQuizzes();
   });
 
+  // loads quizzes attached to logged in user
   $("#get_my_quizzes").on('click', function() {
     $("#get_my_quizzes").css("display", "none");
     $("#get_all_quizzes").css("display", "initial");
     loadQuizzesByUser();
   });
 
+  // copy to clipboard for quiz url
+  new ClipboardJS('#copy-url-button', {
+    text: function(trigger) {
+        return window.location.origin + '/quizzes/' + trigger.dataset.quizid;
+    }
+  });
+
+  // copy to clipboard animation
+  $("#copy-url-button").on('click', function() {
+    $("#url-container").fadeOut(500)
+    $("#url-container").fadeIn(1000)
+  });
+
+  // jquery for appending results to quiz form
   $("#quiz-form").on("submit", event => {
     const obj = {};
     const answers = $("input:checked")
@@ -117,6 +123,8 @@ $(document).ready(() => {
       data: obj
     }).then(function(response) {
       $('#results-container').append(renderResults(response));
+
+      // results copy to clipboard functionality
       new ClipboardJS('#copy-results-button', {
         text: function(trigger) {
             const responseId = document.getElementById("copy-results").dataset.quizid;

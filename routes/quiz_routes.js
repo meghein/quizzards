@@ -3,7 +3,7 @@ const router = express.Router();
 
 module.exports = ({ getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers, getQuizQuestions, getQuestionAnswers, getQuizzesByCreatorId }) => {
 
-  router.get("/", (_req, res) => {
+  router.get("/", (req, res) => {
     getAllQuizzes()
       .then((quizzes) => {
         res.render('quizzes', { templateVars: quizzes });
@@ -15,11 +15,13 @@ module.exports = ({ getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers
       });
   });
 
+  // gets all quizzes registered to a specific user
   router.get("/users/:id", (req, res) => {
     const creator_id = req.session["user_id"];
     console.log("creator_id ", creator_id);
     getQuizzesByCreatorId(creator_id)
       .then((quizzes) => {
+        console.log("USER ID QUIZZES ", quizzes);
         res.json({ quizzes });
       })
       .catch(err => {
@@ -29,8 +31,8 @@ module.exports = ({ getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers
       });
   });
 
-  // test route for json object of quizzes
-  router.get("/json", (_req, res) => {
+  // test route to show json object of quizzes
+  router.get("/json", (req, res) => {
     getAllQuizzes()
       .then((quizzes) => {
         res.json({ quizzes });
@@ -42,6 +44,7 @@ module.exports = ({ getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers
       });
   });
 
+  // gets a quiz by id and loads all question and answers related
   router.get('/:id', (req, res) => {
     const templateVars = {
       user: req.session["user"],
@@ -76,6 +79,7 @@ module.exports = ({ getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers
       });
   });
 
+  // post request for building a new quiz
   router.post("/", (req, res) => {
     if ((!req.body.choice1 && req.body.question_1) || (!req.body.choice2 && req.body.question_2) || (!req.body.choice3 && req.body.question_3) || (!req.body.choice4 && req.body.question_4)) {
       res.status(400).json({ error: 'Every question must have a correct answer.' });
@@ -87,7 +91,6 @@ module.exports = ({ getAllQuizzes, getQuizById, addQuiz, addQuestion, addAnswers
     }
     const name = req.body.name;
     const creator_id = req.session["user_id"];
-
     let is_public = true;
     if (req.body.is_public) {
       is_public = false;

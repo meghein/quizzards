@@ -1,24 +1,24 @@
 const express = require('express');
 const router = express.Router();
 
-module.exports = ({
-  addUser, isUser
-}) => {
-  router.get('/', (req, res) => { //gets the registration route and passes the cookie session
+module.exports = ({ addUser, isUser }) => {
+  // gets the registration route and passes the cookie session
+  router.get('/', (req, res) => {
     const templateVars = {
       user: req.session["user"],
       userId: req.session["user_id"],
     };
     res.render("register", templateVars);
   });
-  //checks whether the users email already exists in the db and either redirects them to home or asks them to login
+
+  // checks whether the users email already exists in the db
+  // either redirects them to home or asks them to login
   router.post("/", (req, res) => {
     const {
       name,
       email,
       password
     } = req.body;
-
     isUser(email).then(function(user) {
       if (!user) {
         addUser(name, email, password).then(row => {
@@ -32,7 +32,6 @@ module.exports = ({
         res.send("Please login");
       }
     });
-
   });
 
   return router;
