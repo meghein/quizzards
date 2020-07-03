@@ -1,10 +1,10 @@
 #scoreboard-container {
-  color: $header-footer-text;
+  color: $text-wheat;
   font-size: 1.5em;
   margin-top: 100px;
   height: inherit;
   text-align: center;
-  background-image: url(https://www.transparenttextures.com/patterns/black-linen.png);
+  background-image: $quiz-bg-img;
 
   h2 {
     font-family: $font-title;
@@ -13,23 +13,23 @@
 
   #score-name {
     color: $background;
-    background-color: $header-footer-text;
-    background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+    background-color: $text-wheat;
+    background-image: $score-bg-img;
   }
 
   #score-average {
     color: $background;
-    background-color: $header-footer-text;
-    background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+    background-color: $text-wheat;
+    background-image: $score-bg-img;
   }
 
   .score-text th {
 
-    color: $header-footer-text;
+    color: $text-wheat;
   }
 
   table {
-    color: $header-footer-text;
+    color: $text-wheat;
 
 
   }

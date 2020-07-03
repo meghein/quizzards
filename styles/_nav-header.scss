@@ -11,10 +11,10 @@ header {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: $nav;
+  background-color: $nav-blue;
   font-family: $font-title;
-  color: $header-footer-text;
-  background-image: $header-footer-bg-img;
+  color: $text-wheat;
+  background-image: $nav-bg-img;
   border-top: groove .2rem $navbordercolor;
   border-left: groove .3rem $navbordercolor;
   border-right: groove .3rem $navbordercolor;
@@ -36,7 +36,7 @@ header {
     width: 50%;
     font-size: 1em;
     text-align: center;
-    color: $header-footer-text;
+    color: $text-wheat;
     position: absolute;
     top: 3rem;
     right: 25%;
@@ -67,7 +67,7 @@ header {
 
 .form-container {
   font-size: 1.5em;
-  color: $btn-text-color;
+  color: $light-blue;
   margin-bottom: 75px;
   padding: 15px;
   display: flex;
@@ -81,14 +81,14 @@ header {
   border-top: double .2rem $navbordercolor;
 
   button {
-    color: $navcontainer-button-color;
-    background-image: $navcontainer-button-bg-img;
-    background-color: $navcontainer-button-bg-color;
+    color: $light-blue;
+    background-image: $button-web-bg-img;
+    background-color: $text-wheat;
     font-family: $font-title;
 
     &:hover {
-      background-color: $navcontainer-button-hover-color;
-      color: $header-footer-text;
+      background-color: $hover-grey-black;
+      color: $text-wheat;
     }
 
   }
@@ -104,20 +104,20 @@ header {
 
   text-decoration: none;
   font-size: 2rem;
-  border: 1px solid #343a40;
+  border: 1px solid $hover-grey-black;
   width: 7rem;
   height: 4rem;
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 10px;
-  color: $header-footer-text;
+  color: $text-wheat;
 }
 
 .std-btn:hover {
   text-decoration: none;
   cursor: pointer;
   color: #FFF;
-  background-color: #343a40;
+  background-color: $hover-grey-black;
 }
 
 .greeting form {
@@ -130,15 +130,15 @@ header {
 
   button  {
 
-    color: $navcontainer-button-color;
-    background-image: $navcontainer-button-bg-img;
-    background-color: $navcontainer-button-bg-color;
+    color: $light-blue;
+    background-image: $button-web-bg-img;
+    background-color: $text-wheat;
     font-family: $font-title;
     margin-right: .5rem;
 
     &:hover {
-      background-color: $navcontainer-button-hover-color;
-      color: $header-footer-text;
+      background-color: $hover-grey-black;
+      color: $text-wheat;
     }
 
   }
@@ -162,24 +162,24 @@ header {
 }
 
 #login-button {
-  color: $btn-text-color;
-  background-color: $header-footer-text;
-  background-image: $navcontainer-button-bg-img;
+  color: $light-blue;
+  background-color: $text-wheat;
+  background-image: $button-web-bg-img;
 
   &:hover {
-    background-color: $navcontainer-button-hover-color;
-    color: $header-footer-text;
+    background-color: $hover-grey-black;
+    color: $text-wheat;
   }
 }
 
 #register-button {
-  color: $btn-text-color;
-  background-color: $header-footer-text;
-  background-image: $navcontainer-button-bg-img;
+  color: $light-blue;
+  background-color: $text-wheat;
+  background-image: $button-web-bg-img;
 
   &:hover {
-    background-color: $navcontainer-button-hover-color;
-    color: $header-footer-text;
+    background-color: $hover-grey-black;
+    color: $text-wheat;
   }
 }
 }

@@ -14,7 +14,6 @@
   background-repeat: no-repeat;
   background-size: cover;
   opacity: .9;
-  // background-color: #453643;
   color: #FFF;
   display: flex;
   flex-direction: column;
@@ -39,7 +38,12 @@
 }
 
 #quiz-unlisted {
-  background-color: slateblue;
+  border: .16em solid #0F0D1C;
+
+  &:hover {
+    box-shadow: 10px 10px 10px 0px slateblue;
+  }
+
 }
 
 .quiz_small_text {
@@ -56,25 +60,24 @@ main .container {
 
 #reg-form {
   margin-top: 5rem;
-  color: #F5DEB3;
+  color: $text-wheat;
 
   h1 {
     font-size: 3rem;
   }
 
   input[type='submit'] {
-    color: #007bff;
-    background-image: url(https://www.transparenttextures.com/patterns/black-thread-light.png);
-    background-color: #F5DEB3;
-    font-family: "Jolly Lodger",
-      cursive;
+    color: $light-blue;
+    background-image: $button-web-bg-img;
+    background-color: $text-wheat;
+    font-family: $font-title;
   }
 
   input {
     border-radius: 5px;
     border: none;
     padding-left: 10px;
-    background-color: #F5DEB3;
+    background-color: $text-wheat;
   }
 }
 

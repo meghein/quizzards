@@ -1,50 +1,28 @@
 //body background:
 $background: #0E0B1E;
-$bg-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+$main-bg-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
 
 // header and footer background:
-$nav: #1F3670;
+$nav-blue: #1F3670;
 $navbordercolor: #162650;
-$header-footer-bg-img: url("https://www.transparenttextures.com/patterns/navy.png");
+$nav-bg-img: url("https://www.transparenttextures.com/patterns/navy.png");
 $navcontainer-bg-img: url("https://www.transparenttextures.com/patterns/billie-holiday.png");
 
 // nav buttons:
-$navcontainer-button-color: #007bff;
-$btn-text-color: #007bff;
-$navcontainer-button-bg-color: #F5DEB3;
-$navcontainer-button-bg-img: url("https://www.transparenttextures.com/patterns/black-thread-light.png");
-$navcontainer-button-hover-color: #211921;
-$navcontainer: #F5DEB3;
+$button-web-bg-img: url("https://www.transparenttextures.com/patterns/black-thread-light.png");
+$hover-grey-black: #211921;
 
-// quiz buttons:
 
-//button styles
+// text colours
+$light-blue: #007bff;
+$text-wheat: #F5DEB3;
+
+// other background images
+$quiz-bg-img: url("https://www.transparenttextures.com/patterns/black-linen.png");
+$score-bg-img: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
 
 // text:
-$header-footer-text: #F5DEB3;
-$text: #7699D4;
 $font-body: 'Gafata',
 sans-serif;
 $font-title: 'Jolly Lodger',
 cursive;
-
-
-
-
-
-// // Potential Colours:
-// #28112B - dark purple
-// #453643 - black coffee
-
-// #552F75 - spanish violet
-// #5441B4 - ocean blue (purple....)
-// #8C6CB2 - middle blue purple (LIGHT PURPLE)
-// #7B506F - twilight lavander
-//  #007bff;
-// #008AB8 - blue ncs
-// #7699D4 - cornflower blue ---- GRAHAM LOVES
-
-// #335145 - brunswick green
-// #79C99E - bright eton blue BUT IT IS GREEN
-// #92BDA3 - eton blue BUT IT IS GREEN
-// #8DAA91 - morning blue ALSO GREEN

@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: $header-footer-text;
+  color: $text-wheat;
 
   #quiz-name {
     margin-top: 20px;
@@ -24,8 +24,8 @@
   }
 
   button {
-    color: $header-footer-text;
-    border-color: $header-footer-text;
+    color: $text-wheat;
+    border-color: $text-wheat;
   }
 
 }
@@ -41,7 +41,7 @@
     border-radius: 10px;
     font-family: $font-body;
     font-size: 2rem;
-    color: $header-footer-text;
+    color: $text-wheat;
     background-image: url("https://www.transparenttextures.com/patterns/black-linen.png");
 
     h2 {
@@ -51,8 +51,8 @@
   }
 
   button {
-    color: $header-footer-text;
-    border-color: $header-footer-text;
+    color: $text-wheat;
+    border-color: $text-wheat;
   }
 }
 
@@ -65,7 +65,7 @@
 
   label {
     align-self: center;
-    color: $header-footer-text;
+    color: $text-wheat;
     font-family: $font-title;
     font-size: 2.5rem;
     margin-right: 1rem;
@@ -73,13 +73,10 @@
 
   button {
     align-self: center;
-    color: $header-footer-text;
-    border-color: $header-footer-text;
+    color: $text-wheat;
+    border-color: $text-wheat;
   }
 
 }
 
-// #results-container {
-
-// }
 
