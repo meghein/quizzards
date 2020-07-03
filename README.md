@@ -1,5 +1,5 @@
 # Quizzards!
-=========
+
 Quizzards is a full stack web application built with Node and Express with a PSQL database.
 It allows a user to create personalized quizzes and share both the quiz and results. A user can make a quiz private - only accessible through a link, or elect to make their quiz public to be seen by all. Our Quizzard Lizard magically shows the results of each quiz and provides a scoreboard for the top 10 users if you'd like to compete with friends.  
 

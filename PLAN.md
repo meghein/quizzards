@@ -1,5 +1,5 @@
 # Group Plan
-=========
+
 Option 2: Quiz App
 An app that lets you create quizzes and share them between friends. The creator of the quiz can view and share all the results at the end of the quiz.
 
@@ -69,8 +69,8 @@ As a user, I want to attempt quizzes, because I want to get 100% and dominate th
 - follow REST:
   HTTP method | URL pattern   | Use
   GET         | /quizzes      | show all quizzes
-  GET         | /quizzes/new  | show create new quiz form  --- GRAHAM
-  POST        | /quizzes      | create new quiz ---- GRAHAM
+  GET         | /quizzes/new  | show create new quiz form  
+  POST        | /quizzes      | create new quiz 
   GET         | /quizzes/:id  | show a quiz
   DELETE      | /quizzes/:id  | delete a quiz
 
